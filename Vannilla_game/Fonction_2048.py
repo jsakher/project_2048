@@ -34,7 +34,10 @@ def newcell(grid):
     if todo == 0:
         todo +=1
     pos = random.randint(a=0, b=todo-1) # Calculate how to add the new cell
-    pos = empty_cell[pos]
+    if len(empty_cell) == 0:
+        pos = [0, 0]
+    else :
+        pos = empty_cell[pos]
     a, b = pos[0], pos[1]
     grid[a][b] = new_cell
 
@@ -105,7 +108,7 @@ def  merge_left(grid):
 
     for i in range(4): 
         for j in range(3):
-            if(grid[i][j] == grid[i][j+1] and grid[i][j] != 0): # revoir
+            if(grid[i][j] == grid[i][j+1]): # revoir
                 grid[i][j] = grid[i][j] * 2
                 grid[i][j + 1] = 0
     return grid

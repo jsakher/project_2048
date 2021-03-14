@@ -35,4 +35,4 @@ while(game_over):
     fonc.state_game(grid)
 
 if game_over == False:
-    print(f'your loose your score is {score}')   
+    print(f'you loose your score is {score}')   
