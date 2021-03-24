@@ -1,10 +1,7 @@
 from tkinter import *
 import tkinter
 import Fonction_2048 as fonc
-color_cell2 = ['#FFFFFF', '#0000000', '#FF0000', '#00FFFF', '#d7b672',
-               '#cda869', '#c49a60', '#ba8c56', '#b07e4d', '#a77044',
-               '#9d623b', '#935532', '#8a4729', '#803920',
-               '#772a17', '#6e190c', '#650000']
+
 test_color = []
 for i in range(2049):
     test_color.append('#000000')
@@ -21,28 +18,7 @@ test_color[512] = '#633974 '  #'#edc850'
 test_color[1024] = '#edc53f'
 test_color[2048] = '#edc22d'
 color_cell1 = test_color
-color_cell2 = ['white', '#900a00', '#e21313', '#f7ff3c', '#f57400',
-               '#cda869', '#c49a60', '#ba8c56', '#b07e4d', '#a77044',
-               '#9d623b', '#935532', '#8a4729', '#803920',
-               '#772a17', '#6e190c', '#650000','#26c4ec', '#900a00', '#e21313', '#f7ff3c', '#f57400',
-               '#cda869', '#c49a60', '#ba8c56', '#b07e4d', '#a77044',
-               '#9d623b', '#935532', '#8a4729', '#803920',
-               '#772a17', '#6e190c', '#650000','#26c4ec', '#900a00', '#e21313', '#f7ff3c', '#f57400',
-               '#cda869', '#c49a60', '#ba8c56', '#b07e4d', '#a77044',
-               '#9d623b', '#935532', '#8a4729', '#803920',
-               '#772a17', '#6e190c', '#650000','#26c4ec', '#900a00', '#e21313', '#f7ff3c', '#f57400',
-               '#cda869', '#c49a60', '#ba8c56', '#b07e4d', '#a77044',
-               '#9d623b', '#935532', '#8a4729', '#803920',
-               '#772a17', '#6e190c', '#650000','#26c4ec', '#900a00', '#e21313', '#f7ff3c', '#f57400',
-               '#cda869', '#c49a60', '#ba8c56', '#b07e4d', '#a77044',
-               '#9d623b', '#935532', '#8a4729', '#803920',
-               '#772a17', '#6e190c', '#650000','#26c4ec', '#900a00', '#e21313', '#f7ff3c', '#f57400',
-               '#cda869', '#c49a60', '#ba8c56', '#b07e4d', '#a77044',
-               '#9d623b', '#935532', '#8a4729', '#803920',
-               '#772a17', '#6e190c', '#650000','#26c4ec', '#900a00', '#e21313', '#f7ff3c', '#f57400',
-               '#cda869', '#c49a60', '#ba8c56', '#b07e4d', '#a77044',
-               '#9d623b', '#935532', '#8a4729', '#803920',
-               '#772a17', '#6e190c', '#650000']
+
 
 window = Tk()
 window.title("2048")
@@ -79,19 +55,6 @@ Hauteur = 400
 Canevas = Canvas(window, width = Largeur, height =Hauteur, bg = 'black')
 Canevas.pack(padx =5, pady =5)
 
-#ici on créer les lignes qui délimite les colones et les cases
-# Canevas.create_line(0,100,400,100,fill=gridc,width=50) # horizonta haut -1 
-# Canevas.create_line(0,300,400,300,fill=gridc,width=70) # horizontale haut -3
-# Canevas.create_line(0,400,400,400,fill=gridc,width=70) # horizontale haut -3d
-# Canevas.create_line(0,200,400,200,fill=gridc,width=70) # horizontale haut -4
-# Canevas.create_line(0,440,440,440,fill=gridc,width=70) # horizontale haut -5
-# Canevas.create_line(500,500,500,500,fill=gridc,width=10) # horizontale haut -5
-# Canevas.create_line(0,3,400,3,fill=gridc,width=50) # horizontale haut
-# Canevas.create_line(1,400,300,-100000,fill='black',width=70)# vectitcale gauche -1  
-# Canevas.create_line(100,400,300,-100000,fill=gridc,width=70)# vectitcale gauche -1        Canevas.create_line(3,400,300,-100000,fill=gridc,width=4) #verticale gauche
-# Canevas.create_line(200,400,300,-100000,fill=gridc,width=70)# vectitcale gauche -2
-# Canevas.create_line(300,400,300,-100000,fill=gridc,width=70)# vectitcale gauche -3
-# Canevas.create_line(370,370,300,-100000,fill=gridc,width=50)# vectitcale gauche -4
 
 Lab_0_0 = Label(window,bd = 30, bg=color_cell1[grid[0][0]],text=(grid[0][0]), font=100)
 Lab_0_0.place(x=190,y=20)
