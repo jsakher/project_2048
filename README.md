@@ -30,8 +30,20 @@ To do so, we will need to launch many games to test the different cases (Monte-C
 + Playability and user interface: Ayoub and Nathan
 + I.A. play and strategies code: Jalal
 + Math tests: Elucson
-+ Tests visualisation:
-+ Beamer presentation:
++ Tests visualisation: Four of us
++ Beamer presentation: Four of us
+
+
+## Work program
+
++ Add scoreboard
++ Compute different strategy (calculate the average of the different strategies)
++ Visual enhancement for the game
++ Creation of a gif or video for algorithm display
++ Code cleaning (pep8, classes, documentation, ...)
++ Beamer presentation
++ Make the game package ready
+
 
 
 ![Grid.](/Game_picture/visual_grid.1.0.1.png)
