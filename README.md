@@ -32,4 +32,4 @@ To do so, we will need to launch many games to test the different cases (Monte-C
 + Math tests: Elucson
 + Tests visualisation:
 + Beamer presentation:
-![Grid.](/Game_picture/visual_grid.1.0.1)
+![Grid.](/Game_picture/visual_grid.1.0.1.png)
