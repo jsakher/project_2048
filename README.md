@@ -1,10 +1,10 @@
 
 # **"Project_2048"**
 
-![image](/Game_picture/Front_presentation_center.png)
-
 
 ## Topic
+
+![image](/Game_picture/Front_presentation_center.png)
 
 The goal of this project is to be able to reproduce a videogame : 2048. The game must be playable.  
 Test the original game at *https://play2048.co/*
