@@ -1,10 +1,9 @@
 
 # **"Project_2048"**
 
+![image](/Game_picture/Front_presentation_center.png)
 
 ## Topic
-
-![image](/Game_picture/Front_presentation_center.png)
 
 The goal of this project is to be able to reproduce a videogame : 2048. The game must be playable.  
 Test the original game at *https://play2048.co/*
@@ -18,7 +17,7 @@ After what we want to know if there are strategies to take the game further like
 + other movement patern
 
 To do so, we will need to launch many games to test the average score. We will make a visual game and visual representation about different strategy. 
-If we have time we will try different game rules (probability change, size grid, ...)
+If we have time we will try different game rules (probability change, size grid)
 
 ## Working group
 
