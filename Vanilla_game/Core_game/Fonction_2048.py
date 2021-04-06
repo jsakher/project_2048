@@ -108,10 +108,10 @@ def  merge_left(grid):
 
     for i in range(4): 
         for j in range(3):
-            if(grid[i][j] == grid[i][j+1]): # revoir
-                grid[i][j] = grid[i][j] * 2
+            if(grid[i][j] == grid[i][j+1]): # revoir ; A:"range(n) renvoie les n premiers integers en partant de 0 => range(3) contient les 3 premiers chiffres en partant de 0 " 
+                grid[i][j] = grid[i][j] * 2 # Aucune modification à faire donc.
                 grid[i][j + 1] = 0
-    return grid
+                return grid
 
 #  Rotations functions
 
