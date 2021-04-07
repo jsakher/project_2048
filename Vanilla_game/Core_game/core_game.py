@@ -21,16 +21,16 @@ while(game_over):
     #x.upper() #transforming the string command to uppercase to easily check the following conditions.
 
     if (x.upper() == 'D') :
-        grid = fonc.right_movement(grid)
+        grid, score = fonc.right_movement(grid, score)
     if (x.upper() == 'Z'):
-        grid = fonc.up_movement(grid)
+        grid, score = fonc.up_movement(grid, score)
     if (x.upper() == 'S'):
-        grid = fonc.down_movement(grid)
+        grid, score = fonc.down_movement(grid, score)
     if (x.upper() == 'Q'):
-        grid = fonc.left_movement(grid)
-    final = fonc.stop_game(grid)
+        grid, score = fonc.left_movement(grid, score)
     if (x.upper() == 'QUIT'): #Allows the player to quit the game, and print the score.
         game_over = False
+    final = fonc.stop_game(grid)
     if final == False:
         game_over = False
     if final == True:
@@ -38,4 +38,4 @@ while(game_over):
     fonc.state_game(grid)
 
 if game_over == False:
-    print(f'you loose your score is {score}')   
+    print(f'you lose your score is {score}')   
