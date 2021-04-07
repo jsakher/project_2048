@@ -63,7 +63,7 @@ def new_game():
     #score = 0
     return(new_grid)
 
-def stop_game(grid):
+def stop_game(grid): #Game stops when there is no possible movement to make (i.e. cannot merge any cells), not when the grid is full !
     ''' Check every step if you lose '''
 
     full_cell = 0
@@ -76,14 +76,14 @@ def stop_game(grid):
         game_over = False
     return(game_over)
 
-def state_game(grid):
+def state_game(grid, score):
     ''' Display the grid's state '''
 
     print(grid[0])
     print(grid[1])
     print(grid[2])
     print(grid[3])
-    #print(score)
+    print(f"Your score is {score}")
     return('------------')
 
 
