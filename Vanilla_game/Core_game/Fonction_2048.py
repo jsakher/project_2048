@@ -193,7 +193,4 @@ def  right_movement(grid, score):
 
 
 
-
-
-
 # %%
