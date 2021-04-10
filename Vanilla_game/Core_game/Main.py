@@ -175,7 +175,7 @@ class Game():
         while(self.status):
             x = input('press command')
             #x.upper() #transforming the string command to uppercase to easily check the following conditions.
-
+            grid_test = self.grid
             ## Movements-wise : No movement should be allowed if there's is not existing cell to move; an error needs to be raised in such case.
             if (x.upper() == 'D') : 
                 self.right_movement()
@@ -184,19 +184,18 @@ class Game():
             if (x.upper() == 'S'):
                 self.down_movement()
             if (x.upper() == 'Q'):
-                self.right_movement()
+                self.left_movement()
             if (x.upper() == 'QUIT'): #Allows the player to quit the game, and print the score.
                 self.status = False
             self.stop_game()
-            if self.status == False:
-                self.status = False
-            if self.status == True:
+             
+            if self.status and self.grid != grid_test:
                 self.newcell()
             self.display()  
            
 
             if self.status == False:
-                print(f'you lose your score is {score}') 
+                print(f'you lose your score is {self.score}') 
         
 
 
