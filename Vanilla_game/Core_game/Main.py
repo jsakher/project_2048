@@ -60,6 +60,23 @@ class Game():
         print(self.grid[3])
         print(f'Your score is {self.score}')
 
+    def possible_action(self):
+        '''Checks if a movement is possible on the grid'''
+        p_a = False
+        for i in range(3):
+            for j in range(3):
+                if(self.grid[i][j] == self.grid[i + 1][j] or self.grid[i][j] == self.grid[i][j + 1]):
+                    p_a = True
+  
+        for j in range(3):
+            if(self.grid[3][j] == self.grid[3][j + 1]):
+                p_a = True
+  
+        for i in range(3):
+            if(self.grid[i][3] == self.grid[i + 1][3]):
+                p_a = True
+        return p_a
+
     def stop_game(self): #Game stops when there is no possible movement to make (i.e. cannot merge any cells), not when the grid is full !
         ''' Check every step if you lose '''
 
@@ -68,7 +85,7 @@ class Game():
             for j in range(4):
                 if (self.grid[i][j] != 0):
                     full_cell += 1
-        if full_cell == 16:
+        if (full_cell == 16 and not self.possible_action()):
             self.status = False
         return self.status
 
