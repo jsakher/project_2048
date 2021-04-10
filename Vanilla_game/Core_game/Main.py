@@ -1,7 +1,7 @@
 import random
 
 class Game():
-    """ This class represent gamegrid """
+    """ This class represent gamegrid and function"""
 
     def __init__(self):
         """ Create new grid """
@@ -10,17 +10,19 @@ class Game():
         self.score = 0
         self.status = True
 
-    def merge(self, score):
-
-        for i in range(4):
-            for j in range(3):
-                if(self.grid[i][j] == self.grid[i][j+1]):
-                    self.grid[i][j] = self.grid[i][j] * 2
-                    self.grid[i][j + 1] = 0
-                self.score += self.grid[i][j]
-        return self.grid, self.score
-
     def newcell_start(self):
+        ''' Add new cell to the grid when grid is empty.
+            Probability are 1/10 to be a 4
+                            9/10 to be a 2
+
+        see example:
+
+            grid [0, 0, 0, 0]  Become  [0, 0, 2, 0]
+                 [0, 0, 0, 0]          [0, 0, 0, 0]
+                 [0, 0, 0, 0]          [0, 0, 0, 0]
+                 [0, 0, 0, 0]          [0, 0, 0, 0]
+        '''
+
         new_cell = 2
         pos1 = random.randint(a=0, b=3)
         pos2 = random.randint(a=0, b=3)
@@ -30,30 +32,51 @@ class Game():
         return self.grid
 
     def newcell(self):
+        ''' Add new cell to the grid.
+            Probability are  1/10 to be a 4
+                             9/10 to be a 2
 
-        empty_cell = [] 
-        new_cell = 2 
-        pos = (0, 0) 
+        see example:
+
+            grid [0, 2, 2, 0]  Become  [0, 2, 2, 0]
+                 [0, 0, 0, 0]          [0, 0, 0, 0]
+                 [0, 0, 0, 0]          [4, 0, 0, 0]
+                 [0, 0, 0, 0]          [0, 0, 0, 0]
+        '''
+
+        empty_cell = []
+        new_cell = 2
+        pos = (0, 0)
         for i in range(4):
             for j in range(4):
                 if (self.grid[i][j] == 0):
-                    empty_cell.append((i, j)) 
+                    empty_cell.append((i, j))
         if random.uniform(a=0, b=1) > 0.90:
             new_cell = 4
-        todo = len(empty_cell) 
+        todo = len(empty_cell)
         if todo == 0:
-            todo +=1
-        pos = random.randint(a=0, b=todo-1) 
+            todo += 1
+        pos = random.randint(a=0, b=todo-1)
         if len(empty_cell) == 0:
             pos = [0, 0]
-        else :
+        else:
             pos = empty_cell[pos]
         a, b = pos[0], pos[1]
         self.grid[a][b] = new_cell
 
         return self.grid
-    
+
     def display(self):
+        ''' Display grid and score.
+
+        see example:
+                [0, 2, 2, 4]
+                [0, 0, 4, 2]
+                [4, 0, 2, 2]
+                [8, 2, 4, 8]
+                Your score is 32
+        '''
+
         print(self.grid[0])
         print(self.grid[1])
         print(self.grid[2])
@@ -67,18 +90,21 @@ class Game():
             for j in range(3):
                 if(self.grid[i][j] == self.grid[i + 1][j] or self.grid[i][j] == self.grid[i][j + 1]):
                     p_a = True
-  
+
         for j in range(3):
             if(self.grid[3][j] == self.grid[3][j + 1]):
                 p_a = True
-  
+
         for i in range(3):
             if(self.grid[i][3] == self.grid[i + 1][3]):
                 p_a = True
         return p_a
 
-    def stop_game(self): #Game stops when there is no possible movement to make (i.e. cannot merge any cells), not when the grid is full !
-        ''' Check every step if you lose '''
+
+    def stop_game(self):
+        ''' Check every step if you lose to stop
+        the game when there is no possible movement
+        '''
 
         full_cell = 0
         for i in range(4):
@@ -90,6 +116,16 @@ class Game():
         return self.status
 
     def stack(self):
+        ''' Stack the grid to the left.
+
+        see example:
+
+            grid [0, 2, 0, 2]  Become  [2, 2, 0, 0]
+                 [0, 0, 0, 8]          [8, 0, 0, 0]
+                 [4, 0, 0, 2]          [4, 2, 0, 0]
+                 [0, 2, 8, 0]          [2, 8, 0, 0]
+        '''
+
         new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         for i in range(4):
             position = 0
@@ -100,74 +136,109 @@ class Game():
         self.grid = new_grid
         return self.grid
 
-    def  merge_left(self):
-        ''' Merge the grid on the left  '''
-        #reward = 0
-        for i in range(4): 
+    def merge_left(self):
+        ''' Merge grid to the left.
+
+        see example:
+
+            grid = [0, 2, 2, 0]  Become [0, 4, 0, 0]
+                   [2, 4, 4, 2]         [2, 8, 0, 2]
+                   [0, 2, 0, 4]         [0, 2, 0, 4]
+                   [8, 8, 8, 8]         [16, 0, 16, 0]
+
+        '''
+
+        for i in range(4):
             for j in range(3):
-                if(self.grid[i][j] == self.grid[i][j+1]): # revoir ; A:"range(n) renvoie les n premiers integers en partant de 0 => range(3) contient les 3 premiers chiffres en partant de 0 " 
-                    self.grid[i][j] = self.grid[i][j] * 2 # Aucune modification à faire donc.
+                if(self.grid[i][j] == self.grid[i][j+1]):
+                    self.grid[i][j] = self.grid[i][j] * 2
                     self.grid[i][j + 1] = 0
                     self.score += self.grid[i][j]
-        return self.grid, self.score 
+        return self.grid, self.score
 
+    def transpose(self):
+        ''' Transpose the grid, usefull to make movement.
+        All movement are base on left merge, left stack
 
+        see example:
 
-    def  rotation(self):
-        ''' Rotate the grid, usefull to make movement'''
+            grid = [2, 2, 2, 2]  Become [2, 0, 0, 0]
+                   [0, 2, 2, 2]         [2, 2, 0, 0]
+                   [0, 0, 2, 2]         [2, 2, 2, 0]
+                   [0, 0, 0, 2]         [2, 2, 2, 2]
+        '''
 
         new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-        
+        for i in range(4):
+            for j in range(4):
+                new_grid[j][i] = self.grid[i][j]
+        self.grid = new_grid
+        return self.grid
+
+    def inverse(self):
+        ''' Inverse the grid, usefull to make movement.
+        All movement are base on left merge, left stack
+
+        see example:
+
+            grid = [2, 2, 2, 2]  Become [2, 2, 2, 2]
+                   [0, 2, 2, 2]         [2, 2, 2, 0]
+                   [0, 0, 2, 2]         [2, 2, 0, 0]
+                   [0, 0, 0, 2]         [2, 0, 0, 0]
+        '''
+
+        new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         for i in range(4):
             for j in range(4):
                 new_grid[i][j] = self.grid[i][3-j]
         self.grid = new_grid
         return self.grid
 
+    def left_movement(self):
+        ''' Move grid to the left
 
-    def transpose(self):
-        
-        new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]] 
-        for i in range(4): 
-            for j in range(4): 
-                new_grid[j][i] = self.grid[i][j]
-        self.grid = new_grid
-        return self.grid
+        see example:
 
-    def inverse(self):
-        ''' inverse the grid, usefull to make movement ''' 
-        new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]] 
-        for i in range(4): 
-            for j in range(4): 
-                new_grid[i][j] = self.grid[i][3-j]
-        self.grid = new_grid
-        return self.grid
-
-# All movement are base on rotation and left_movement (On peut optimiser les algo)
-
-    def  left_movement(self):
-        ''' Move grid to the left '''
+            grid = [2, 2, 0, 0]  Become [4, 0, 0, 0]
+                   [0, 0, 2, 2]         [4, 0, 0, 0]
+                   [0, 0, 0, 2]         [2, 0, 0, 0]
+                   [4, 4, 0, 2]         [8, 2, 0, 0]
+        '''
 
         self.stack()
         self.merge_left()
         self.stack()
         return self.grid, self.score
-
 
     def up_movement(self):
-        ''' Move grid to the top '''
+        ''' Move grid to the top
+
+        see example:
+
+            grid = [2, 2, 0, 0]  Become [2, 2, 2, 4]
+                   [0, 0, 2, 2]         [4, 4, 0, 2]
+                   [0, 0, 0, 2]         [0, 0, 0, 0]
+                   [4, 4, 0, 2]         [0, 0, 0, 0]
+        '''
+
         self.transpose()
         self.stack()
         self.merge_left()
         self.stack()
         self.transpose()
         return self.grid, self.score
-        
-
-
 
     def down_movement(self):
-        ''' Move grid to the botom '''
+        ''' Move grid to the botom
+
+        see example:
+
+            grid = [2, 2, 0, 0]  Become [0, 0, 0, 0]
+                   [0, 0, 2, 2]         [0, 0, 0, 0]
+                   [0, 0, 0, 2]         [2, 2, 0, 2]
+                   [4, 4, 0, 2]         [4, 4, 2, 4]
+        '''
+
         self.transpose()
         self.inverse()
         self.stack()
@@ -177,24 +248,42 @@ class Game():
         self.transpose()
         return self.grid, self.score
 
+    def right_movement(self):
+        ''' Move grid to the right
 
-    def  right_movement(self):
-        self.rotation()
+        see example:
+
+            grid = [2, 2, 0, 0]  Become [0, 0, 0, 4]
+                   [0, 0, 2, 2]         [0, 0, 0, 4]
+                   [0, 0, 0, 2]         [0, 0, 0, 2]
+                   [4, 4, 0, 2]         [0, 0, 8, 2]
+        '''
+
+        self.inverse()
         self.left_movement()
-        self.rotation()
+        self.inverse()
         return self.grid, self.score
-        
+
     def main(self):
+        ''' Main game lauch this function to play
+        The command are classical  zqsd (azerty keybord)
+        Command : z => up
+        Command : q => left
+        Command : d => right
+        Command : s => down
+        to do an action you must select a direction and  press enter
+        to quit write "quit" and press enter
+        '''
         self.newcell_start()
         self.newcell()
         self.display()
 
         while(self.status):
+
             x = input('press command')
-            #x.upper() #transforming the string command to uppercase to easily check the following conditions.
             grid_test = self.grid
-            ## Movements-wise : No movement should be allowed if there's is not existing cell to move; an error needs to be raised in such case.
-            if (x.upper() == 'D') : 
+
+            if (x.upper() == 'D'):
                 self.right_movement()
             if (x.upper() == 'Z'):
                 self.up_movement()
@@ -202,23 +291,20 @@ class Game():
                 self.down_movement()
             if (x.upper() == 'Q'):
                 self.left_movement()
-            if (x.upper() == 'QUIT'): #Allows the player to quit the game, and print the score.
+            if (x.upper() == 'QUIT'):
                 self.status = False
             self.stop_game()
-             
             if self.status and self.grid != grid_test:
                 self.newcell()
-            self.display()  
-           
+            self.display()
+            if self.status is False:
+                print(f'you lose your score is {self.score}')
 
-            if self.status == False:
-                print(f'you lose your score is {self.score}') 
-        
-
-
-
-
-AAA = Game()
-AAA.main()
-
+# Lauch_game = Game()
+# print('Command : z => up')
+# print('Command : q => left')
+# print('Command : d => right')
+# print('Command : s => down')
+# print('to do an action you must select a direction and  press enter')
+# Lauch_game.main() # Lauch game
 
