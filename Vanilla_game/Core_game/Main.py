@@ -1,5 +1,5 @@
 import random
-
+import time
 class Game_2048():
     """ This class represent gamegrid and function"""
 
@@ -299,6 +299,43 @@ class Game_2048():
             self.display()
             if self.status is False:
                 print(f'you lose your score is {self.score}')
+                if self.score > 730: #  empirical mean see Algo_play
+                    print(f'you did better than random IA')
+                else:
+                    print(f'you did worse than random IA')
+
+
+    def demo(self):
+        """ Algo play alone
+
+        """
+        directions = ['z', 'q', 's', 'd']
+        self.newcell_start()
+        self.newcell()
+        self.display()
+
+        while(self.status):
+            time.sleep(2)
+            x = random.choice(directions)
+            grid_test = self.grid
+
+            if (x.upper() == 'D'):
+                self.right_movement()
+            if (x.upper() == 'Z'):
+                self.up_movement()
+            if (x.upper() == 'S'):
+                self.down_movement()
+            if (x.upper() == 'Q'):
+                self.left_movement()
+            if (x.upper() == 'QUIT'):
+                self.status = False
+            self.stop_game()
+            if self.status and self.grid != grid_test:
+                self.newcell()
+            self.display()
+            print(f'IA lost play {x} movement')
+            if self.status is False:
+                print(f'IA lost is score is {self.score}')
 
 # Lauch_game = Game()
 # print('Command : z => up')
@@ -587,6 +624,34 @@ class Game_6561():
 
         while(self.status):
 
+            x = input('press command')
+            grid_test = self.grid
+
+            if (x.upper() == 'D'):
+                self.right_movement()
+            if (x.upper() == 'Z'):
+                self.up_movement()
+            if (x.upper() == 'S'):
+                self.down_movement()
+            if (x.upper() == 'Q'):
+                self.left_movement()
+            if (x.upper() == 'QUIT'):
+                self.status = False
+            self.stop_game()
+            if self.status and self.grid != grid_test:
+                self.newcell()
+            self.display()
+            if self.status is False:
+                print(f'you lose your score is {self.score}')
+    
+    def demo(self):
+        self.newcell_start()
+        self.newcell()
+        self.display()
+        directions = ['z', 'q', 's', 'd']
+        while(self.status):
+            time.sleep(2)
+            x = random.choice(directions)
             x = input('press command')
             grid_test = self.grid
 

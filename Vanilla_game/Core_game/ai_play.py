@@ -42,7 +42,7 @@ def ai_right():
 
     if strategy == 'random movement':
         while(game_over):
-
+            time.sleep(2)
             directions = ['z', 'q', 's', 'd']
             x = random.choice(directions)
             if x == 'z':
