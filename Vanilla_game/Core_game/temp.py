@@ -231,7 +231,7 @@ def Versus(strategie1='random', strategie2='random', skip=True):
     Stop_versus = True
 
     while(AI_one.status or AI_two.status):
-        time.sleep(1)
+        
         x = random.choice(directions)
         y = random.choice(directions)
         grid_test = AI_one.grid
@@ -263,6 +263,7 @@ def Versus(strategie1='random', strategie2='random', skip=True):
         if AI_two.status and AI_one.grid != grid_test:
             AI_two.newcell()
         if skip is False:
+            time.sleep(0.5)
             state_game2(AI_one,AI_two)
     if(AI_one.score < AI_two.score):
         print(f"AI_two win this game, {strategie2} strategie won this time")
