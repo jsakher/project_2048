@@ -9,6 +9,15 @@ class Game_2048():
                      [0, 0, 0, 0], [0, 0, 0, 0]]
         self.score = 0
         self.status = True
+        self.maxcell = 0
+
+    def maxcell_find(self):
+        check = 0
+        for i in range(4):
+            for j in range(4):
+                if self.grid[i][j] > check:
+                    check = self.grid[i][j]
+        self.maxcell = check
 
     def newcell_start(self):
         ''' Add new cell to the grid when grid is empty.
@@ -337,6 +346,58 @@ class Game_2048():
             if self.status is False:
                 print(f'IA lost is score is {self.score}')
 
+    def random_2048(self):
+        """ Algo play alone
+
+        """
+        directions = ['z', 'q', 's', 'd']
+        self.newcell_start()
+        self.newcell()
+
+        while(self.status):
+            
+            x = random.choice(directions)
+            grid_test = self.grid
+
+            if (x.upper() == 'D'):
+                self.right_movement()
+            if (x.upper() == 'Z'):
+                self.up_movement()
+            if (x.upper() == 'S'):
+                self.down_movement()
+            if (x.upper() == 'Q'):
+                self.left_movement()
+            self.stop_game()
+            if self.status and self.grid != grid_test:
+                self.newcell()
+    
+    def clockwise_2048(self):
+        """ Algo play alone
+
+        """
+        directions = ['z', 'q', 's', 'd']
+        self.newcell_start()
+        self.newcell()
+        count = 0
+        while(self.status):
+            
+            x = random.choice(directions)
+            grid_test = self.grid
+
+            if (x.upper() == 'D'):
+                self.right_movement()
+            if (x.upper() == 'Z'):
+                self.up_movement()
+            if (x.upper() == 'S'):
+                self.down_movement()
+            if (x.upper() == 'Q'):
+                self.left_movement()
+            self.stop_game()
+            if self.status and self.grid != grid_test:
+                self.newcell()
+            count = (count + 1) % 4 
+            
+
 # Lauch_game = Game()
 # print('Command : z => up')
 # print('Command : q => left')
@@ -643,7 +704,7 @@ class Game_6561():
             self.display()
             if self.status is False:
                 print(f'you lose your score is {self.score}')
-    
+
     def demo(self):
         self.newcell_start()
         self.newcell()
@@ -673,3 +734,6 @@ class Game_6561():
                 print(f'you lose your score is {self.score}')
 
 
+AAA = Game_2048()
+AAA.random_2048()
+print(AAA.score)

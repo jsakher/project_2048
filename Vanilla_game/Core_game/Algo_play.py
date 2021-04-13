@@ -14,7 +14,10 @@ class Game():
                      [0, 0, 0, 0], [0, 0, 0, 0]]
         self.score = 0
         self.status = True
+        self.maxcell = 2
 
+    def maxcell_find(self):
+        
     
     def newcell_start(self):
         ''' Add new cell to the grid when grid is empty.

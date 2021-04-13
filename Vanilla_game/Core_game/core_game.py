@@ -12,7 +12,7 @@ fonc.state_game(grid, score)
 print('Command : z => up')
 print('Command : q => left')
 print('Command : d => right')
-print('Command : s => down')
+print('')
 print('to do an action you must select a direction and  press enter')
 
 
