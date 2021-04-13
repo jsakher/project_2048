@@ -1,9 +1,4 @@
 import random
-import numpy as np
-import matplotlib.pyplot as plt
-
-
-just_calcul = True
 
 class Game():
     """ This class represent gamegrid and function"""
@@ -17,7 +12,7 @@ class Game():
 
     
     def newcell_start(self):
-        ''' Add new cell to the grid when grid is empty.
+        """ Add new cell to the grid when grid is empty.
             Probability are 1/10 to be a 4
                             9/10 to be a 2
 
@@ -27,7 +22,7 @@ class Game():
                  [0, 0, 0, 0]          [0, 0, 0, 0]
                  [0, 0, 0, 0]          [0, 0, 0, 0]
                  [0, 0, 0, 0]          [0, 0, 0, 0]
-        '''
+        """
 
         new_cell = 2
         pos1 = random.randint(a=0, b=3)
@@ -39,7 +34,7 @@ class Game():
 
     
     def newcell(self):
-        ''' Add new cell to the grid.
+        """ Add new cell to the grid.
             Probability are  1/10 to be a 4
                              9/10 to be a 2
 
@@ -49,7 +44,7 @@ class Game():
                  [0, 0, 0, 0]          [0, 0, 0, 0]
                  [0, 0, 0, 0]          [4, 0, 0, 0]
                  [0, 0, 0, 0]          [0, 0, 0, 0]
-        '''
+        """
 
         empty_cell = []
         new_cell = 2
@@ -75,7 +70,7 @@ class Game():
 
     
     def display(self):
-        ''' Display grid and score.
+        """ Display grid and score.
 
         see example:
                 [0, 2, 2, 4]
@@ -83,7 +78,7 @@ class Game():
                 [4, 0, 2, 2]
                 [8, 2, 4, 8]
                 Your score is 32
-        '''
+        """
 
         print(self.grid[0])
         print(self.grid[1])
@@ -93,9 +88,9 @@ class Game():
 
     
     def stop_game(self):
-        ''' Check every step if you lose to stop
+        """ Check every step if you lose to stop
         the game when there is no possible movement
-        '''
+        """
 
         full_cell = 0
         for i in range(4):
@@ -108,7 +103,7 @@ class Game():
 
     
     def stack(self):
-        ''' Stack the grid to the left.
+        """ Stack the grid to the left.
 
         see example:
 
@@ -116,7 +111,7 @@ class Game():
                  [0, 0, 0, 8]          [8, 0, 0, 0]
                  [4, 0, 0, 2]          [4, 2, 0, 0]
                  [0, 2, 8, 0]          [2, 8, 0, 0]
-        '''
+        """
 
         new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         for i in range(4):
@@ -130,7 +125,7 @@ class Game():
 
     
     def merge_left(self):
-        ''' Merge grid to the left.
+        """ Merge grid to the left.
 
         see example:
 
@@ -139,7 +134,7 @@ class Game():
                    [0, 2, 0, 4]         [0, 2, 0, 4]
                    [8, 8, 8, 8]         [16, 0, 16, 0]
 
-        '''
+        """
 
         for i in range(4):
             for j in range(3):
@@ -151,7 +146,7 @@ class Game():
 
     
     def transpose(self):
-        ''' Transpose the grid, usefull to make movement.
+        """ Transpose the grid, usefull to make movement.
         All movement are base on left merge, left stack
 
         see example:
@@ -160,7 +155,7 @@ class Game():
                    [0, 2, 2, 2]         [2, 2, 0, 0]
                    [0, 0, 2, 2]         [2, 2, 2, 0]
                    [0, 0, 0, 2]         [2, 2, 2, 2]
-        '''
+        """
 
         new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         for i in range(4):
@@ -171,7 +166,7 @@ class Game():
 
    
     def inverse(self):
-        ''' Inverse the grid, usefull to make movement.
+        """ Inverse the grid, usefull to make movement.
         All movement are base on left merge, left stack
 
         see example:
@@ -180,7 +175,7 @@ class Game():
                    [0, 2, 2, 2]         [2, 2, 2, 0]
                    [0, 0, 2, 2]         [2, 2, 0, 0]
                    [0, 0, 0, 2]         [2, 0, 0, 0]
-        '''
+        """
 
         new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         for i in range(4):
@@ -191,7 +186,7 @@ class Game():
 
     
     def left_movement(self):
-        ''' Move grid to the left
+        """ Move grid to the left
 
         see example:
 
@@ -199,7 +194,7 @@ class Game():
                    [0, 0, 2, 2]         [4, 0, 0, 0]
                    [0, 0, 0, 2]         [2, 0, 0, 0]
                    [4, 4, 0, 2]         [8, 2, 0, 0]
-        '''
+        """
 
         self.stack()
         self.merge_left()
@@ -208,7 +203,7 @@ class Game():
 
     
     def up_movement(self):
-        ''' Move grid to the top
+        """ Move grid to the top
 
         see example:
 
@@ -216,7 +211,7 @@ class Game():
                    [0, 0, 2, 2]         [4, 4, 0, 2]
                    [0, 0, 0, 2]         [0, 0, 0, 0]
                    [4, 4, 0, 2]         [0, 0, 0, 0]
-        '''
+        """
 
         self.transpose()
         self.stack()
@@ -227,7 +222,7 @@ class Game():
 
     
     def down_movement(self):
-        ''' Move grid to the bottom
+        """ Move grid to the bottom
 
         see example:
 
@@ -235,7 +230,7 @@ class Game():
                    [0, 0, 2, 2]         [0, 0, 0, 0]
                    [0, 0, 0, 2]         [2, 2, 0, 2]
                    [4, 4, 0, 2]         [4, 4, 2, 4]
-        '''
+        """
 
         self.transpose()
         self.inverse()
@@ -248,7 +243,7 @@ class Game():
 
     
     def right_movement(self):
-        ''' Move grid to the right
+        """ Move grid to the right
 
         see example:
 
@@ -256,31 +251,65 @@ class Game():
                    [0, 0, 2, 2]         [0, 0, 0, 4]
                    [0, 0, 0, 2]         [0, 0, 0, 2]
                    [4, 4, 0, 2]         [0, 0, 8, 2]
-        '''
+        """
 
         self.inverse()
         self.left_movement()
         self.inverse()
         return self.grid, self.score
 
-    def main(self):
-        ''' Main game launch this function to play
-        The command are classical  zqsd (azerty keyboard)
-        Command : z => up
-        Command : q => left
-        Command : d => right
-        Command : s => down
-        to do an action you must select a direction and  press enter
-        to quit write "quit" and press enter
-        '''
+
+    def right_strat(self):
+        """ Launch a game with only right movements strategy """
+        
         self.newcell_start()
         self.newcell()
-        count = 0
+        self.display()
+
         
+        while(self.status):
+
+            grid_test = self.grid
+            self.right_movement()
+            self.stop_game()
+            if self.status and self.grid != grid_test:
+                self.newcell()
+            self.display()
+            if self.status is False:
+                print(f'Your score is {self.score}')
+            
+
+
+    def left_strat(self):
+        """ Launch a game with only right movements strategy """
+        
+        self.newcell_start()
+        self.newcell()
+        self.display()
+
+        while(self.status):
+
+            grid_test = self.grid
+            self.left_movement()
+            self.stop_game()
+            if self.status and self.grid != grid_test:
+                self.newcell()
+            self.display()
+            if self.status is False:
+                print(f'Your score is {self.score}')
+
+    directions = ['z', 'q', 's', 'd']
+
+    def random_strat(self):
+        """ Launch a game with random movements strategy """
+
+        self.newcell_start()
+        self.newcell()
+        self.display()
 
         while(self.status):
             
-            x = "q"
+            x = random.choice(Game.directions)
             grid_test = self.grid
 
             if (x.upper() == 'D'):
@@ -291,59 +320,42 @@ class Game():
                 self.down_movement()
             if (x.upper() == 'Q'):
                 self.left_movement()
-            if (x.upper() == 'QUIT'):
-                self.status = False
             self.stop_game()
-            if self.status:
+            if self.status and self.grid != grid_test:
                 self.newcell()
-        count = (count + 1) % 2
-        
-
-count = 0
-if just_calcul is False:
-    Launch_game = Game()
-    Launch_game.main() # Launch game
-
-    print(Launch_game.score)
-
-    stockage_score = []
-    for i in range(1500):
-        AI_play = Game()
-        AI_play.main()
-        stockage_score.append(AI_play.score)
-        count = (count + 1) % 2
-        print(i)
+            self.display()
+            if self.status is False:
+                print(f'Your score is {self.score}')
 
 
-    Data_raw = np.array(stockage_score)
-    np.savetxt('Vanilla_game/Data_storage/Storage_AI_score_left.txt', Data_raw)
+    def clockwise(self):
+        """ Launch a game with clockwise movements strategy """
 
-else:
+        self.newcell_start()
+        self.newcell()
+        self.display()
 
-    Data_score_up = np.loadtxt('Vanilla_game/Data_storage/Storage_AI_score_up.txt')
-    Data_score_down = np.loadtxt('Vanilla_game/Data_storage/Storage_AI_score_down.txt')
-    Data_score_left = np.loadtxt('Vanilla_game/Data_storage/Storage_AI_score_left.txt')
-    Data_score_right = np.loadtxt('Vanilla_game/Data_storage/Storage_AI_score_right.txt')
+        x = random.choice(Game.directions)
 
+        while(self.status):
 
-    Mean_storage_up = (1/np.arange(1, len(Data_score_up)+1)) * np.cumsum(Data_score_up)
-    Mean_storage_down = (1/np.arange(1, len(Data_score_down)+1)) * np.cumsum(Data_score_down)
-    Mean_storage_left = (1/np.arange(1, len(Data_score_left)+1)) * np.cumsum(Data_score_left)
-    Mean_storage_right = (1/np.arange(1, len(Data_score_right)+1)) * np.cumsum(Data_score_right)
+            x = Game.directions[Game.directions.index(x) - 1]
+            grid_test = self.grid
 
+            if (x.upper() == 'D'):
+                self.right_movement()
+            if (x.upper() == 'Z'):
+                self.up_movement()
+            if (x.upper() == 'S'):
+                self.down_movement()
+            if (x.upper() == 'Q'):
+                self.left_movement()
+            self.stop_game()
+            if self.status and self.grid != grid_test:
+                self.newcell()
+            self.display()
+            if self.status is False:
+                print(f'Your score is {self.score}')
 
-
-
-
-    plt.figure()
-    plt.plot(Mean_storage_up, color='#FF8C00', label='up movement')
-    plt.plot(Mean_storage_left, color='#DC143C', label='left movement')
-    plt.plot(Mean_storage_right, color='#6495ED', label='right movement')
-    plt.plot(Mean_storage_down, color='#da70d6', label='down movement')
-    plt.legend()
-    plt.xlim(0, 1500)
-    plt.ylim(100,300)
-    # plt.plot(Mean_storage, color='#FF8C00')
-    # plt.label('Random movement')
-    plt.savefig('Vanilla_game/Data_storage/AI_score_onemovement.pdf')
-    plt.show()
+right_play = Game()
+right_play.right_strat() # Launch game

@@ -229,7 +229,7 @@ class Game():
         return self.grid, self.score
 
     def down_movement(self):
-        ''' Move grid to the botom
+        ''' Move grid to the bottom
 
         see example:
 
@@ -265,8 +265,8 @@ class Game():
         return self.grid, self.score
 
     def main(self):
-        ''' Main game lauch this function to play
-        The command are classical  zqsd (azerty keybord)
+        ''' Main game launch this function to play
+        The command are classical  zqsd (azerty keyboard)
         Command : z => up
         Command : q => left
         Command : d => right
@@ -300,11 +300,11 @@ class Game():
             if self.status is False:
                 print(f'you lose your score is {self.score}')
 
-# Lauch_game = Game()
+# Launch_game = Game()
 # print('Command : z => up')
 # print('Command : q => left')
 # print('Command : d => right')
 # print('Command : s => down')
-# print('to do an action you must select a direction and  press enter')
-# Lauch_game.main() # Lauch game
+# print('to do an action you must select a direction and press enter')
+# Launch_game.main() # Launch game
 
