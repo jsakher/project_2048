@@ -10,15 +10,30 @@ class Game_2048():
         self.score = 0
         self.status = True
         self.maxcell = 0
+        self.goal = 0
+        self.directions = ['z', 'q', 's', 'd']
 
     def maxcell_find(self):
+        ''' Identifies the value of the maximum cell self.grid'''
         check = 0
         for i in range(4):
             for j in range(4):
                 if self.grid[i][j] > check:
                     check = self.grid[i][j]
         self.maxcell = check
+        return self.maxcell
 
+    def sup_2048(self):
+        ''' Counts the amount of cells with value 
+        greater than or equal to 2048'''
+        count = 0
+        for i in range(4):
+            for j in range(4):
+                if self.grid[i][j] >= 2048:
+                    count += 1
+        self.goal = count
+        return self.goal
+    
     def newcell_start(self):
         ''' Add new cell to the grid when grid is empty.
             Probability are 1/10 to be a 4
@@ -93,7 +108,14 @@ class Game_2048():
         print(f'Your score is {self.score}')
 
     def possible_action(self):
-        '''Checks if a movement is possible on the grid'''
+        '''Checks if a movement is possible on the grid
+        
+        See example:
+         grid1 = [2, 4, 8, 4]                           grid2 = [8, 4, 8, 4]
+                 [2, 8, 4, 8]                                   [2, 8, 4, 8]
+                 [4, 2, 8, 4]                                   [4, 2, 8, 4]
+                 [2, 4, 2, 8]                                   [2, 4, 2, 8]
+         grid1[0][0] and grid1[1][0] can be merged.      No two cells can be merged.'''
         p_a = False
         for i in range(3):
             for j in range(3):
@@ -302,12 +324,17 @@ class Game_2048():
                 self.left_movement()
             if (x.upper() == 'QUIT'):
                 self.status = False
+            self.sup_2048()
             self.stop_game()
-            if self.status and self.grid != grid_test:
+            if self.status and self.grid != grid_test :
                 self.newcell()
             self.display()
+            
             if self.status is False:
-                print(f'you lose your score is {self.score}')
+                if self.goal >= 1:
+                    print(f'Game over, you win ! {self.goal} created.\n Your score is {self.score}')
+                else:
+                    print(f'Game over, you lose ! Your score is {self.score}')
                 if self.score > 730: #  empirical mean see Algo_play
                     print(f'you did better than random IA')
                 else:
@@ -315,7 +342,7 @@ class Game_2048():
 
 
     def demo(self):
-        """ Algo play alone
+        """ Demo of an AI game (displayed)
 
         """
         directions = ['z', 'q', 's', 'd']
@@ -345,18 +372,19 @@ class Game_2048():
             print(f'IA lost play {x} movement')
             if self.status is False:
                 print(f'IA lost is score is {self.score}')
-
+    
+    
+    
     def random_2048(self):
-        """ Algo play alone
+        """ AI game with random movements only.
 
         """
-        directions = ['z', 'q', 's', 'd']
         self.newcell_start()
         self.newcell()
 
         while(self.status):
             
-            x = random.choice(directions)
+            x = random.choice(self.directions)
             grid_test = self.grid
 
             if (x.upper() == 'D'):
@@ -372,16 +400,17 @@ class Game_2048():
                 self.newcell()
     
     def clockwise_2048(self):
-        """ Algo play alone
+        """ AI game with clockwise movement (starting movement
+         is randomized)
 
         """
-        directions = ['z', 'q', 's', 'd']
         self.newcell_start()
         self.newcell()
-        count = 0
+        x = random.choice(self.directions)
+        #count = 0
         while(self.status):
             
-            x = random.choice(directions)
+            x = self.directions[self.directions.index(x) - 1]
             grid_test = self.grid
 
             if (x.upper() == 'D'):
@@ -395,7 +424,7 @@ class Game_2048():
             self.stop_game()
             if self.status and self.grid != grid_test:
                 self.newcell()
-            count = (count + 1) % 4 
+            #count = (count + 1) % 4 
             
 
 # Lauch_game = Game()
@@ -734,6 +763,6 @@ class Game_6561():
                 print(f'you lose your score is {self.score}')
 
 
-AAA = Game_2048()
-AAA.random_2048()
-print(AAA.score)
+#AAA = Game_2048().clockwise_2048()
+#AAA.random_2048()
+#print(AAA.score)
