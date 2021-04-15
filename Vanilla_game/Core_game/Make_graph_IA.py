@@ -5,18 +5,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
+just_plot = False
 
-# DON'T RUN THIS CODE
 
-just_calcul = False
 
-if just_calcul is False:
+if just_plot is False:
 
     stockage_score_random = []
     stockage_score_clockwise = []
     stockage_maxcell_random = []
     stockage_maxcell_clockwise = []
-    for i in range(3000):
+    for i in range(300):
         AI_one = Main.Game_2048()
         AI_one.random_2048()
         AI_one.maxcell_find()
@@ -40,6 +39,7 @@ if just_calcul is False:
     np.savetxt('Vanilla_game/Data_storage/Storage_AI_maxcell_clockwise.txt',  stockage_maxcell_clockwise)
 
 
+
 else:
 
     data_score_random = np.loadtxt('Vanilla_game/Data_storage/Storage_AI_score_random.txt')
@@ -60,19 +60,25 @@ else:
     plt.savefig('Vanilla_game/Data_storage/AI_score.pdf')
     plt.show()
 
+
+    d = {'Random strategie': data_score_random, 'Clockwise strategie': data_score_clockwise}
+    df = pd.DataFrame(d)
     plt.figure()
     sns.kdeplot(data_score_random, bw_adjust=0.1, legend=False)
     sns.kdeplot(data_score_clockwise, bw_adjust=0.1)
     plt.title("Distribution of score with random et clockwise strategies")
     plt.xlabel("score")
     plt.savefig('Vanilla_game/Data_storage/AI_distribution.pdf')
+
+
     plt.show()
 
 
     data_maxcell_random = np.loadtxt('Vanilla_game/Data_storage/Storage_AI_maxcell_random.txt')
     data_maxcell_clockwise = np.loadtxt('Vanilla_game/Data_storage/Storage_AI_maxcell_clockwise.txt')
    
-    plt.figure()
+
+    plt.figure(1)
     
     plt.hist([data_maxcell_random, data_maxcell_clockwise], label=['Random strategie', 'Clockwise strategie'])
     plt.legend(loc='upper right')
@@ -81,6 +87,16 @@ else:
     plt.xlabel("Max cell")
     plt.savefig('Vanilla_game/Data_storage/AI_maxcell.pdf')
     plt.show()
+
+
+
+
+
+
+
+
+
+
 
 
 
