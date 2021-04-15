@@ -260,7 +260,7 @@ class Game_2048():
         return self.grid, self.score
 
     def down_movement(self):
-        ''' Move grid to the botom
+        ''' Move grid to the bottom
 
         see example:
 
@@ -296,8 +296,8 @@ class Game_2048():
         return self.grid, self.score
 
     def main(self):
-        ''' Main game lauch this function to play
-        The command are classical  zqsd (azerty keybord)
+        ''' Main game launch this function to play
+        The command are classical  zqsd (azerty keyboard)
         Command : z => up
         Command : q => left
         Command : d => right
@@ -424,16 +424,67 @@ class Game_2048():
             self.stop_game()
             if self.status and self.grid != grid_test:
                 self.newcell()
-            #count = (count + 1) % 4 
-            
+            #count = (count + 1) % 4
 
-# Lauch_game = Game()
+    def opposite_2048(self):
+        """ AI game with only a first random movement and its opposite one """
+        
+        self.newcell_start()
+        self.newcell()
+        x = random.choice(self.directions)
+
+        while(self.status):
+            
+            x = self.directions[self.directions.index(x) - 2]
+            grid_test = self.grid
+
+            if (x.upper() == 'D'):
+                self.right_movement()
+            if (x.upper() == 'Z'):
+                self.up_movement()
+            if (x.upper() == 'S'):
+                self.down_movement()
+            if (x.upper() == 'Q'):
+                self.left_movement()
+            self.stop_game()
+            if self.status and self.grid != grid_test:
+                self.newcell()
+
+    def adjacent_2048(self):
+        """ AI game with only a first random movement and one of its adjacent ones """
+        
+        self.newcell_start()
+        self.newcell()
+        x0 = random.choice(self.directions)
+        x_adj = random.choice([self.directions[self.directions.index(x0) - 3], self.directions[self.directions.index(x0) - 1]])
+        x = x_adj
+
+        while(self.status):
+            
+            if x == x_adj:
+                x = x0
+            else: x = x_adj
+            grid_test = self.grid
+
+            if (x.upper() == 'D'):
+                self.right_movement()
+            if (x.upper() == 'Z'):
+                self.up_movement()
+            if (x.upper() == 'S'):
+                self.down_movement()
+            if (x.upper() == 'Q'):
+                self.left_movement()
+            self.stop_game()
+            if self.status and self.grid != grid_test:
+                self.newcell()
+
+# Launch_game = Game()
 # print('Command : z => up')
 # print('Command : q => left')
 # print('Command : d => right')
 # print('Command : s => down')
 # print('to do an action you must select a direction and  press enter')
-# Lauch_game.main() # Lauch game
+# Launch_game.main() # Launch game
 
 
 class Game_6561():
@@ -663,7 +714,7 @@ class Game_6561():
         return self.grid, self.score
 
     def down_movement(self):
-        ''' Move grid to the botom
+        ''' Move grid to the bottom
 
         see example:
 
@@ -699,8 +750,8 @@ class Game_6561():
         return self.grid, self.score
 
     def main(self):
-        ''' Main game lauch this function to play
-        The command are classical  zqsd (azerty keybord)
+        ''' Main game launch this function to play
+        The command are classical  zqsd (azerty keyboard)
         Command : z => up
         Command : q => left
         Command : d => right
