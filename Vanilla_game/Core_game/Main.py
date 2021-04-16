@@ -432,6 +432,7 @@ class Game_2048():
         self.newcell_start()
         self.newcell()
         x = random.choice(self.directions)
+        block_game = 0
 
         while(self.status):
             
@@ -447,8 +448,13 @@ class Game_2048():
             if (x.upper() == 'Q'):
                 self.left_movement()
             self.stop_game()
+            if self.grid == grid_test:
+                block_game += 1
             if self.status and self.grid != grid_test:
                 self.newcell()
+            
+            
+            
 
     def adjacent_2048(self):
         """ AI game with only a first random movement and one of its adjacent ones """
@@ -458,6 +464,7 @@ class Game_2048():
         x0 = random.choice(self.directions)
         x_adj = random.choice([self.directions[self.directions.index(x0) - 3], self.directions[self.directions.index(x0) - 1]])
         x = x_adj
+        block_game = 0
 
         while(self.status):
             
@@ -475,8 +482,12 @@ class Game_2048():
             if (x.upper() == 'Q'):
                 self.left_movement()
             self.stop_game()
+            if self.grid == grid_test:
+                block_game += 1
             if self.status and self.grid != grid_test:
                 self.newcell()
+            if block_game > 3:
+                self.status = False
 
 # Launch_game = Game()
 # print('Command : z => up')
