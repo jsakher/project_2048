@@ -5,39 +5,39 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
-just_plot = True
+just_plot = False
 
 
 # DONT RUN 
 
 if just_plot is False:
 
-    stockage_score_random = []
-    stockage_score_clockwise = []
-    stockage_maxcell_random = []
-    stockage_maxcell_clockwise = []
-    for i in range(1):
+    stockage_score_opposite = []
+    stockage_score_adjacent = []
+    stockage_maxcell_opposite = []
+    stockage_maxcell_adjacent = []
+    for i in range(300000):
         AI_one = Main.Game_2048()
-        AI_one.random_2048()
+        AI_one.adjacent_2048()
         AI_one.maxcell_find()
-        stockage_maxcell_random.append(AI_one.maxcell)
-        stockage_score_random.append(AI_one.score)
+        stockage_maxcell_opposite.append(AI_one.maxcell)
+        stockage_score_opposite.append(AI_one.score)
 
         AI_two = Main.Game_2048()
-        AI_two.clockwise_2048()
+        AI_two.random_2048()
         AI_two.maxcell_find()
-        stockage_maxcell_clockwise.append(AI_two.maxcell)
-        stockage_score_clockwise.append(AI_two.score)
+        stockage_maxcell_adjacent.append(AI_two.maxcell)
+        stockage_score_adjacent.append(AI_two.score)
         print(i)
 
 
-    data_random = np.array(stockage_score_random)
-    data_clockwise = np.array(stockage_score_clockwise)
+    data_opposite = np.array(stockage_score_opposite)
+    data_adjacent = np.array(stockage_score_adjacent)
 
-    np.savetxt('Storage_AI_score_random.txt', data_random)
-    np.savetxt('Storage_AI_score_clockwise.txt', data_clockwise)
-    np.savetxt('Storage_AI_maxcell_random.txt', stockage_maxcell_random)
-    np.savetxt('Storage_AI_maxcell_clockwise.txt',  stockage_maxcell_clockwise)
+    np.savetxt('Storage_AI_score_opposite.txt', data_opposite)
+    np.savetxt('Storage_AI_score_adjacent.txt', data_adjacent)
+    np.savetxt('Storage_AI_maxcell_opposite.txt', stockage_maxcell_opposite)
+    np.savetxt('Storage_AI_maxcell_adjacent.txt',  stockage_maxcell_adjacent)
 
 
 

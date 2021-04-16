@@ -455,12 +455,14 @@ class Game_2048():
             
             
             
+            
 
     def adjacent_2048(self):
         """ AI game with only a first random movement and one of its adjacent ones """
         
         self.newcell_start()
         self.newcell()
+        x = random.choice(self.directions)
         x0 = random.choice(self.directions)
         x_adj = random.choice([self.directions[self.directions.index(x0) - 3], self.directions[self.directions.index(x0) - 1]])
         x = x_adj
@@ -828,3 +830,4 @@ class Game_6561():
 #AAA = Game_2048().clockwise_2048()
 #AAA.random_2048()
 #print(AAA.score)
+
