@@ -452,6 +452,8 @@ class Game_2048():
                 block_game += 1
             if self.status and self.grid != grid_test:
                 self.newcell()
+            if block_game > 3:
+                self.status = False
             
             
             
