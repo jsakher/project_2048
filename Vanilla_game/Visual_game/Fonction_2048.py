@@ -60,10 +60,11 @@ def new_game():
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     newcell_start(new_grid)
     newcell(new_grid)
+    #score = 0
     return(new_grid)
 
-def stop_game(grid):
-    ''' Check every step if you loose '''
+def stop_game(grid): #Game stops when there is no possible movement to make (i.e. cannot merge any cells), not when the grid is full !
+    ''' Check every step if you lose '''
 
     full_cell = 0
     game_over = True
@@ -75,13 +76,14 @@ def stop_game(grid):
         game_over = False
     return(game_over)
 
-def state_game(grid):
+def state_game(grid, score):
     ''' Display the grid's state '''
 
     print(grid[0])
     print(grid[1])
     print(grid[2])
     print(grid[3])
+    print(f"Your score is {score}")
     return('------------')
 
 
@@ -103,15 +105,16 @@ def  stack(grid):
     return new_grid
 
 
-def  merge_left(grid):
+def  merge_left(grid, score):
     ''' Merge the grid on the left  '''
-
+    #reward = 0
     for i in range(4): 
         for j in range(3):
-            if(grid[i][j] == grid[i][j+1]): # revoir
-                grid[i][j] = grid[i][j] * 2
+            if(grid[i][j] == grid[i][j+1]): # revoir ; A:"range(n) renvoie les n premiers integers en partant de 0 => range(3) contient les 3 premiers chiffres en partant de 0 " 
+                grid[i][j] = grid[i][j] * 2 # Aucune modification à faire donc.
                 grid[i][j + 1] = 0
-    return grid
+                score += grid[i][j]
+    return (grid, score) 
 
 #  Rotations functions
 
@@ -145,52 +148,48 @@ def inverse(grid):
 
 # All movement are base on rotation and left_movement (On peut optimiser les algo)
 
-def  left_movement(grid):
+def  left_movement(grid, score):
     ''' Move grid to the left '''
 
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     new_grid = stack(grid)
-    new_grid = merge_left(new_grid)
+    new_grid, score = merge_left(new_grid, score)
     new_grid = stack(new_grid)
-    return new_grid
+    return new_grid, score
 
 
-def up_movement(grid):
+def up_movement(grid, score):
     ''' Move grid to the top '''
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     new_grid = transpose(grid)
     new_grid = stack(new_grid)
-    new_grid = merge_left(new_grid)
+    new_grid, score = merge_left(new_grid, score)
     new_grid = stack(new_grid)
     new_grid = transpose(new_grid)
-
-    return new_grid
-
+    return new_grid, score
 
 
-def down_movement(grid):
+
+def down_movement(grid, score):
     ''' Move grid to the botom '''
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     new_grid = transpose(grid)
     new_grid = inverse(new_grid)
     new_grid = stack(new_grid)
-    new_grid = merge_left(new_grid)
+    new_grid, score = merge_left(new_grid, score)
     new_grid = stack(new_grid)
     new_grid = inverse(new_grid)
     new_grid = transpose(new_grid)
-    return new_grid
+    return new_grid, score
 
 
-def  right_movement(grid):
+def  right_movement(grid, score):
     ''' Move grid to the left '''
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     new_grid = rotation(grid) 
-    new_grid = left_movement(new_grid) 
+    new_grid, score = left_movement(new_grid, score) 
     new_grid = rotation(new_grid) 
-    return new_grid
-
-
-
+    return new_grid, score
 
 
 
