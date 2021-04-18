@@ -46,6 +46,7 @@ If we have time we will try different game rules (probability change, size grid)
 + Code cleaning (pep8, classes, documentation, ...)
 + Beamer presentation
 + Make the game package ready
++ Documentation with Sphinx
 
 
 
