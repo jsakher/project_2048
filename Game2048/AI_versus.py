@@ -1,4 +1,4 @@
-import Main
+import Game2048.Main as Main
 import random
 import time
 
@@ -196,5 +196,5 @@ def Versus(strategie1='random', strategie2='random', skip=True, speed = 0.5):
     scorebord(AI_one, AI_two, strategie1, strategie2)
 
 
-#Versus('random', 'adjacent', skip=True)
+# Versus('random', 'adjacent', skip=True)
 

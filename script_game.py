@@ -1,3 +1,4 @@
-import Game2048
+import game_2048
 
-Game2048.Game_2048().main()
+def lauchgame():
+    AAA = game_2048.Game_2048().main()
