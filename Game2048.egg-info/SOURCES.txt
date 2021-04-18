@@ -1,0 +1,7 @@
+README.md
+setup.py
+Game2048/__init__.py
+Game2048.egg-info/PKG-INFO
+Game2048.egg-info/SOURCES.txt
+Game2048.egg-info/dependency_links.txt
+Game2048.egg-info/top_level.txt
