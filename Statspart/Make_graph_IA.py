@@ -1,6 +1,6 @@
 import random
 import numpy as np
-import Main
+#import Main
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
