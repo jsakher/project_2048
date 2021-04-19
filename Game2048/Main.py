@@ -341,7 +341,7 @@ class Game_2048():
                     print(f'you did worse than random IA')
 
 
-    def demo(self):
+    def demo(self, speed=0.4):
         """ Demo of an AI game (displayed)
 
         """
@@ -349,9 +349,9 @@ class Game_2048():
         self.newcell_start()
         self.newcell()
         self.display()
-
+        scoring_step = []
         while(self.status):
-            time.sleep(2)
+            # time.sleep(speed)
             x = random.choice(directions)
             grid_test = self.grid
 
@@ -365,13 +365,15 @@ class Game_2048():
                 self.left_movement()
             if (x.upper() == 'QUIT'):
                 self.status = False
+            scoring_step.append(self.score)
             self.stop_game()
             if self.status and self.grid != grid_test:
                 self.newcell()
             self.display()
-            print(f'IA lost play {x} movement')
+            print(f'IA  play {x} movement')
             if self.status is False:
                 print(f'IA lost is score is {self.score}')
+        return scoring_step
     
     
     
@@ -379,9 +381,10 @@ class Game_2048():
         """ AI game with random movements only.
 
         """
+
         self.newcell_start()
         self.newcell()
-
+        
         while(self.status):
             
             x = random.choice(self.directions)
@@ -833,6 +836,4 @@ class Game_6561():
 #AAA.random_2048()
 #print(AAA.score)
 
-def Lauchgame():
-    AAA = Game_2048()
-    AAA.main()
+

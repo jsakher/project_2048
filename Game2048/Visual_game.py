@@ -2,7 +2,8 @@ from tkinter import *
 import tkinter
 import random
 import time
-import Game2048.Fonction_2048 as fonc
+import Fonction_2048 as fonc
+import Main
 
 def Visual_game():
     test_color = []
@@ -22,12 +23,18 @@ def Visual_game():
     test_color[2048] = '#edc22d'
     color_cell1 = test_color
 
+    AI_random = Main.Game_2048()
+    AI_random.random_2048()
+    AI_clockowise = Main.Game_2048()
+    AI_clockowise.clockwise_2048()
+ 
 
     window = Tk()
     window.title("2048")
 
     window.geometry("720x480")
     window.minsize(720,480)
+    # window.iconbitmap('ico_2048.ico')
     window.config(background='#B0C4DE')
     position_grid = [(50,50), (150,50), (250,50), (350,50), (50,150),  (150,150), (250,150), (350,150), (50,250), (150,250), (250,250), (350,250), (50,350), (150,350), (250,350), (350,350)]
     grid = fonc.new_game()
@@ -114,12 +121,12 @@ def Visual_game():
 
     clockwise_score_IA1 = Label(window,bd = 5,bg='#B0C4DE', text='Clockwise IA score:', font=('Helvetica', 12, 'bold'))
     clockwise_score_IA1.place(x=560,y=210)
-    clockwise_score_IA2 = Label(window,bd = 2,bg='#B0C4DE', text='2310', font=('Helvetica', 13, 'bold'))
+    clockwise_score_IA2 = Label(window,bd = 2,bg='#B0C4DE', text=AI_clockowise.score, font=('Helvetica', 13, 'bold'))
     clockwise_score_IA2.place(x=620,y=250)
 
     Random_score_IA1 = Label(window,bd = 15,bg='#B0C4DE', text='Random IA score:', font=('Helvetica', 13, 'bold'))
     Random_score_IA1.place(x=560,y=310)
-    Random_score_IA2 = Label(window,bd = 2,bg='#B0C4DE', text='1095', font=('Helvetica', 13, 'bold'))
+    Random_score_IA2 = Label(window,bd = 2,bg='#B0C4DE', text=AI_random.score, font=('Helvetica', 13, 'bold'))
     Random_score_IA2.place(x=620,y=350)
 
 
@@ -178,6 +185,7 @@ def Visual_game():
         Lab_3_2.config(bg=color_cell1[grid[3][2]],text=grid[3][2])
         Lab_3_3.config(bg=color_cell1[grid[3][3]],text=grid[3][3])
 
+
         
         
     if game_over == False:
@@ -190,5 +198,5 @@ def Visual_game():
 
     #frame.pack(expand=YES)
     window.mainloop()
-#Visual_game()
+Visual_game()
 
