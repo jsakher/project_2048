@@ -142,6 +142,7 @@ def Visual_game():
         if (x == 'q' or x == 'q'):
             grid, score_final = fonc.left_movement(grid, score_final)
         final = fonc.stop_game(grid)
+        goal = fonc.sup_2048(grid)
         if final == False:
             game_over = False
         if final == True and grid != grid_test:
@@ -180,11 +181,14 @@ def Visual_game():
         
         
     if game_over == False:
-        print(f'you loose your score is {score_final}')   
-
+        print(f'you lose your score is {score_final}')   
+        End = Label(window,bd = 15, bg='#B0C4DE',text='You lose. Your score is:', font=('Helvetica', 13, 'bold'))
+        End.place(x=180,y=432)
+        End_score = Label(window,bd = 15, bg='#B0C4DE',text=score_final, font=('Helvetica', 13, 'bold'))
+        End_score.place(x=390,y=432)
 
 
     #frame.pack(expand=YES)
     window.mainloop()
-
+#Visual_game()
 
