@@ -1,10 +1,15 @@
+""" Write down a short description of what this module is composed. """
+
 import random
 import time
+
 class Game_2048():
-    """ This class represent gamegrid and function"""
+    """ Contains the necessary functions to  launch either the 2048 user game or the A.I. ones.
+
+    """
 
     def __init__(self):
-        """ Create new grid """
+        """ The constructor. """
         self.grid = [[0, 0, 0, 0], [0, 0, 0, 0],
                      [0, 0, 0, 0], [0, 0, 0, 0]]
         self.score = 0
@@ -14,7 +19,11 @@ class Game_2048():
         self.directions = ['z', 'q', 's', 'd']
 
     def maxcell_find(self):
-        ''' Identifies the value of the maximum cell self.grid'''
+        """ Identifies the greater value of the grid's cells. 
+        
+        :returns: the value of the identified cell.
+        :rtype: int
+        """
         check = 0
         for i in range(4):
             for j in range(4):
@@ -24,8 +33,11 @@ class Game_2048():
         return self.maxcell
 
     def sup_2048(self):
-        ''' Counts the amount of cells with value 
-        greater than or equal to 2048'''
+        """ Counts the amount of cells with values greater or equal than to 2048.
+        
+        :returns: the count of these cells.
+        :rtype: int
+        """
         count = 0
         for i in range(4):
             for j in range(4):
@@ -35,17 +47,14 @@ class Game_2048():
         return self.goal
     
     def newcell_start(self):
-        ''' Add new cell to the grid when grid is empty.
-            Probability are 1/10 to be a 4
-                            9/10 to be a 2
+        """ Initializes the grid with :
 
-        see example:
+        - a 2 cell with 9/10 probability
 
-            grid [0, 0, 0, 0]  Become  [0, 0, 2, 0]
-                 [0, 0, 0, 0]          [0, 0, 0, 0]
-                 [0, 0, 0, 0]          [0, 0, 0, 0]
-                 [0, 0, 0, 0]          [0, 0, 0, 0]
-        '''
+        - a 4 cell with 1/10 probability
+
+        :returns: the initialized grid
+        """
 
         new_cell = 2
         pos1 = random.randint(a=0, b=3)
@@ -56,17 +65,38 @@ class Game_2048():
         return self.grid
 
     def newcell(self):
-        ''' Add new cell to the grid.
-            Probability are  1/10 to be a 4
-                             9/10 to be a 2
+        """ Add new cell to the grid :
 
-        see example:
+        - a 2 cell with 9/10 probability
 
-            grid [0, 2, 2, 0]  Become  [0, 2, 2, 0]
-                 [0, 0, 0, 0]          [0, 0, 0, 0]
-                 [0, 0, 0, 0]          [4, 0, 0, 0]
-                 [0, 0, 0, 0]          [0, 0, 0, 0]
-        '''
+        - a 4 cell with 1/10 probability
+
+        See example:
+
+            +---+---+---+---+
+            | 0 | 2 | 2 | 0 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 0 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 0 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 0 |
+            +---+---+---+---+
+
+            becomes :
+
+            +---+---+---+---+
+            | 0 | 2 | 2 | 0 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 0 |
+            +---+---+---+---+
+            | 4 | 0 | 0 | 0 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 0 |
+            +---+---+---+---+
+
+        :returns: the new grid.
+        """
 
         empty_cell = []
         new_cell = 2
@@ -91,15 +121,25 @@ class Game_2048():
         return self.grid
 
     def display(self):
-        ''' Display grid and score.
+        """ Displays the grid and score in a terminal.
+        
+        See example :
 
-        see example:
-                [0, 2, 2, 4]
-                [0, 0, 4, 2]
-                [4, 0, 2, 2]
-                [8, 2, 4, 8]
-                Your score is 32
-        '''
+            +---------------------+
+            |  +---+---+---+---+  |
+            |  | 0 | 2 | 2 | 4 |  |
+            |  +---+---+---+---+  |
+            |  | 0 | 0 | 4 | 2 |  |
+            |  +---+---+---+---+  |
+            |  | 4 | 0 | 2 | 2 |  |
+            |  +---+---+---+---+  |
+            |  | 8 | 2 | 4 | 8 |  |
+            |  +---+---+---+---+  |
+            +---------------------+
+            |  Your score is 32   |
+            +---------------------+
+
+        """
 
         print(self.grid[0])
         print(self.grid[1])
@@ -108,14 +148,38 @@ class Game_2048():
         print(f'Your score is {self.score}')
 
     def possible_action(self):
-        '''Checks if a movement is possible on the grid
+        """ Checks if a movement is possible on the grid.
         
         See example:
-         grid1 = [2, 4, 8, 4]                           grid2 = [8, 4, 8, 4]
-                 [2, 8, 4, 8]                                   [2, 8, 4, 8]
-                 [4, 2, 8, 4]                                   [4, 2, 8, 4]
-                 [2, 4, 2, 8]                                   [2, 4, 2, 8]
-         grid1[0][0] and grid1[1][0] can be merged.      No two cells can be merged.'''
+
+            In this grid, cells [0][0] and [0][1] can be merged in up and down movements.
+
+            +---+---+---+---+
+            | 2 | 4 | 8 | 4 |
+            +---+---+---+---+
+            | 2 | 8 | 4 | 8 |
+            +---+---+---+---+
+            | 4 | 2 | 8 | 4 |
+            +---+---+---+---+
+            | 2 | 4 | 2 | 8 |
+            +---+---+---+---+
+
+            Whereas in this one, no cells can be merged.
+
+            +---+---+---+---+
+            | 8 | 4 | 8 | 4 |
+            +---+---+---+---+
+            | 2 | 8 | 4 | 8 |
+            +---+---+---+---+
+            | 4 | 2 | 8 | 4 |
+            +---+---+---+---+
+            | 2 | 4 | 2 | 8 |
+            +---+---+---+---+
+
+        :returns: True if the movement is possible, false otherwise.
+        :rtype: bool
+
+        """
         p_a = False
         for i in range(3):
             for j in range(3):
@@ -133,9 +197,11 @@ class Game_2048():
 
 
     def stop_game(self):
-        ''' Check every step if you lose to stop
-        the game when there is no possible movement
-        '''
+        """ Checks if the game should be stop (when there is no more possible movement).
+        
+        :returns: True if the game can continued, false otherwise.
+        :rtype: bool
+        """
 
         full_cell = 0
         for i in range(4):
@@ -147,15 +213,32 @@ class Game_2048():
         return self.status
 
     def stack(self):
-        ''' Stack the grid to the left.
+        """ Stacks the grid's cells to the left.
 
-        see example:
+        See example:
 
-            grid [0, 2, 0, 2]  Become  [2, 2, 0, 0]
-                 [0, 0, 0, 8]          [8, 0, 0, 0]
-                 [4, 0, 0, 2]          [4, 2, 0, 0]
-                 [0, 2, 8, 0]          [2, 8, 0, 0]
-        '''
+            +---+---+---+---+
+            | 0 | 2 | 0 | 2 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 8 |
+            +---+---+---+---+
+            | 4 | 0 | 0 | 2 |
+            +---+---+---+---+
+            | 0 | 2 | 8 | 0 |
+            +---+---+---+---+
+
+            becomes :
+
+            +---+---+---+---+
+            | 2 | 2 | 0 | 0 |
+            +---+---+---+---+
+            | 8 | 0 | 0 | 0 |
+            +---+---+---+---+
+            | 4 | 2 | 0 | 0 |
+            +---+---+---+---+
+            | 2 | 8 | 0 | 0 |
+            +---+---+---+---+
+            """
 
         new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         for i in range(4):
@@ -168,16 +251,32 @@ class Game_2048():
         return self.grid
 
     def merge_left(self):
-        ''' Merge grid to the left.
+        """ Merges the grid cells to the left.
 
-        see example:
+        See example:
 
-            grid = [0, 2, 2, 0]  Become [0, 4, 0, 0]
-                   [2, 4, 4, 2]         [2, 8, 0, 2]
-                   [0, 2, 0, 4]         [0, 2, 0, 4]
-                   [8, 8, 8, 8]         [16, 0, 16, 0]
+            +---+---+---+---+
+            | 0 | 2 | 2 | 0 |
+            +---+---+---+---+
+            | 2 | 4 | 4 | 2 |
+            +---+---+---+---+
+            | 0 | 2 | 0 | 4 |
+            +---+---+---+---+
+            | 8 | 8 | 8 | 8 |
+            +---+---+---+---+
 
-        '''
+            becomes :
+
+            +----+----+----+----+
+            |  0 |  4 |  0 |  0 |
+            +----+----+----+----+
+            |  0 |  8 |  0 |  2 |
+            +----+----+----+----+
+            |  0 |  2 |  0 |  4 |
+            +----+----+----+----+
+            | 16 |  0 | 16 |  0 |
+            +----+----+----+----+
+        """
 
         for i in range(4):
             for j in range(3):
@@ -188,16 +287,35 @@ class Game_2048():
         return self.grid, self.score
 
     def transpose(self):
-        ''' Transpose the grid, usefull to make movement.
-        All movement are base on left merge, left stack
+        """ Transposes (mathematically) the grid. It will be used to define movements.
+        All movements are based on :py:func:`merge_left` and left :py:func:`left stack`.
 
-        see example:
+        See example:
 
-            grid = [2, 2, 2, 2]  Become [2, 0, 0, 0]
-                   [0, 2, 2, 2]         [2, 2, 0, 0]
-                   [0, 0, 2, 2]         [2, 2, 2, 0]
-                   [0, 0, 0, 2]         [2, 2, 2, 2]
-        '''
+            +---+---+---+---+
+            | 2 | 2 | 2 | 2 |
+            +---+---+---+---+
+            | 0 | 2 | 2 | 2 |
+            +---+---+---+---+
+            | 0 | 0 | 2 | 2 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 2 |
+            +---+---+---+---+
+
+            becomes :
+
+            +---+---+---+---+
+            | 2 | 0 | 0 | 0 |
+            +---+---+---+---+
+            | 2 | 2 | 0 | 0 |
+            +---+---+---+---+
+            | 2 | 2 | 2 | 0 |
+            +---+---+---+---+
+            | 2 | 2 | 2 | 2 |
+            +---+---+---+---+
+        
+        :returns: the transposed grid.
+        """
 
         new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         for i in range(4):
@@ -207,16 +325,34 @@ class Game_2048():
         return self.grid
 
     def inverse(self):
-        ''' Inverse the grid, usefull to make movement.
-        All movement are base on left merge, left stack
+        """ Rotate the grid according to an axial symmetry. It will be used to define movements.
 
-        see example:
+        All movements are based on :py:func:`merge_left` and left :py:func:`left stack`.
 
-            grid = [2, 2, 2, 2]  Become [2, 2, 2, 2]
-                   [0, 2, 2, 2]         [2, 2, 2, 0]
-                   [0, 0, 2, 2]         [2, 2, 0, 0]
-                   [0, 0, 0, 2]         [2, 0, 0, 0]
-        '''
+        See example:
+
+            +---+---+---+---+
+            | 2 | 2 | 2 | 2 |
+            +---+---+---+---+
+            | 0 | 2 | 2 | 2 |
+            +---+---+---+---+
+            | 0 | 0 | 2 | 2 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 2 |
+            +---+---+---+---+
+
+            becomes :
+
+            +---+---+---+---+
+            | 2 | 2 | 2 | 2 |
+            +---+---+---+---+
+            | 2 | 2 | 2 | 0 |
+            +---+---+---+---+
+            | 2 | 2 | 0 | 0 |
+            +---+---+---+---+
+            | 2 | 0 | 0 | 0 |
+            +---+---+---+---+
+        """
 
         new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         for i in range(4):
@@ -226,15 +362,34 @@ class Game_2048():
         return self.grid
 
     def left_movement(self):
-        ''' Move grid to the left
+        """ Makes the complete move of the cells to the left.
 
-        see example:
+        See example:
 
-            grid = [2, 2, 0, 0]  Become [4, 0, 0, 0]
-                   [0, 0, 2, 2]         [4, 0, 0, 0]
-                   [0, 0, 0, 2]         [2, 0, 0, 0]
-                   [4, 4, 0, 2]         [8, 2, 0, 0]
-        '''
+            +---+---+---+---+
+            | 2 | 2 | 0 | 0 |
+            +---+---+---+---+
+            | 0 | 0 | 2 | 2 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 2 |
+            +---+---+---+---+
+            | 4 | 4 | 0 | 2 |
+            +---+---+---+---+
+
+            becomes :
+
+            +---+---+---+---+
+            | 4 | 0 | 0 | 0 |
+            +---+---+---+---+
+            | 4 | 0 | 0 | 0 |
+            +---+---+---+---+
+            | 2 | 0 | 0 | 0 |
+            +---+---+---+---+
+            | 8 | 2 | 0 | 0 |
+            +---+---+---+---+
+
+        :returns: the grid and the score after completing a left movement.
+        """
 
         self.stack()
         self.merge_left()
@@ -242,15 +397,34 @@ class Game_2048():
         return self.grid, self.score
 
     def up_movement(self):
-        ''' Move grid to the top
+        """ Makes the complete move of the cells to the top.
 
-        see example:
+        See example:
 
-            grid = [2, 2, 0, 0]  Become [2, 2, 2, 4]
-                   [0, 0, 2, 2]         [4, 4, 0, 2]
-                   [0, 0, 0, 2]         [0, 0, 0, 0]
-                   [4, 4, 0, 2]         [0, 0, 0, 0]
-        '''
+            +---+---+---+---+
+            | 2 | 2 | 0 | 0 |
+            +---+---+---+---+
+            | 0 | 0 | 2 | 2 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 2 |
+            +---+---+---+---+
+            | 4 | 4 | 0 | 2 |
+            +---+---+---+---+
+
+            becomes :
+
+            +---+---+---+---+
+            | 2 | 2 | 2 | 4 |
+            +---+---+---+---+
+            | 4 | 4 | 0 | 2 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 0 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 0 |
+            +---+---+---+---+
+        
+        :returns: the grid and the score after completing an up movement.
+        """
 
         self.transpose()
         self.stack()
@@ -260,15 +434,34 @@ class Game_2048():
         return self.grid, self.score
 
     def down_movement(self):
-        ''' Move grid to the bottom
+        """ Makes the complete move of the cells to the bottom.
 
-        see example:
+        See example:
 
-            grid = [2, 2, 0, 0]  Become [0, 0, 0, 0]
-                   [0, 0, 2, 2]         [0, 0, 0, 0]
-                   [0, 0, 0, 2]         [2, 2, 0, 2]
-                   [4, 4, 0, 2]         [4, 4, 2, 4]
-        '''
+            +---+---+---+---+
+            | 2 | 2 | 0 | 0 |
+            +---+---+---+---+
+            | 0 | 0 | 2 | 2 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 2 |
+            +---+---+---+---+
+            | 4 | 4 | 0 | 2 |
+            +---+---+---+---+
+
+            becomes :
+
+            +---+---+---+---+
+            | 0 | 0 | 0 | 0 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 0 |
+            +---+---+---+---+
+            | 2 | 2 | 0 | 2 |
+            +---+---+---+---+
+            | 4 | 4 | 2 | 4 |
+            +---+---+---+---+
+        
+        :returns: the grid and the score after completing an up movement.
+        """
 
         self.transpose()
         self.inverse()
@@ -280,15 +473,34 @@ class Game_2048():
         return self.grid, self.score
 
     def right_movement(self):
-        ''' Move grid to the right
+        """ Makes the complete move of the cells to the right.
 
-        see example:
+        See example:
 
-            grid = [2, 2, 0, 0]  Become [0, 0, 0, 4]
-                   [0, 0, 2, 2]         [0, 0, 0, 4]
-                   [0, 0, 0, 2]         [0, 0, 0, 2]
-                   [4, 4, 0, 2]         [0, 0, 8, 2]
-        '''
+            +---+---+---+---+
+            | 2 | 2 | 0 | 0 |
+            +---+---+---+---+
+            | 0 | 0 | 2 | 2 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 2 |
+            +---+---+---+---+
+            | 4 | 4 | 0 | 2 |
+            +---+---+---+---+
+
+            becomes :
+
+            +---+---+---+---+
+            | 0 | 0 | 0 | 4 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 4 |
+            +---+---+---+---+
+            | 0 | 0 | 0 | 2 |
+            +---+---+---+---+
+            | 0 | 0 | 8 | 2 |
+            +---+---+---+---+
+        
+        :returns: the grid and the score after completing an up movement.
+        """
 
         self.inverse()
         self.left_movement()
@@ -296,15 +508,22 @@ class Game_2048():
         return self.grid, self.score
 
     def main(self):
-        ''' Main game launch this function to play
-        The command are classical  zqsd (azerty keyboard)
-        Command : z => up
-        Command : q => left
-        Command : d => right
-        Command : s => down
-        to do an action you must select a direction and  press enter
-        to quit write "quit" and press enter
-        '''
+        """ Launches the user game.
+
+        Classic commands are used to play (azerty keyboard) :
+
+        - z : up
+
+        - q : left
+
+        - d : right
+
+        - s : down
+
+        To do an action you must select a direction and  press enter.
+
+        To quit, write "quit" and press enter.
+        """
         self.newcell_start()
         self.newcell()
         self.display()
@@ -342,8 +561,7 @@ class Game_2048():
 
 
     def demo(self):
-        """ Demo of an AI game (displayed)
-
+        """ Demo of an AI game (displayed).
         """
         directions = ['z', 'q', 's', 'd']
         self.newcell_start()
@@ -376,8 +594,7 @@ class Game_2048():
     
     
     def random_2048(self):
-        """ AI game with random movements only.
-
+        """ Launches an AI game with random movements only.
         """
         self.newcell_start()
         self.newcell()
@@ -400,9 +617,7 @@ class Game_2048():
                 self.newcell()
     
     def clockwise_2048(self):
-        """ AI game with clockwise movement (starting movement
-         is randomized)
-
+        """ Launches an AI game with clockwise movement (starting movement is randomized).
         """
         self.newcell_start()
         self.newcell()
@@ -427,7 +642,8 @@ class Game_2048():
             #count = (count + 1) % 4
 
     def opposite_2048(self):
-        """ AI game with only a first random movement and its opposite one """
+        """ Launches an AI game with only a first random movement and its opposite one.
+        """
         
         self.newcell_start()
         self.newcell()
@@ -460,7 +676,8 @@ class Game_2048():
             
 
     def adjacent_2048(self):
-        """ AI game with only a first random movement and one of its adjacent ones """
+        """ Launches an AI game with only a first random movement and one of its adjacent ones.
+        """
         
         self.newcell_start()
         self.newcell()
@@ -503,26 +720,18 @@ class Game_2048():
 
 
 class Game_6561():
-    """ This class represent gamegrid and function"""
+    """ Alternative game to 2048 with a 3x3 grid and a goal score of 6561.
+    
+    Contains the same functions as class :py:class:`Game_2048` (excepting A.I. plays ones).
+    """
 
     def __init__(self):
-        """ Create new grid """
+
         self.grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
         self.score = 0
         self.status = True
 
     def newcell_start(self):
-        ''' Add new cell to the grid when grid is empty.
-            Probability are 1/10 to be a 6
-                            9/10 to be a 3
-
-        see example:
-
-            grid [0, 0, 0]  Become  [0, 0, 3]
-                 [0, 0, 0]          [0, 0, 0]
-                 [0, 0, 0]          [0, 0, 0]
-                           
-        '''
 
         new_cell = 3
         pos1 = random.randint(a=0, b=2)
@@ -533,17 +742,6 @@ class Game_6561():
         return self.grid
 
     def newcell(self):
-        ''' Add new cell to the grid.
-            Probability are  1/10 to be a 6
-                             9/10 to be a 3
-
-        see example:
-
-            grid [0, 3, 3]  Become  [3, 3, 0]
-                 [0, 0, 0]          [0, 0, 0]
-                 [0, 0, 0]          [0, 6, 0]
-                           
-        '''
 
         empty_cell = []
         new_cell = 3
@@ -568,16 +766,6 @@ class Game_6561():
         return self.grid
 
     def display(self):
-        ''' Display grid and score.
-
-        see example:
-
-                [0, 3, 0]
-                [0, 0, 0]
-                [0, 0, 3]
-                
-                Your score is 6
-        '''
 
         print(self.grid[0])
         print(self.grid[1])
@@ -585,7 +773,7 @@ class Game_6561():
         print(f'Your score is {self.score}')
 
     def possible_action(self):
-        '''Checks if a movement is possible on the grid'''
+
         p_a = False
         for i in range(2):
             for j in range(2):
@@ -603,9 +791,6 @@ class Game_6561():
 
 
     def stop_game(self):
-        ''' Check every step if you lose to stop
-        the game when there is no possible movement
-        '''
 
         full_cell = 0
         for i in range(3):
@@ -617,15 +802,6 @@ class Game_6561():
         return self.status
 
     def stack(self):
-        ''' Stack the grid to the left.
-
-        see example:
-
-            grid [0, 3, 0]  Become  [3, 0, 0]
-                 [0, 0, 0]          [0, 0, 0]
-                 [9, 0, 0]          [9, 0, 0]
-                        
-        '''
 
         new_grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
         for i in range(3):
@@ -638,17 +814,7 @@ class Game_6561():
         return self.grid
 
     def merge_left(self):
-        ''' Merge grid to the left.
-
-        see example:
-
-            grid = [0, 3, 3]  Become [0, 9, 0]
-                   [9, 9, 0]         [27, 0, 0]
-                   [0, 0, 3]         [0, 0, 3]
-                        
-
-        '''
-
+ 
         for i in range(3):
             for j in range(2):
                 if(self.grid[i][j] == self.grid[i][j+1]):
@@ -658,16 +824,6 @@ class Game_6561():
         return self.grid, self.score
 
     def transpose(self):
-        ''' Transpose the grid, usefull to make movement.
-        All movement are base on left merge, left stack
-
-        see example:
-
-            grid = [3, 3, 3]  Become [3, 0, 0]
-                   [0, 3, 3]         [3, 3, 0]
-                   [0, 0, 3]         [3, 3, 3]
-                   
-        '''
 
         new_grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
         for i in range(3):
@@ -677,16 +833,6 @@ class Game_6561():
         return self.grid
 
     def inverse(self):
-        ''' Inverse the grid, usefull to make movement.
-        All movement are base on left merge, left stack
-
-        see example:
-
-            grid = [3, 3, 3]  Become [3, 3, 3]
-                   [0, 3, 3]         [3, 3, 3]
-                   [0, 0, 3]         [3, 3, 0]
-                
-        '''
 
         new_grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
         for i in range(3):
@@ -696,14 +842,6 @@ class Game_6561():
         return self.grid
 
     def left_movement(self):
-        ''' Move grid to the left
-
-        see example:
-
-            grid = [6, 0, 6]  Become [9, 0, 0]
-                   [0, 0, 6]         [6, 0, 0]
-                   [0, 0, 3]         [3, 0, 0]
-        '''
 
         self.stack()
         self.merge_left()
@@ -711,15 +849,6 @@ class Game_6561():
         return self.grid, self.score
 
     def up_movement(self):
-        ''' Move grid to the top
-
-        see example:
-
-            grid = [3, 3, 0]  Become [3, 3, 3]
-                   [0, 0, 3]         [9, 9, 0]
-                   [0, 9, 0]         [0, 0, 0]
-                            
-        '''
         
         self.transpose()
         self.stack()
@@ -729,15 +858,6 @@ class Game_6561():
         return self.grid, self.score
 
     def down_movement(self):
-        ''' Move grid to the bottom
-
-        see example:
-
-            grid = [9, 9, 0]  Become [0, 0, 0]
-                   [0, 0, 3]         [0, 0, 0]
-                   [0, 0, 0]         [9, 9, 3]
-
-        '''
 
         self.transpose()
         self.inverse()
@@ -749,15 +869,6 @@ class Game_6561():
         return self.grid, self.score
 
     def right_movement(self):
-        ''' Move grid to the right
-
-        see example:
-
-            grid = [3, 3, 0]  Become [0, 0, 9]
-                   [0, 0, 3]         [0, 0, 3]
-                   [9, 0, 3]         [0, 9, 3]
-                   
-        '''
 
         self.inverse()
         self.left_movement()
@@ -765,15 +876,7 @@ class Game_6561():
         return self.grid, self.score
 
     def main(self):
-        ''' Main game launch this function to play
-        The command are classical  zqsd (azerty keyboard)
-        Command : z => up
-        Command : q => left
-        Command : d => right
-        Command : s => down
-        to do an action you must select a direction and  press enter
-        to quit write "quit" and press enter
-        '''
+
         self.newcell_start()
         self.newcell()
         self.display()
@@ -801,10 +904,13 @@ class Game_6561():
                 print(f'you lose your score is {self.score}')
 
     def demo(self):
+
         self.newcell_start()
         self.newcell()
         self.display()
+
         directions = ['z', 'q', 's', 'd']
+
         while(self.status):
             time.sleep(2)
             x = random.choice(directions)
@@ -833,6 +939,6 @@ class Game_6561():
 #AAA.random_2048()
 #print(AAA.score)
 
-def Lauchgame():
+def Launchgame():
     AAA = Game_2048()
     AAA.main()

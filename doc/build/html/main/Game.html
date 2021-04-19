@@ -1,0 +1,1155 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>2048 : The game &mdash; Project 2048  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="How to install the project 2048" href="../installation/installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Project 2048
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">How to install the project 2048</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2048 : The game</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#terminal-version">Terminal version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instructions">Instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#graphic-interface-version">Graphic interface version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Instructions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#an-alternative-game">6561 : An alternative game</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Instructions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project 2048</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>2048 : The game</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/main/Game.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-game">
+<h1>2048 : The game<a class="headerlink" href="#the-game" title="Permalink to this headline">¶</a></h1>
+<p>Here are the playable versions of the game 2048.</p>
+<div class="section" id="terminal-version">
+<h2>Terminal version<a class="headerlink" href="#terminal-version" title="Permalink to this headline">¶</a></h2>
+<p>To play this version of the game you just need a keyboard, and for greater comfort an <em>AZERTY</em> binded one.</p>
+<div class="section" id="instructions">
+<h3>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h3>
+<p>You may type in a python shell the follwing lines, after what the game will start:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Main</span>
+<span class="n">Main</span><span class="o">.</span><span class="n">Launchgame</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The keys are the following :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>z : up</p></li>
+<li><p>q : left</p></li>
+<li><p>d : right</p></li>
+<li><p>s : down</p></li>
+</ul>
+</div></blockquote>
+<p>To submit the direction, you must press enter after entering it.</p>
+<dl class="py class">
+<dt id="Game2048.Main.Game_2048">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">Game2048.Main.</span></code><code class="sig-name descname"><span class="pre">Game_2048</span></code><a class="headerlink" href="#Game2048.Main.Game_2048" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains the necessary functions to  launch either the 2048 user game or the A.I. ones.</p>
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.demo">
+<code class="sig-name descname"><span class="pre">demo</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.demo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Demo of an AI game (displayed).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.display">
+<code class="sig-name descname"><span class="pre">display</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the grid and score in a terminal.</p>
+<p>See example :</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>4</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Your score is 32</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.down_movement">
+<code class="sig-name descname"><span class="pre">down_movement</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.down_movement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes the complete move of the cells to the bottom.</p>
+<p>See example:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+<p>becomes :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the grid and the score after completing an up movement.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.inverse">
+<code class="sig-name descname"><span class="pre">inverse</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate the grid according to an axial symmetry. It will be used to define movements.</p>
+<p>All movements are based on <a class="reference internal" href="#Game2048.Main.Game_2048.merge_left" title="Game2048.Main.Game_2048.merge_left"><code class="xref py py-func docutils literal notranslate"><span class="pre">merge_left()</span></code></a> and left <code class="xref py py-func docutils literal notranslate"><span class="pre">left</span> <span class="pre">stack()</span></code>.</p>
+<p>See example:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+<p>becomes :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.left_movement">
+<code class="sig-name descname"><span class="pre">left_movement</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.left_movement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes the complete move of the cells to the left.</p>
+<p>See example:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+<p>becomes :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the grid and the score after completing a left movement.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.main">
+<code class="sig-name descname"><span class="pre">main</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launches the user game.</p>
+<p>Classic commands are used to play (azerty keyboard) :</p>
+<ul class="simple">
+<li><p>z : up</p></li>
+<li><p>q : left</p></li>
+<li><p>d : right</p></li>
+<li><p>s : down</p></li>
+</ul>
+<p>To do an action you must select a direction and  press enter.</p>
+<p>To quit, write “quit” and press enter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.maxcell_find">
+<code class="sig-name descname"><span class="pre">maxcell_find</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.maxcell_find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the greater value of the grid’s cells.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the value of the identified cell.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.merge_left">
+<code class="sig-name descname"><span class="pre">merge_left</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.merge_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges the grid cells to the left.</p>
+<p>See example:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>4</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>8</p></td>
+<td><p>8</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+<p>becomes :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>8</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>0</p></td>
+<td><p>16</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.newcell">
+<code class="sig-name descname"><span class="pre">newcell</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.newcell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new cell to the grid :</p>
+<ul class="simple">
+<li><p>a 2 cell with 9/10 probability</p></li>
+<li><p>a 4 cell with 1/10 probability</p></li>
+</ul>
+<p>See example:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>becomes :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the new grid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.newcell_start">
+<code class="sig-name descname"><span class="pre">newcell_start</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.newcell_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the grid with :</p>
+<ul class="simple">
+<li><p>a 2 cell with 9/10 probability</p></li>
+<li><p>a 4 cell with 1/10 probability</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the initialized grid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.possible_action">
+<code class="sig-name descname"><span class="pre">possible_action</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.possible_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a movement is possible on the grid.</p>
+<p>See example:</p>
+<blockquote>
+<div><p>In this grid, cells [0][0] and [0][1] can be merged in up and down movements.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>8</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>8</p></td>
+<td><p>4</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>8</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+<p>Whereas in this one, no cells can be merged.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>4</p></td>
+<td><p>8</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>8</p></td>
+<td><p>4</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>8</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the movement is possible, false otherwise.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.right_movement">
+<code class="sig-name descname"><span class="pre">right_movement</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.right_movement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes the complete move of the cells to the right.</p>
+<p>See example:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+<p>becomes :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>8</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the grid and the score after completing an up movement.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.stack">
+<code class="sig-name descname"><span class="pre">stack</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.stack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stacks the grid’s cells to the left.</p>
+<p>See example:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>8</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>becomes :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>8</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.stop_game">
+<code class="sig-name descname"><span class="pre">stop_game</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.stop_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the game should be stop (when there is no more possible movement).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the game can continued, false otherwise.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.sup_2048">
+<code class="sig-name descname"><span class="pre">sup_2048</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.sup_2048" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts the amount of cells with values greater or equal than to 2048.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the count of these cells.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.transpose">
+<code class="sig-name descname"><span class="pre">transpose</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.transpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transposes (mathematically) the grid. It will be used to define movements.
+All movements are based on <a class="reference internal" href="#Game2048.Main.Game_2048.merge_left" title="Game2048.Main.Game_2048.merge_left"><code class="xref py py-func docutils literal notranslate"><span class="pre">merge_left()</span></code></a> and left <code class="xref py py-func docutils literal notranslate"><span class="pre">left</span> <span class="pre">stack()</span></code>.</p>
+<p>See example:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+<p>becomes :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the transposed grid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Game2048.Main.Game_2048.up_movement">
+<code class="sig-name descname"><span class="pre">up_movement</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.up_movement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes the complete move of the cells to the top.</p>
+<p>See example:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+<p>becomes :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the grid and the score after completing an up movement.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="graphic-interface-version">
+<h2>Graphic interface version<a class="headerlink" href="#graphic-interface-version" title="Permalink to this headline">¶</a></h2>
+<p>A graphical version looking like the classic game is also playable.</p>
+<div class="section" id="id1">
+<h3>Instructions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The graphical game follows the same instructions as the terminal version; The only difference stands in the python command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Visual_game</span>
+<span class="n">Visual_game</span><span class="o">.</span><span class="n">Visual_game</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="an-alternative-game">
+<h1>6561 : An alternative game<a class="headerlink" href="#an-alternative-game" title="Permalink to this headline">¶</a></h1>
+<p>Unlike the 2048 game, this one consists of a 3x3 grid.</p>
+<div class="section" id="id2">
+<h2>Instructions<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Type the following code lines :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Main</span>
+<span class="n">Main</span><span class="o">.</span><span class="n">Game_6561</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt id="Game2048.Main.Game_6561">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">Game2048.Main.</span></code><code class="sig-name descname"><span class="pre">Game_6561</span></code><a class="headerlink" href="#Game2048.Main.Game_6561" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alternative game to 2048 with a 3x3 grid and a goal score of 6561.</p>
+<p>Contains the same functions as class <a class="reference internal" href="#Game2048.Main.Game_2048" title="Game2048.Main.Game_2048"><code class="xref py py-class docutils literal notranslate"><span class="pre">Game_2048</span></code></a> (excepting A.I. plays ones).</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../installation/installation.html" class="btn btn-neutral float-left" title="How to install the project 2048" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Nathan Esteve, Ayoub Aarab, Elucson Jean-Baptiste, Jalal Sakher.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
