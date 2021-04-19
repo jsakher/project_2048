@@ -34,7 +34,7 @@ def Visual_game():
 
     window.geometry("720x480")
     window.minsize(720,480)
-    # window.iconbitmap('ico_2048.ico')
+    window.iconbitmap('ico_2048.ico')
     window.config(background='#B0C4DE')
     position_grid = [(50,50), (150,50), (250,50), (350,50), (50,150),  (150,150), (250,150), (350,150), (50,250), (150,250), (250,250), (350,250), (50,350), (150,350), (250,350), (350,350)]
     grid = fonc.new_game()
