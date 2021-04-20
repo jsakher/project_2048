@@ -31,7 +31,7 @@ The keys are the following :
 To submit the direction, you must press enter after entering it.
 
 .. autoclass:: Game2048.Main.Game_2048
-    :members: demo, display, down_movement, inverse, left_movement, main, maxcell_find, merge_left,
+    :members: display, down_movement, inverse, left_movement, main, maxcell_find, merge_left,
         newcell, newcell_start, possible_action, right_movement, stack, stop_game, sup_2048, transpose, up_movement
 
 
@@ -65,6 +65,8 @@ Type the following code lines :
 
     import Main
     Main.Game_6561.main()
+
+And play as you do with 2048.
 
 .. autoclass:: Game2048.Main.Game_6561
 
