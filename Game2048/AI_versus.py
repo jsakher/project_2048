@@ -78,7 +78,7 @@ def scoreboard(grid1, grid2, strategy1, strategy2):
     print('--------------------------------------------------------------------------------------------------------------------')
 
 
-def state_game2(grid1, grid2, x="", y="" , strategy1="", strategy2=""):
+def state_game2(grid1, grid2, x="", y="", strategy1="", strategy2=""):
     ''' Display the grid's state '''
     print("--------------------------------------------------------------------")
     print(f'AI_one play: {x}                          AI_two play: {y}')
@@ -93,11 +93,11 @@ def state_game2(grid1, grid2, x="", y="" , strategy1="", strategy2=""):
     return('------------')
 
 
-def Versus(strategy1='random', strategy2='random', skip=True, speed = 0.5):
+def Versus(strategy1='random', strategy2='random', skip=True, speed=0.5):
 
   
 
-    two_opposite , two_adjacent = set_random_position()
+    two_opposite, two_adjacent = set_random_position()
     AI_one, AI_two = launch_versus()
 
     if skip is False:

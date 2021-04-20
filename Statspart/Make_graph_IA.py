@@ -8,7 +8,7 @@ import pandas as pd
 just_plot = False
 
 
-# DONT RUN 
+# DON'T RUN 
 
 if just_plot is False:
 
@@ -37,7 +37,7 @@ if just_plot is False:
     np.savetxt('Storage_AI_score_opposite.txt', data_opposite)
     np.savetxt('Storage_AI_score_adjacent.txt', data_adjacent)
     np.savetxt('Storage_AI_maxcell_opposite.txt', stockage_maxcell_opposite)
-    np.savetxt('Storage_AI_maxcell_adjacent.txt',  stockage_maxcell_adjacent)
+    np.savetxt('Storage_AI_maxcell_adjacent.txt', stockage_maxcell_adjacent)
 
 
 
@@ -49,16 +49,16 @@ else:
     data_score_random = np.loadtxt('Storage_AI_score_random.txt')
     data_score_clockwise = np.loadtxt('Storage_AI_score_clockwise.txt')
 
-    Mean_storage_random = (1/np.arange(1, len(data_score_random)+1)) * np.cumsum(data_score_random)
-    Mean_storage_clockwise = (1/np.arange(1, len(data_score_clockwise)+1)) * np.cumsum(data_score_clockwise)
+    Mean_storage_random = (1/np.arange(1, len(data_score_random) + 1)) * np.cumsum(data_score_random)
+    Mean_storage_clockwise = (1/np.arange(1, len(data_score_clockwise) + 1)) * np.cumsum(data_score_clockwise)
 
 
 
     empirical_mean_random = Mean_storage_random[len(Mean_storage_random) - 1]
     empirical_mean_clockwise = Mean_storage_clockwise[len(Mean_storage_clockwise) - 1]
 
-    print(f'Empicial mean for random strategie is {empirical_mean_random}')
-    print(f'Empicial mean for random clockwise is {empirical_mean_clockwise}')
+    print(f'Empirical mean for random strategie is {empirical_mean_random}')
+    print(f'Empirical mean for random clockwise is {empirical_mean_clockwise}')
 
     plt.figure()
     plt.plot(Mean_storage_random, color=random_color, label='Random movement')
@@ -68,21 +68,21 @@ else:
     plt.xlabel("Number of data")
     plt.ylabel("Empirical mean")
     plt.xlim(0, 1500)
-    plt.ylim(0,4000)
+    plt.ylim(0, 4000)
     plt.savefig('AI_score.pdf')
     plt.show()
 
 
-    d = {'Random strategie': data_score_random, 'Clockwise strategie': data_score_clockwise}
+    d = {'Random strategy': data_score_random, 'Clockwise strategy': data_score_clockwise}
     df = pd.DataFrame(d)
     plt.figure()
     sns.kdeplot(data_score_random, bw_adjust=0.1, legend=True, color=random_color)
     sns.kdeplot(data_score_clockwise, bw_adjust=0.1, legend=True, color=clockwise_color)
     # plt.vlines(empirical_mean_random, 0, 0.00125, colors='black')
     # plt.vlines(empirical_mean_clockwise, 0, 0.00125, colors='black')
-    plt.legend(labels=['Random strategie','Clockwise strategie'])
+    plt.legend(labels=['Random strategy', 'Clockwise strategy'])
     plt.title("Distribution of score with random et clockwise strategies")
-    plt.xlabel("score")
+    plt.xlabel("Score")
     plt.savefig('AI_distribution.pdf')
 
 

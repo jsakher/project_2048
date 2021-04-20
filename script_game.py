@@ -1,4 +1,4 @@
 import game_2048
 
-def lauchgame():
+def launchgame():
     AAA = game_2048.Game_2048().main()
