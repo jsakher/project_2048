@@ -12,6 +12,7 @@ Welcome to Project 2048's documentation!
 
    installation/installation
    main/Game
+   simulation/strategies
 
 
 
