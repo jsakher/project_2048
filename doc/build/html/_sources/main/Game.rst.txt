@@ -51,6 +51,9 @@ The graphical game follows the same instructions as the terminal version; The on
     Visual_game.Visual_game()
 
 
+.. image:: ../_images/Human_playing.gif
+
+
 6561 : An alternative game
 ==========================
 
