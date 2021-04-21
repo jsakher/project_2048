@@ -1,10 +1,5 @@
-A versus mode
-=============
-
-Let's add some features graph comparaison between two chosen strategies.
-
-Distribution :
-~~~~~~~~~~~~~~
+Distribution
+~~~~~~~~~~~~
 
 Random vs Clockwise :
 ^^^^^^^^^^^^^^^^^^^^^
@@ -15,3 +10,17 @@ Opposite vs Adjacent :
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: ../_images/AI_distribution_oppositevsadjacent.svg
+
+Maximum cell
+~~~~~~~~~~~~
+
+Random vs Clockwise :
+^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../_images/AI_maxcell_randomvsclockwise.svg
+
+Opposite vs Adjacent :
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../_images/AI_maxcell_oppositevsadjacent.svg
+
