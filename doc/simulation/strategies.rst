@@ -4,14 +4,79 @@ Simulations
 Strategies
 ----------
 
-speak about score convergence and plot 
-graphs
+Four strategies are implemented (available in :py:class:`Game2048.Main.Game_2048`).
+
+Random :
+~~~~~~~~
+
+At each step, a direction is randomly chosen between the four possible.
+    
+.. autofunction:: Game2048.Main.Game_2048.random_2048
+
+Performance :
+^^^^^^^^^^^^^
+
+.. image:: Statspart/result/Random_strategy_meanCI.*
+
+
+Clockwise : 
+~~~~~~~~~~~
+
+Movements are chosen clockwise (the first one is random).
+
+.. autofunction:: Game2048.Main.Game_2048.clockwise_2048
+
+Performance :
+^^^^^^^^^^^^^
+
+.. image:: Statspart/result/Clockwise_strategy_meanCI.*
+
+
+Opposite :
+~~~~~~~~~~
+
+A direction is randomly picked and alternate with its opposite one.
+
+.. autofunction:: Game2048.Main.Game_2048.opposite_2048
+
+Performance :
+^^^^^^^^^^^^^
+
+.. image:: Statspart/result/Opposite_strategy_meanCI.*
+
+
+Adjacent :
+~~~~~~~~~~
+
+A random movement and one of it adjacent one alternate.
+
+.. autofunction:: Game2048.Main.Game_2048.adjacent_2048
+
+Performance :
+^^^^^^^^^^^^^
+
+.. image:: Statspart/result/Adjacent_strategy_meanCI.*
+
+
 
 say that we made maths tests about their 
 performance and show results
 
 A versus mode
--------------
+=============
 
-A better way to compare strategies' score
-is to overlay their graphs
+Let's add some features graph comparaison between two chosen strategies.
+
+Distribution :
+~~~~~~~~~~~~~~
+
+Random vs Clockwise :
+^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: Statspart/AI_distribution_randomvsclockwise.*
+
+Opposite vs Adjacent :
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: Statspart/AI_distribution_oppositevsadjacent.*
+

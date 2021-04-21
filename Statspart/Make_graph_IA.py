@@ -1,11 +1,11 @@
 import random
 import numpy as np
-#import Main
+from Game2048.Main import Game_2048
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
-just_plot = False
+just_plot = True
 
 
 # DON'T RUN 
@@ -17,14 +17,14 @@ if just_plot is False:
     stockage_maxcell_opposite = []
     stockage_maxcell_adjacent = []
     for i in range(300000):
-        AI_one = Main.Game_2048()
-        AI_one.adjacent_2048()
+        AI_one = Game_2048()
+        AI_one.opposite_2048()
         AI_one.maxcell_find()
         stockage_maxcell_opposite.append(AI_one.maxcell)
         stockage_score_opposite.append(AI_one.score)
 
-        AI_two = Main.Game_2048()
-        AI_two.random_2048()
+        AI_two = Game_2048()
+        AI_two.adjacent_2048()
         AI_two.maxcell_find()
         stockage_maxcell_adjacent.append(AI_two.maxcell)
         stockage_score_adjacent.append(AI_two.score)
@@ -44,64 +44,65 @@ if just_plot is False:
 else:
 
 
-    random_color = '#8A2BE2'
-    clockwise_color = '#FF8C00'
-    data_score_random = np.loadtxt('Storage_AI_score_random.txt')
-    data_score_clockwise = np.loadtxt('Storage_AI_score_clockwise.txt')
+    opposite_color = '#8A2BE2'
+    adjacent_color = '#FF8C00'
+    data_score_opposite = np.loadtxt('Storage_AI_score_opposite.txt')
+    data_score_adjacent = np.loadtxt('Storage_AI_score_adjacent.txt')
 
-    Mean_storage_random = (1/np.arange(1, len(data_score_random) + 1)) * np.cumsum(data_score_random)
-    Mean_storage_clockwise = (1/np.arange(1, len(data_score_clockwise) + 1)) * np.cumsum(data_score_clockwise)
+    Mean_storage_opposite = (1/np.arange(1, len(data_score_opposite) + 1)) * np.cumsum(data_score_opposite)
+    Mean_storage_adjacent = (1/np.arange(1, len(data_score_adjacent) + 1)) * np.cumsum(data_score_adjacent)
 
 
 
-    empirical_mean_random = Mean_storage_random[len(Mean_storage_random) - 1]
-    empirical_mean_clockwise = Mean_storage_clockwise[len(Mean_storage_clockwise) - 1]
+    empirical_mean_opposite = Mean_storage_opposite[len(Mean_storage_opposite) - 1]
+    empirical_mean_adjacent = Mean_storage_adjacent[len(Mean_storage_adjacent) - 1]
 
-    print(f'Empirical mean for random strategie is {empirical_mean_random}')
-    print(f'Empirical mean for random clockwise is {empirical_mean_clockwise}')
+    print(f'Empirical mean for opposite strategie is {empirical_mean_opposite}')
+    print(f'Empirical mean for opposite adjacent is {empirical_mean_adjacent}')
 
     plt.figure()
-    plt.plot(Mean_storage_random, color=random_color, label='Random movement')
-    plt.plot(Mean_storage_clockwise, color=clockwise_color, label='Clockwise movement')
+    plt.plot(Mean_storage_opposite, color=opposite_color, label='opposite movement')
+    plt.plot(Mean_storage_adjacent, color=adjacent_color, label='adjacent movement')
     plt.title("Empirical mean convergence")
     plt.legend()
     plt.xlabel("Number of data")
     plt.ylabel("Empirical mean")
     plt.xlim(0, 1500)
-    plt.ylim(0, 4000)
-    plt.savefig('AI_score.pdf')
+    plt.ylim(0, 400)
+    plt.savefig('AI_score_oppositevsadjacent.svg', format = 'svg')
     plt.show()
 
 
-    d = {'Random strategy': data_score_random, 'Clockwise strategy': data_score_clockwise}
+    d = {'opposite strategy': data_score_opposite, 'adjacent strategy': data_score_adjacent}
     df = pd.DataFrame(d)
     plt.figure()
-    sns.kdeplot(data_score_random, bw_adjust=0.1, legend=True, color=random_color)
-    sns.kdeplot(data_score_clockwise, bw_adjust=0.1, legend=True, color=clockwise_color)
-    # plt.vlines(empirical_mean_random, 0, 0.00125, colors='black')
-    # plt.vlines(empirical_mean_clockwise, 0, 0.00125, colors='black')
-    plt.legend(labels=['Random strategy', 'Clockwise strategy'])
-    plt.title("Distribution of score with random et clockwise strategies")
+    sns.kdeplot(data_score_opposite, bw_adjust=0.1, legend=True, color=opposite_color)
+    sns.kdeplot(data_score_adjacent, bw_adjust=0.1, legend=True, color=adjacent_color)
+    # plt.vlines(empirical_mean_opposite, 0, 0.00125, colors='black')
+    # plt.vlines(empirical_mean_adjacent, 0, 0.00125, colors='black')
+    plt.legend(labels=['opposite strategy', 'adjacent strategy'])
+    plt.title("Distribution of score with opposite et adjacent strategies")
     plt.xlabel("Score")
-    plt.savefig('AI_distribution.pdf')
+    plt.xlim(0, 400)
+    plt.savefig('AI_distribution_oppositevsadjacent.svg',format = 'svg')
 
 
     plt.show()
 
 
-    data_maxcell_random = np.loadtxt('Storage_AI_maxcell_random.txt')
-    data_maxcell_clockwise = np.loadtxt('Storage_AI_maxcell_clockwise.txt')
+    data_maxcell_opposite = np.loadtxt('Storage_AI_maxcell_opposite.txt')
+    data_maxcell_adjacent = np.loadtxt('Storage_AI_maxcell_adjacent.txt')
    
 
     plt.figure(1)
     
-    plt.hist(data_maxcell_random, label='Random strategie', bins=15, color=random_color)
-    plt.hist(data_maxcell_clockwise, label='Clockwise strategie', bins=15, color=clockwise_color)
+    plt.hist(data_maxcell_opposite, label='opposite strategy', bins=15, color=opposite_color)
+    plt.hist(data_maxcell_adjacent, label='adjacent strategy', bins=15, color=adjacent_color)
     plt.legend(loc='upper right')
     plt.title("Distribution of max score")
     plt.ylabel("Number of apparition among 300 000 try")
     plt.xlabel("Max cell")
-    plt.savefig('AI_maxcell.pdf')
+    plt.savefig('AI_maxcell_oppositevsadjacent.svg', format = 'svg')
     plt.show()
     
 
@@ -142,7 +143,7 @@ else:
 #     plt.xlim(0, 1500)
 #     plt.ylim(100,300)
 #     # plt.plot(Mean_storage, color='#FF8C00')
-#     # plt.label('Random movement')
+#     # plt.label('opposite movement')
 #     plt.savefig('./Data_storage/AI_score_onemovement.pdf')
 #     plt.show()
 

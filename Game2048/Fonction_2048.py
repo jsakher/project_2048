@@ -118,11 +118,11 @@ def stop_game(grid):  # Game stops when there is no possible movement to make (i
 def state_game(grid, score):
     ''' Display the grid's state '''
 
-    print(grid[0])
-    print(grid[1])
-    print(grid[2])
-    print(grid[3])
-    print(f"Your score is {score}")
+    print(grid[0], '\n', grid[1], '\n', grid[2], '\n', grid[3], '\n', f'Your score is {score}')
+    # print(grid[1])
+    # print(grid[2])
+    # print(grid[3])
+    # print(f"Your score is {score}")
     return('------------')
 
 

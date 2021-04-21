@@ -89,10 +89,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../main/Game.html">2048 : The game</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/Game.html#an-alternative-game">6561 : An alternative game</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Simulations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#strategies">Strategies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#a-versus-mode">A versus mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#strategies">Strategies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#random">Random :</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#performance">Performance :</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#clockwise">Clockwise :</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Performance :</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#opposite">Opposite :</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Performance :</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#adjacent">Adjacent :</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Performance :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#a-versus-mode">A versus mode</a></li>
 </ul>
 
             
@@ -164,16 +182,72 @@
 <h1>Simulations<a class="headerlink" href="#simulations" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="strategies">
 <h2>Strategies<a class="headerlink" href="#strategies" title="Permalink to this headline">¶</a></h2>
-<p>speak about score convergence and plot
-graphs</p>
+<p>Four strategies are implemented (available in <a class="reference internal" href="../main/Game.html#Game2048.Main.Game_2048" title="Game2048.Main.Game_2048"><code class="xref py py-class docutils literal notranslate"><span class="pre">Game2048.Main.Game_2048</span></code></a>).</p>
+<div class="section" id="random">
+<h3>Random :<a class="headerlink" href="#random" title="Permalink to this headline">¶</a></h3>
+<p>At each step, a direction is randomly chosen between the four possible.</p>
+<dl class="py function">
+<dt id="Game2048.Main.Game_2048.random_2048">
+<code class="sig-prename descclassname"><span class="pre">Game2048.Main.Game_2048.</span></code><code class="sig-name descname"><span class="pre">random_2048</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.random_2048" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launches an AI game with random movements only.</p>
+</dd></dl>
+
+<div class="section" id="performance">
+<h4>Performance :<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h4>
+<img alt="simulation/Statspart/result/Random_strategy_meanCI.*" src="simulation/Statspart/result/Random_strategy_meanCI.*" />
+</div>
+</div>
+<div class="section" id="clockwise">
+<h3>Clockwise :<a class="headerlink" href="#clockwise" title="Permalink to this headline">¶</a></h3>
+<p>Movements are chosen clockwise (the first one is random).</p>
+<dl class="py function">
+<dt id="Game2048.Main.Game_2048.clockwise_2048">
+<code class="sig-prename descclassname"><span class="pre">Game2048.Main.Game_2048.</span></code><code class="sig-name descname"><span class="pre">clockwise_2048</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.clockwise_2048" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launches an AI game with clockwise movement (starting movement is randomized).</p>
+</dd></dl>
+
+<div class="section" id="id1">
+<h4>Performance :<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<img alt="simulation/Statspart/result/Clockwise_strategy_meanCI.*" src="simulation/Statspart/result/Clockwise_strategy_meanCI.*" />
+</div>
+</div>
+<div class="section" id="opposite">
+<h3>Opposite :<a class="headerlink" href="#opposite" title="Permalink to this headline">¶</a></h3>
+<p>A direction is randomly picked and alternate with its opposite one.</p>
+<dl class="py function">
+<dt id="Game2048.Main.Game_2048.opposite_2048">
+<code class="sig-prename descclassname"><span class="pre">Game2048.Main.Game_2048.</span></code><code class="sig-name descname"><span class="pre">opposite_2048</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.opposite_2048" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launches an AI game with only a first random movement and its opposite one.</p>
+</dd></dl>
+
+<div class="section" id="id2">
+<h4>Performance :<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<img alt="simulation/Statspart/result/Opposite_strategy_meanCI.*" src="simulation/Statspart/result/Opposite_strategy_meanCI.*" />
+</div>
+</div>
+<div class="section" id="adjacent">
+<h3>Adjacent :<a class="headerlink" href="#adjacent" title="Permalink to this headline">¶</a></h3>
+<p>A random movement and one of it adjacent one alternate.</p>
+<dl class="py function">
+<dt id="Game2048.Main.Game_2048.adjacent_2048">
+<code class="sig-prename descclassname"><span class="pre">Game2048.Main.Game_2048.</span></code><code class="sig-name descname"><span class="pre">adjacent_2048</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Main.Game_2048.adjacent_2048" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launches an AI game with only a first random movement and one of its adjacent ones.</p>
+</dd></dl>
+
+<div class="section" id="id3">
+<h4>Performance :<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<img alt="simulation/Statspart/result/Adjacent_strategy_meanCI.*" src="simulation/Statspart/result/Adjacent_strategy_meanCI.*" />
 <p>say that we made maths tests about their
 performance and show results</p>
 </div>
-<div class="section" id="a-versus-mode">
-<h2>A versus mode<a class="headerlink" href="#a-versus-mode" title="Permalink to this headline">¶</a></h2>
-<p>A better way to compare strategies’ score
-is to overlay their graphs</p>
 </div>
+</div>
+</div>
+<div class="section" id="a-versus-mode">
+<h1>A versus mode<a class="headerlink" href="#a-versus-mode" title="Permalink to this headline">¶</a></h1>
+<p>Let’s add some features graph comparaison between two chosen strategies.</p>
+<img alt="simulation/Statspart/AI_distribution_randomvsclockwise.*" src="simulation/Statspart/AI_distribution_randomvsclockwise.*" />
+<img alt="simulation/Statspart/AI_distribution_oppositevsadjacent.*" src="simulation/Statspart/AI_distribution_oppositevsadjacent.*" />
 </div>
 
 

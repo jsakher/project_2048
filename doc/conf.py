@@ -30,6 +30,7 @@ author = 'Nathan Esteve, Ayoub Aarab, Elucson Jean-Baptiste, Jalal Sakher'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.imgconverter',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
