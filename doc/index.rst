@@ -24,13 +24,12 @@ Welcome to Project 2048's documentation!
    main/Game
 
 
-Four strategies are implemented (available in :py:class:`Game2048.Main.Game_2048`).
+Four strategies are implemented.
 
 .. toctree::
    :maxdepth: 5
    :caption: Strategies
 
-   simulation/strategies
    simulation/random
    simulation/clockwise
    simulation/opposite
