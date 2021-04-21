@@ -50,7 +50,7 @@ plt.title("Average point gain with random strategy")
 plt.xlabel("number of data")
 plt.ylabel("Empirical mean")
 plt.legend()
-plt.savefig('Random_strategy_meanCI.svg', format = 'svg')
+plt.savefig('Random_strategy_meanCI.svg', format='svg')
 plt.show()
 
 # Clockwise plot
@@ -70,7 +70,7 @@ plt.title("Average point gain with clockwise strategy")
 plt.xlabel("number of data")
 plt.ylabel("Empirical mean")
 plt.legend()
-plt.savefig('Clockwise_strategy_meanCI.svg', format = 'svg')
+plt.savefig('Clockwise_strategy_meanCI.svg', format='svg')
 plt.show()
 
 # Opposite plot
@@ -89,7 +89,7 @@ plt.title("Average point gain with opposite strategy")
 plt.xlabel("number of data")
 plt.ylabel("Empirical mean")
 plt.legend()
-plt.savefig('Opposite_strategy_meanCI.svg', format = 'svg')
+plt.savefig('Opposite_strategy_meanCI.svg', format='svg')
 plt.show()
 
 # Adjacent plot
@@ -102,12 +102,12 @@ plt.plot(x, inf_adj, '--',
 plt.plot(x, sup_adj, '--',
          color="black")
 plt.fill_between(x, inf_adj, sup_adj,
-                color='#D3D3D3')
+                 color='#D3D3D3')
 plt.ylim(100, 135)
 plt.xlim(0, 300000)
 plt.title("Average point gain with adjacent strategy")
 plt.xlabel("number of data")
 plt.ylabel("Empirical mean")
 plt.legend()
-plt.savefig('Adjacent_strategy_meanCI.svg', format = 'svg')
+plt.savefig('Adjacent_strategy_meanCI.svg', format='svg')
 plt.show()
