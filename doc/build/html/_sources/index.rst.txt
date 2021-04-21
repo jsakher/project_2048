@@ -36,6 +36,13 @@ Four strategies are implemented.
    simulation/adjacent
 
 
+.. toctree::
+   :maxdepth: 5
+   :caption: A little illustration
+
+   animation/animation
+
+
 Some features of these strategies are shown here. They are structured in versus modes between two chosen strategies.
 
 .. toctree::
