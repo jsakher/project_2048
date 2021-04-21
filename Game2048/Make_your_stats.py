@@ -6,7 +6,7 @@ import seaborn as sns
 
 def Make_stats(nb_game=1000):
     """
-    Play a several number of game played with random and clockwise strategies.  
+    Play several number of game played with random and clockwise strategies.  
     Calculates empirical mean and standard deviation with your data,
     compare them with our data. (300 000 game played)  
 
