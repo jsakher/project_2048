@@ -943,8 +943,4 @@ class Game_6561():
 #AAA.random_2048()
 #print(AAA.score)
 
-def Launchgame():
-    AAA = Game_2048()
-    AAA.main()
 
-Launchgame()

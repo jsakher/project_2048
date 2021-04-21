@@ -1,20 +1,6 @@
 # %% Function
 
-# Color and dictionary creation (visualisation pour plus tard)
-
 import random
-index_cell = []
-
-for i in range(1, 18):
-    index_cell.append(2**i)
-
-color_cell1 = ['#fef198', '#f5e28f', '#ebd385', '#e1c47c', '#d7b672',
-               '#cda869', '#c49a60', '#ba8c56', '#b07e4d', '#a77044',
-               '#9d623b', '#935532', '#8a4729', '#803920',
-               '#772a17', '#6e190c', '#650000']
-
-cell1 = zip(index_cell, color_cell1)
-
 
 # %% Création de la grille, ajout des cellules (gestion aléatoire)
 
