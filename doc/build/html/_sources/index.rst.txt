@@ -10,10 +10,37 @@ Welcome to Project 2048's documentation!
    :maxdepth: 5
    :caption: Contents:
 
-   installation/installation
-   main/Game
-   simulation/strategies
 
+.. toctree::
+   :maxdepth: 5
+   :caption: Installation
+
+   installation/installation
+
+.. toctree::
+   :maxdepth: 5
+   :caption: The Game
+
+   main/Game
+
+
+Four strategies are implemented (available in :py:class:`Game2048.Main.Game_2048`).
+
+.. toctree::
+   :maxdepth: 5
+   :caption: Strategies
+
+   simulation/strategies
+   simulation/random
+   simulation/clockwise
+   simulation/opposite
+   simulation/adjacent
+
+.. toctree::
+   :maxdepth: 5
+   :caption: Features
+
+   versus/versus
 
 
 Indices and tables
