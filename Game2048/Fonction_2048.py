@@ -4,8 +4,9 @@ import random
 
 # %% Création de la grille, ajout des cellules (gestion aléatoire)
 
+
 def sup_2048(grid):
-    '''Counts the amount of cells with value 
+    '''Counts the amount of cells with value
         greater than or equal to 2048'''
     count = 0
     for i in range(4):
@@ -75,7 +76,7 @@ def possible_action(grid):
         for j in range(3):
             if (grid[i][j] == grid[i+1][j] or grid[i][j] == grid [i][j+1]):
                 p_a = True
-        
+
     for j in range(3):
         if (grid[3][j] == grid[3][j+1]):
             p_a = True
@@ -85,9 +86,9 @@ def possible_action(grid):
             p_a = True
 
     return p_a
-        
 
-def stop_game(grid):  # Game stops when there is no possible movement to make (i.e. cannot merge any cells), not when the grid is full !
+
+def stop_game(grid):
     ''' Check every step if you lose '''
 
     full_cell = 0

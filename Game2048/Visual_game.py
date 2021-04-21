@@ -100,6 +100,7 @@ def Visual_game(colorblind=False):
 
     # Set axes
     # --------------------------------------------------------
+
     Lab_0_0 = Label(window, bd=30, bg=color_cell1[grid[0][0]],
                     text=(grid[0][0]),
                     font=100)

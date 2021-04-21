@@ -20,7 +20,7 @@ class Game_2048():
 
     def maxcell_find(self):
         """ Identifies the greater value of the grid's cells. 
-        
+
         :returns: the value of the identified cell.
         :rtype: int
         """
@@ -122,7 +122,7 @@ class Game_2048():
 
     def display(self):
         """ Displays the grid and score in a terminal.
-        
+
         See example :
 
             +---------------------+
@@ -149,7 +149,7 @@ class Game_2048():
 
     def possible_action(self):
         """ Checks if a movement is possible on the grid.
-        
+
         See example:
 
             In this grid, cells [0][0] and [0][1] can be merged in up and down movements.
@@ -937,10 +937,5 @@ class Game_6561():
             self.display()
             if self.status is False:
                 print(f'you lose your score is {self.score}')
-
-
-#AAA = Game_2048().clockwise_2048()
-#AAA.random_2048()
-#print(AAA.score)
 
 
