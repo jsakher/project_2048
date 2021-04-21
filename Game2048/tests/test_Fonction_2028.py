@@ -22,14 +22,14 @@ class TestFonction(unittest.TestCase):
     def test_stop_game(self):
         assert Fonction_2048.stop_game(self.grid_np) == False
         assert Fonction_2048.stop_game(self.grid_2048) == True
-    # @patch('builtins.print')
-    # def test_state_game(self, mock_print):
-    #      Fonction_2048.state_game(self.grid_2048, self.score)
-    #      mock_print.assert_called_with(self.grid_2048[0])
-    #      mock_print.assert_called_with(self.grid_2048[1])
-    #      mock_print.assert_called_with(self.grid_2048[2])
-    #      mock_print.assert_called_with(self.grid_2048[3])
-    #      mock_print.assert_called_with(f"Your score is {self.score}")
+    @patch('builtins.print')
+    def test_state_game(self, mock_print):
+         Fonction_2048.state_game(self.grid_2048, self.score)
+         mock_print.assert_called_with(self.grid_2048[0], '\n', self.grid_2048[1], '\n', self.grid_2048[2], '\n', self.grid_2048[3], '\n', f'Your score is {self.score}')
+        #  mock_print.assert_called_with(self.grid_2048[1])
+        #  mock_print.assert_called_with(self.grid_2048[2])
+        #  mock_print.assert_called_with(self.grid_2048[3])
+        #  mock_print.assert_called_with(f"Your score is {self.score}")
     # def test_newcell_start(self):
     #     random.seed(123) #makes uniform in [0,1] < 0.9, random.seed(1234) makes it otherwise.
     #     assert Fonction_2048.new_game(self.grid_new) == ([[2, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]] or [[0, 2, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]] or [[0, 0, 2, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]] or [[0, 0, 0, 2], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]] or [[0, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]or [[0, 0, 0, 0], [0, 2, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]] or [[0, 0, 0, 0], [0, 0, 2, 0], [0, 0, 0, 0], [0, 0, 0, 0]] or [[0, 0, 0, 0], [0, 0, 0, 2], [0, 0, 0, 0], [0, 0, 0, 0]]or [[0, 0, 0, 0], [0, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]] or [[0, 0, 0, 0], [0, 0, 0, 0], [0, 2, 0, 0], [0, 0, 0, 0]] or [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 2, 0], [0, 0, 0, 0]]or [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 2], [0, 0, 0, 0]] or [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [2, 0, 0, 0]] or [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 2, 0, 0]]or [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 2, 0]] or [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 2]])

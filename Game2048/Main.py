@@ -141,11 +141,11 @@ class Game_2048():
 
         """
 
-        print(self.grid[0])
-        print(self.grid[1])
-        print(self.grid[2])
-        print(self.grid[3])
-        print(f'Your score is {self.score}')
+        print(self.grid[0], '\n', self.grid[1], '\n', self.grid[2], '\n', self.grid[3], '\n', f'Your score is {self.score}')
+        # print(self.grid[1])
+        # print(self.grid[2])
+        # print(self.grid[3])
+        # print(f'Your score is {self.score}')
 
     def possible_action(self):
         """ Checks if a movement is possible on the grid.
@@ -946,3 +946,5 @@ class Game_6561():
 def Launchgame():
     AAA = Game_2048()
     AAA.main()
+
+Launchgame()
