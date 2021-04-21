@@ -16,7 +16,7 @@ At each step, a direction is randomly chosen between the four possible.
 Performance :
 ^^^^^^^^^^^^^
 
-.. image:: Statspart/result/Random_strategy_meanCI.*
+.. image:: Statspart/Random_strategy_meanCI.*
 
 
 Clockwise : 
@@ -29,7 +29,7 @@ Movements are chosen clockwise (the first one is random).
 Performance :
 ^^^^^^^^^^^^^
 
-.. image:: Statspart/result/Clockwise_strategy_meanCI.*
+.. image:: Statspart/Clockwise_strategy_meanCI.*
 
 
 Opposite :
@@ -42,7 +42,7 @@ A direction is randomly picked and alternate with its opposite one.
 Performance :
 ^^^^^^^^^^^^^
 
-.. image:: Statspart/result/Opposite_strategy_meanCI.*
+.. image:: Statspart/Opposite_strategy_meanCI.*
 
 
 Adjacent :
@@ -55,7 +55,7 @@ A random movement and one of it adjacent one alternate.
 Performance :
 ^^^^^^^^^^^^^
 
-.. image:: Statspart/result/Adjacent_strategy_meanCI.*
+.. image:: Statspart/Adjacent_strategy_meanCI.*
 
 
 
@@ -78,5 +78,5 @@ Random vs Clockwise :
 Opposite vs Adjacent :
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: Statspart/AI_distribution_oppositevsadjacent.*
+.. image:: ../../Statspart/AI_distribution_oppositevsadjacent.svg
 
