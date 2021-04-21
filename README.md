@@ -52,4 +52,4 @@ If we have time we will try different game rules (probability change, size grid)
 
 
 
-![Grid.](/Game_picture/visual_grid.1.2.0.png)
+![Grid.](/Game_picture/Clockwise_IA.gif)

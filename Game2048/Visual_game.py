@@ -4,6 +4,7 @@ import random
 import time
 import Fonction_2048 as fonc
 import Main
+import pyscreenshot
 
 def Visual_game():
     test_color = []
@@ -34,7 +35,7 @@ def Visual_game():
 
     window.geometry("720x480")
     window.minsize(720, 480)
-    window.iconbitmap("../Game2048/ico2048.ico")
+    window.iconbitmap("./Game2048/ico2048.ico")
     window.config(background='#B0C4DE')
     position_grid = [(50,50), (150,50), (250,50), (350,50), (50,150),  (150,150), (250,150), (350,150), (50,250), (150,250), (250,250), (350,250), (50,350), (150,350), (250,350), (350,350)]
     grid = fonc.new_game()
@@ -60,7 +61,7 @@ def Visual_game():
 
     # Button
 
-    score_display = Label(window, bd=15, bg='#B0C4DE', text='Your score is : ', font=('Helvetica', 13, 'bold'))
+    score_display = Label(window, bd=14, bg='#B0C4DE', text='Your score is : ', font=('Helvetica', 13, 'bold'))
     score_display.place(x=10, y=20)
     score_display = Label(window, bd=15, bg='#B0C4DE', text=score_final, font=('Helvetica', 15, 'bold'))
     score_display.place(x=50, y=60)
@@ -135,8 +136,9 @@ def Visual_game():
     #window.mainloop()
     #Mafenetre.destroy
 
-
+    # i = 0 usefull to make png
     while(game_over):
+        
         x = input('press command ')
         grid_test = grid
         
@@ -185,6 +187,10 @@ def Visual_game():
         Lab_3_2.config(bg=color_cell1[grid[3][2]], text=grid[3][2])
         Lab_3_3.config(bg=color_cell1[grid[3][3]], text=grid[3][3])
 
+        # Make png to make gif with edit_gif
+        # im = pyscreenshot.grab(bbox=(5, 5, 720, 510))  # X1,Y1,X2,Y2
+        # im.save("viusal_2048_{:03}.png".format(i))
+        # i += 1
 
         
         
@@ -195,6 +201,7 @@ def Visual_game():
         End_score = Label(window, bd=15, bg='#B0C4DE', text=score_final, font=('Helvetica', 13, 'bold'))
         End_score.place(x=390, y=432)
 
+    
 
     #frame.pack(expand=YES)
     window.mainloop()
