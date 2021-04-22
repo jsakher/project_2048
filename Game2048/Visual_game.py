@@ -6,13 +6,11 @@ import Main
 def Visual_game(colorblind=False):
 
     """
-    This function create a visualisation of 2048 game, it use tkinter package
-    that enchance game. This version use Fonction_2048 script that is function
-    usefull in game without class type.
-    (Beacause incompatible with tkinter framework)
+    Creates a visualization of  the 2048 game, it uses tkinter package
+    that enchance game. This version use Fonction_2048 script which functions
+    are set without class type (because incompatible with tkinter framework)
 
-    Colorblind color game: all cell have blue or
-    yellow collor (no green/red)
+    Colorblind color game: all cell have blue or yellow color (no green/red)
     """
 
     # Create a list with color usefull for the grid
@@ -65,9 +63,9 @@ def Visual_game(colorblind=False):
     window.minsize(720, 480)
     window.iconbitmap("./Game2048/ico2048.ico")
     window.config(background='#B0C4DE')
-    Largeur = 400
-    Hauteur = 400
-    Canevas = Canvas(window, width=Largeur, height=Hauteur, bg='black')
+    width = 400
+    height = 400
+    Canevas = Canvas(window, width=width, height=height, bg='black')
     Canevas.pack(padx=5, pady=5)
 
     # Set the grid
@@ -85,7 +83,7 @@ def Visual_game(colorblind=False):
 
     # Graphics settings, add labbel to tkinter window
     """
-    This part set axes to construct the grid, display scoreboard.
+    This part sets axes to construct the grid and scoreboard display.
     """
     # Set scoreboard
 
@@ -187,7 +185,7 @@ def Visual_game(colorblind=False):
 
     # ----------------------------------------------------------
 
-    # Display IA score on the scoreboard
+    # IA score Display on the scoreboard
     clockwise_score_IA1 = Label(window, bd=5, bg='#B0C4DE',
                                 text='Clockwise IA score:',
                                 font=('Helvetica', 12, 'bold'))
@@ -232,7 +230,7 @@ def Visual_game(colorblind=False):
         if final is True and grid != grid_changed:
             grid = fonc.newcell(grid)
 
-    # Actualise the grid and score
+    # Grid and score actualization
     # ----------------------------------------------------------
         score_display.config(text=final_score)
 
