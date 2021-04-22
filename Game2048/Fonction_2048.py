@@ -1,13 +1,14 @@
-# %% Function
-
 import random
 
-# %% Création de la grille, ajout des cellules (gestion aléatoire)
-
+# %% Grid creation, cells addition
 
 def sup_2048(grid):
-    '''Counts the amount of cells with value
-        greater than or equal to 2048'''
+    """ Counts the amount of cells with values greater or equal than to 2048.
+
+    :returns: the count of these cells.
+    :rtype: int
+    """
+
     count = 0
     for i in range(4):
         for j in range(4):
@@ -17,17 +18,48 @@ def sup_2048(grid):
 
 
 def newcell(grid):
-    ''' Add new cell on the grid with probabily 9/10
-     add a 2 and 1/10 add a 4 '''
+    """ 
+    Add new cell to the grid :
 
-    empty_cell = []  # Count the number of empty cell and list them
+    - a 2 cell with 9/10 probability
+
+    - a 4 cell with 1/10 probability
+
+    See example:
+
+        +---+---+---+---+
+        | 0 | 2 | 2 | 0 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 0 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 0 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 0 |
+        +---+---+---+---+
+
+        becomes :
+
+        +---+---+---+---+
+        | 0 | 2 | 2 | 0 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 0 |
+        +---+---+---+---+
+        | 4 | 0 | 0 | 0 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 0 |
+        +---+---+---+---+
+
+    :returns: the new grid.
+    """
+
+    empty_cell = []  # Counts the number of empty cells and list them
     new_cell = 2
     pos = (0, 0)  # position on the grid
     for i in range(4):
         for j in range(4):
             if (grid[i][j] == 0):
                 empty_cell.append((i, j))
-    if random.uniform(a=0, b=1) > 0.90:  # Calculate the probability to add a 4
+    if random.uniform(a=0, b=1) > 0.90:  # Calculate the probability to add a 4 cell
         new_cell = 4
     todo = len(empty_cell)
     if todo == 0:
@@ -44,8 +76,15 @@ def newcell(grid):
 
 
 def newcell_start(grid):
-    ''' Add new cell on the empty grid with probabily 9/10
-     add a 2 and 1/10 add a 4 '''
+    """ 
+    Initializes the grid with :
+
+    - a 2 cell with 9/10 probability
+
+    - a 4 cell with 1/10 probability
+
+    :returns: the initialized grid
+    """
 
     new_cell = 2
     pos1 = random.randint(a=0, b=3)
@@ -56,7 +95,9 @@ def newcell_start(grid):
 
 
 def new_game():
-    ''' Set the start of the game, create the grid and add two random cell '''
+    """
+    Sets the start of the game (create the grid and add two random cells)
+    """
 
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     newcell_start(new_grid)
@@ -66,15 +107,39 @@ def new_game():
 
 
 def possible_action(grid):
-    '''Checks if a movement is possible on the grid
+    """ 
+    Checks if a movement is possible on the grid.
 
-        See example:
-         grid1 = [2, 4, 8, 4]                           grid2 = [8, 4, 8, 4]
-                 [2, 8, 4, 8]                                   [2, 8, 4, 8]
-                 [4, 2, 8, 4]                                   [4, 2, 8, 4]
-                 [2, 4, 2, 8]                                   [2, 4, 2, 8]
-         grid1[0][0] and grid1[1][0] can be merged.      No two cells can be
-                                                         merged.'''
+    See example:
+
+        In this grid, cells [0][0] and [0][1] can be merged in up and down movements.
+
+        +---+---+---+---+
+        | 2 | 4 | 8 | 4 |
+        +---+---+---+---+
+        | 2 | 8 | 4 | 8 |
+        +---+---+---+---+
+        | 4 | 2 | 8 | 4 |
+        +---+---+---+---+
+        | 2 | 4 | 2 | 8 |
+        +---+---+---+---+
+
+        Whereas in this one, no cells can be merged.
+
+        +---+---+---+---+
+        | 8 | 4 | 8 | 4 |
+        +---+---+---+---+
+        | 2 | 8 | 4 | 8 |
+        +---+---+---+---+
+        | 4 | 2 | 8 | 4 |
+        +---+---+---+---+
+        | 2 | 4 | 2 | 8 |
+        +---+---+---+---+
+
+    :returns: True if the movement is possible, false otherwise.
+    :rtype: bool
+    """
+
     p_a = False
     for i in range(3):
         for j in range(3):
@@ -93,7 +158,11 @@ def possible_action(grid):
 
 
 def stop_game(grid):
-    ''' Check every step if you lose '''
+    """ Checks if the game should be stop (when there is no more possible movement).
+
+    :returns: True if the game can continued, false otherwise.
+    :rtype: bool
+    """
 
     full_cell = 0
     game_over = True
@@ -107,7 +176,26 @@ def stop_game(grid):
 
 
 def state_game(grid, score):
-    ''' Display the grid's state '''
+    """
+    Displays the grid and score in a terminal.
+
+    See example :
+
+        +---------------------+
+        |  +---+---+---+---+  |
+        |  | 0 | 2 | 2 | 4 |  |
+        |  +---+---+---+---+  |
+        |  | 0 | 0 | 4 | 2 |  |
+        |  +---+---+---+---+  |
+        |  | 4 | 0 | 2 | 2 |  |
+        |  +---+---+---+---+  |
+        |  | 8 | 2 | 4 | 8 |  |
+        |  +---+---+---+---+  |
+        +---------------------+
+        |  Your score is 32   |
+        +---------------------+
+
+    """
 
     print(grid[0], '\n', grid[1], '\n', grid[2], '\n',
           grid[3], '\n', f'Your score is {score}')
@@ -118,15 +206,42 @@ def state_game(grid, score):
     return('------------')
 
 
-# Etape 1 cration du jeu etape 2 nouvelle cell 3 mouvement
-#  4 etat du jeu if false on continue etc....
-# %% Mouvement de la grille
-#  Utility functions: stack, merge,
+# Step 1 : game creation
+# Step 2 : new cell
+# Step 3 : movement
+# Step 4 : game state
+# %% Cells movement
+# Useful functions: stack, merge
+
 aaa = [[1, 0, 0, 2], [0, 0, 3, 2], [0, 4, 0, 0], [1, 2, 0, 2]]
 
-
 def stack(grid):
-    ''' Stack the grid on the left side '''
+    """ Stacks the grid's cells to the left.
+
+    See example:
+
+        +---+---+---+---+
+        | 0 | 2 | 0 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 8 |
+        +---+---+---+---+
+        | 4 | 0 | 0 | 2 |
+        +---+---+---+---+
+        | 0 | 2 | 8 | 0 |
+        +---+---+---+---+
+
+        becomes :
+
+        +---+---+---+---+
+        | 2 | 2 | 0 | 0 |
+        +---+---+---+---+
+        | 8 | 0 | 0 | 0 |
+        +---+---+---+---+
+        | 4 | 2 | 0 | 0 |
+        +---+---+---+---+
+        | 2 | 8 | 0 | 0 |
+        +---+---+---+---+
+        """
 
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     for i in range(4):
@@ -139,25 +254,119 @@ def stack(grid):
 
 
 def merge_left(grid, score):
-    ''' Merge the grid on the left  '''
+        """ Merges the grid cells to the left.
+
+        See example:
+
+            +---+---+---+---+
+            | 0 | 2 | 2 | 0 |
+            +---+---+---+---+
+            | 2 | 4 | 4 | 2 |
+            +---+---+---+---+
+            | 0 | 2 | 0 | 4 |
+            +---+---+---+---+
+            | 8 | 8 | 8 | 8 |
+            +---+---+---+---+
+
+            becomes :
+
+            +----+----+----+----+
+            |  0 |  4 |  0 |  0 |
+            +----+----+----+----+
+            |  0 |  8 |  0 |  2 |
+            +----+----+----+----+
+            |  0 |  2 |  0 |  4 |
+            +----+----+----+----+
+            | 16 |  0 | 16 |  0 |
+            +----+----+----+----+
+        """
+
+        for i in range(4):
+            for j in range(3):
+                if(self.grid[i][j] == self.grid[i][j+1]):
+                    self.grid[i][j] = self.grid[i][j] * 2
+                    self.grid[i][j + 1] = 0
+                    self.score += self.grid[i][j]
+        return self.grid, self.score
+
+
+def transpose(self):
+    """ 
+    Transposes (mathematically) the grid. It will be used to define movements.
+    All movements are based on :py:func:`merge_left` and left :py:func:`left stack`.
+
+    See example:
+
+        +---+---+---+---+
+        | 2 | 2 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 2 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 2 |
+        +---+---+---+---+
+
+    becomes :
+
+        +---+---+---+---+
+        | 2 | 0 | 0 | 0 |
+        +---+---+---+---+
+        | 2 | 2 | 0 | 0 |
+        +---+---+---+---+
+        | 2 | 2 | 2 | 0 |
+        +---+---+---+---+
+        | 2 | 2 | 2 | 2 |
+        +---+---+---+---+
+
+    :returns: the transposed grid.
+    """
+
     # reward = 0
     for i in range(4):
         for j in range(3):
-            # revoir ; A:"range(n) renvoie les n premiers integers
-            #  en partant de 0 => range(3) contient les 3 premiers
-            #  chiffres en partant de 0 "
+            # review ; A: range(n) returns the n first integers
+            #  starting from 0 => range(3) returns the three first
+            #  numbers from 0
             if(grid[i][j] == grid[i][j+1]):
-                # Aucune modification à faire donc.
+                # No modification to do.
                 grid[i][j] = grid[i][j] * 2
                 grid[i][j + 1] = 0
                 score += grid[i][j]
     return (grid, score)
 
-#  Rotations functions
-
+#  Rotation functions
 
 def rotation(grid):
-    ''' Rotate the grid, usefull to make movement'''
+    """ 
+    Rotate the grid according to an axial symmetry.
+    It will be used to define movements.
+    All movements are based on :py:func:`merge_left` and left :py:func:`left stack`.
+
+    See example:
+
+        +---+---+---+---+
+        | 2 | 2 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 2 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 2 |
+        +---+---+---+---+
+
+        becomes :
+
+        +---+---+---+---+
+        | 2 | 2 | 2 | 2 |
+        +---+---+---+---+
+        | 2 | 2 | 2 | 0 |
+        +---+---+---+---+
+        | 2 | 2 | 0 | 0 |
+        +---+---+---+---+
+        | 2 | 0 | 0 | 0 |
+        +---+---+---+---+
+    """
 
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
@@ -168,7 +377,36 @@ def rotation(grid):
 
 
 def transpose(grid):
-    ''' Transpose the grid, usefull to make movement '''
+    """ 
+    Transposes (mathematically) the grid. It will be used to define movements.
+    All movements are based on :py:func:`merge_left` and left :py:func:`left stack`.
+
+    See example:
+
+        +---+---+---+---+
+        | 2 | 2 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 2 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 2 |
+        +---+---+---+---+
+
+        becomes :
+
+        +---+---+---+---+
+        | 2 | 0 | 0 | 0 |
+        +---+---+---+---+
+        | 2 | 2 | 0 | 0 |
+        +---+---+---+---+
+        | 2 | 2 | 2 | 0 |
+        +---+---+---+---+
+        | 2 | 2 | 2 | 2 |
+        +---+---+---+---+
+
+    :returns: the transposed grid.
+    """
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     for i in range(4):
         for j in range(4):
@@ -177,7 +415,35 @@ def transpose(grid):
 
 
 def inverse(grid):
-    ''' inverse the grid, usefull to make movement '''
+    """ 
+    Rotate the grid according to an axial symmetry.
+    It will be used to define movements.
+    All movements are based on :py:func:`merge_left` and left :py:func:`left stack`.
+
+    See example:
+
+        +---+---+---+---+
+        | 2 | 2 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 2 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 2 |
+        +---+---+---+---+
+
+        becomes :
+
+        +---+---+---+---+
+        | 2 | 2 | 2 | 2 |
+        +---+---+---+---+
+        | 2 | 2 | 2 | 0 |
+        +---+---+---+---+
+        | 2 | 2 | 0 | 0 |
+        +---+---+---+---+
+        | 2 | 0 | 0 | 0 |
+        +---+---+---+---+
+    """
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     for i in range(4):
         for j in range(4):
@@ -185,11 +451,38 @@ def inverse(grid):
     return new_grid
 
 # All movement are base on rotation and
-#  left_movement (On peut optimiser les algo)
-
+# left_movement (algorithms can be optimized)
 
 def left_movement(grid, score):
-    ''' Move grid to the left '''
+    """ 
+    Makes the complete move of the cells to the left.
+
+    See example:
+
+        +---+---+---+---+
+        | 2 | 2 | 0 | 0 |
+        +---+---+---+---+
+        | 0 | 0 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 2 |
+        +---+---+---+---+
+        | 4 | 4 | 0 | 2 |
+        +---+---+---+---+
+
+        becomes :
+
+        +---+---+---+---+
+        | 4 | 0 | 0 | 0 |
+        +---+---+---+---+
+        | 4 | 0 | 0 | 0 |
+        +---+---+---+---+
+        | 2 | 0 | 0 | 0 |
+        +---+---+---+---+
+        | 8 | 2 | 0 | 0 |
+        +---+---+---+---+
+
+    :returns: the grid and the score after completing a left movement.
+    """
 
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     new_grid = stack(grid)
@@ -199,7 +492,35 @@ def left_movement(grid, score):
 
 
 def up_movement(grid, score):
-    ''' Move grid to the top '''
+    """ 
+    Makes the complete move of the cells to the top.
+
+    See example:
+
+        +---+---+---+---+
+        | 2 | 2 | 0 | 0 |
+        +---+---+---+---+
+        | 0 | 0 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 2 |
+        +---+---+---+---+
+        | 4 | 4 | 0 | 2 |
+        +---+---+---+---+
+
+        becomes :
+
+        +---+---+---+---+
+        | 2 | 2 | 2 | 4 |
+        +---+---+---+---+
+        | 4 | 4 | 0 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 0 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 0 |
+        +---+---+---+---+
+
+    :returns: the grid and the score after completing an up movement.
+    """
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     new_grid = transpose(grid)
     new_grid = stack(new_grid)
@@ -210,7 +531,36 @@ def up_movement(grid, score):
 
 
 def down_movement(grid, score):
-    ''' Move grid to the botom '''
+    """ 
+    Makes the complete move of the cells to the bottom.
+
+    See example:
+
+        +---+---+---+---+
+        | 2 | 2 | 0 | 0 |
+        +---+---+---+---+
+        | 0 | 0 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 2 |
+        +---+---+---+---+
+        | 4 | 4 | 0 | 2 |
+        +---+---+---+---+
+
+        becomes :
+
+        +---+---+---+---+
+        | 0 | 0 | 0 | 0 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 0 |
+        +---+---+---+---+
+        | 2 | 2 | 0 | 2 |
+        +---+---+---+---+
+        | 4 | 4 | 2 | 4 |
+        +---+---+---+---+
+
+    :returns: the grid and the score after completing an up movement.
+    """
+
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     new_grid = transpose(grid)
     new_grid = inverse(new_grid)
@@ -223,12 +573,37 @@ def down_movement(grid, score):
 
 
 def right_movement(grid, score):
-    ''' Move grid to the left '''
+    """ 
+    Makes the complete move of the cells to the right.
+
+    See example:
+
+        +---+---+---+---+
+        | 2 | 2 | 0 | 0 |
+        +---+---+---+---+
+        | 0 | 0 | 2 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 2 |
+        +---+---+---+---+
+        | 4 | 4 | 0 | 2 |
+        +---+---+---+---+
+
+        becomes :
+
+        +---+---+---+---+
+        | 0 | 0 | 0 | 4 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 4 |
+        +---+---+---+---+
+        | 0 | 0 | 0 | 2 |
+        +---+---+---+---+
+        | 0 | 0 | 8 | 2 |
+        +---+---+---+---+
+
+    :returns: the grid and the score after completing an up movement.
+    """
     new_grid = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     new_grid = rotation(grid)
     new_grid, score = left_movement(new_grid, score)
     new_grid = rotation(new_grid)
     return new_grid, score
-
-
-# %%
