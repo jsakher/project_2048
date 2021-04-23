@@ -283,57 +283,14 @@ def merge_left(grid, score):
 
         for i in range(4):
             for j in range(3):
-                if(self.grid[i][j] == self.grid[i][j+1]):
-                    self.grid[i][j] = self.grid[i][j] * 2
-                    self.grid[i][j + 1] = 0
-                    self.score += self.grid[i][j]
-        return self.grid, self.score
+                if(grid[i][j] == grid[i][j+1]):
+                    grid[i][j] = grid[i][j] * 2
+                    grid[i][j + 1] = 0
+                    score += grid[i][j]
+        return (grid, score)
 
 
-def transpose(self):
-    """ 
-    Transposes (mathematically) the grid. It will be used to define movements.
-    All movements are based on :py:func:`merge_left` and left :py:func:`left stack`.
 
-    See example:
-
-        +---+---+---+---+
-        | 2 | 2 | 2 | 2 |
-        +---+---+---+---+
-        | 0 | 2 | 2 | 2 |
-        +---+---+---+---+
-        | 0 | 0 | 2 | 2 |
-        +---+---+---+---+
-        | 0 | 0 | 0 | 2 |
-        +---+---+---+---+
-
-    becomes :
-
-        +---+---+---+---+
-        | 2 | 0 | 0 | 0 |
-        +---+---+---+---+
-        | 2 | 2 | 0 | 0 |
-        +---+---+---+---+
-        | 2 | 2 | 2 | 0 |
-        +---+---+---+---+
-        | 2 | 2 | 2 | 2 |
-        +---+---+---+---+
-
-    :returns: the transposed grid.
-    """
-
-    # reward = 0
-    for i in range(4):
-        for j in range(3):
-            # review ; A: range(n) returns the n first integers
-            #  starting from 0 => range(3) returns the three first
-            #  numbers from 0
-            if(grid[i][j] == grid[i][j+1]):
-                # No modification to do.
-                grid[i][j] = grid[i][j] * 2
-                grid[i][j + 1] = 0
-                score += grid[i][j]
-    return (grid, score)
 
 #  Rotation functions
 
