@@ -1,6 +1,6 @@
 from tkinter import Tk, Canvas, Label, Button, LEFT
-import Fonction_2048 as fonc
-import Main
+import Game2048.functions.Fonction_2048 as fonc
+import Game2048.game.Main as Main
 
 
 def Visual_game(colorblind=False):
@@ -279,3 +279,5 @@ def Visual_game(colorblind=False):
                           font=('Helvetica', 13, 'bold'))
         End_score.place(x=390, y=432)
     window.mainloop()
+
+#

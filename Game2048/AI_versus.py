@@ -1,4 +1,4 @@
-import Game2048.Main as Main
+import Game2048.game.Main as Main
 import random
 import time
 

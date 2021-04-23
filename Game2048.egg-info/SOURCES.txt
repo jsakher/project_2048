@@ -1,8 +1,7 @@
 README.md
 setup.py
 Game2048/AI_versus.py
-Game2048/Fonction_2048.py
-Game2048/Main.py
+Game2048/Make_graph_IA.py
 Game2048/Make_your_stats.py
 Game2048/Visual_game.py
 Game2048/__init__.py

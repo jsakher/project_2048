@@ -1,4 +1,4 @@
-from Game2048 import Fonction_2048
+from Game2048.functions import Fonction_2048
 import unittest
 from unittest.mock import patch
 import random
