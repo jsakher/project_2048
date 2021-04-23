@@ -17,7 +17,7 @@ adjacent_empirical_mean = 120
 
 def launch_versus():
     """
-    Create two grid
+    Creates two grids.
     """
 
     AI_one = Main.Game_2048()
@@ -33,7 +33,7 @@ def launch_versus():
 
 def set_random_position():
     """
-    Set random the opposite and adjacent strategies
+    Randomizes the opposite and adjacent strategies : 
     up/down or right/left and up/left or down/right
     """
 
@@ -50,7 +50,7 @@ def set_random_position():
 
 def scoreboard(grid1, grid2, strategy1, strategy2):
     """
-    Set scorebord att the end of the game
+    Displays scoreboard at the end of the game.
     """
     # Set graphical ---- to improve visibility
     print('--------------------------------------------------------------------------------------------------------------------')
@@ -72,7 +72,7 @@ def scoreboard(grid1, grid2, strategy1, strategy2):
         print('')
 
     # Display lucky score if the score is superior to the empirical mean
-    # Calulated in orther script
+    # calculated in orther script
 
     if grid1.score > random_empirical_mean and strategy1 == 'random':
         average1 = ", lucky score !"
@@ -103,8 +103,7 @@ def scoreboard(grid1, grid2, strategy1, strategy2):
 
 def state_game2(grid1, grid2, x="", y="", strategy1="", strategy2=""):
     """
-    Display the grid's state,
-    status of game, play made, score and strategy playing.
+    Displays the grid's state, status of game, play made, score and strategies playing.
     """
     print("--------------------------------------------------------------------")
     print(f'AI_one play: {x}                          AI_two play: {y}')
@@ -121,25 +120,26 @@ def state_game2(grid1, grid2, x="", y="", strategy1="", strategy2=""):
 
 def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
     """
-    You can chose among 4 strategies and compare the point.
+    
 
-    :param strategy1: First strategy, default = 'random'
-    :type strategy1: str
-    :param strategy2: Second strategy, default = 'random'
-    :type strategy2: str
-    :param Skip: Skip the display, only show the result, default = 'False'
-    :type Skip: boolean
-    :param speed: Display speed, default = '0.5'
-    :type speed: float
+    :param str strategy1: First strategy, default = 'random'
 
-    - Random : IA playing random movement
-    - Clockwise : IA playing clockwise movement
-    - Adjacent : IA playing only two adjacent movement
-    - Opposite : IA playing only two opposite movement
+    :param str strategy2: Second strategy, default = 'random'
+
+    :param bool Skip: Skip the display to only show the result, default = 'False'
+
+    :param float speed: Game display speed, default = '0.5'
+
+    You can chose among 4 strategies and compare scores : 
+
+    - Random : IA playing random movements
+    - Clockwise : IA playing clockwise movements
+    - Adjacent : IA playing only two adjacent movements
+    - Opposite : IA playing only two opposite movements
 
 
     """
-    # Set random position to adjacent and opposite strategies
+    # Randomize the movements of adjacent and opposite strategies
     two_opposite, two_adjacent = set_random_position()
     AI_one, AI_two = launch_versus()
 
@@ -158,8 +158,8 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
 
     while(AI_one.status or AI_two.status):
 
-        # Check for two IA the moove to make
-        # in function of which strategies there are
+        # Check for two IA the move to make
+        # in function of which strategies they are
         # playing.
         # We can improve the code here...
         if strategy1 == 'random':
@@ -188,7 +188,7 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
             y = two_adjacent[movement_play2]
             movement_play2 = (movement_play2 + 1) % 2
 
-        # Check if grid changed
+        # Check if the grid changed
 
         grid_test1 = AI_one.grid
         grid_test2 = AI_two.grid
@@ -218,11 +218,12 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
         if AI_two.status and AI_two.grid != grid_test2:
             AI_two.newcell()
 
-        # Check if the game is block, with this two strategies
-        # game bug many time because of the weekness of moovement 
-        # it can block and do the same movement in boucle so we stop
-        # the game when it repeat the same movement three time
-        # ie it can't make other moove or improve is score
+        # Check if the game is stuck, with this two strategies
+        # game bug many time because of the lack of diversity 
+        # between the movements. It can occur when a same movement
+        # is done on a loop. 
+        # So we stop the game when the same movement is repeated three times
+        # i.e. it can't make other move or improve the score
 
         if strategy1 == 'opposite' or strategy1 == 'adjacent':
             if AI_one.grid == grid_test1:
@@ -243,9 +244,9 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
             time.sleep(speed)
         nb_movement += 1
 
-        # Stop the game if number of movement are to high
-        # If 4000 movement happend with IA playing is necessarily
-        # a bug mean number of movement play are near 300 movement.
+        # Stop the game if the number of movements is to high.
+        # If 4000 movements happen with IA playing, it's necessarily
+        # a bug meaning (what ? j'pas compris tu veux dire quoi apres) number of movement play are near 300 movement.
 
         if nb_movement > 4000:
             AI_one.status = False
