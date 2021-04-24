@@ -1,12 +1,12 @@
+""" Battle of strategies """
+
 import Game2048.game.Main as Main
 import random
 import time
 
-# This script show battle of two IA playing strategies that you want
-# We dont use class fonction because difficult to plot
-# two game at the game time.
-# This script isn't pep8 beacause of graphical display.
-
+# This script shows two IA playing given strategies
+# Class structureWe is not used because it doesn't allow to plot
+# two game scores at one time.
 
 # empirical values
 random_empirical_mean = 1095
@@ -71,7 +71,7 @@ def scoreboard(grid1, grid2, strategy1, strategy2):
         print(f"AI_one win this game, {strategy1} strategy won this time,")
         print('')
 
-    # Display lucky score if the score is superior to the empirical mean
+    # Display lucky score if the score is greater to the empirical mean
     # calculated in orther script
 
     if grid1.score > random_empirical_mean and strategy1 == 'random':
@@ -103,7 +103,7 @@ def scoreboard(grid1, grid2, strategy1, strategy2):
 
 def state_game2(grid1, grid2, x="", y="", strategy1="", strategy2=""):
     """
-    Displays the grid's state, status of game, play made, score and strategies playing.
+    Displays the grid's state, status of game, play made, score and the strategies which are playing.
     """
     print("--------------------------------------------------------------------")
     print(f'AI_one play: {x}                          AI_two play: {y}')
@@ -120,7 +120,7 @@ def state_game2(grid1, grid2, x="", y="", strategy1="", strategy2=""):
 
 def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
     """
-    
+    Launches the battle.
 
     :param str strategy1: First strategy, default = 'random'
 
@@ -218,8 +218,8 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
         if AI_two.status and AI_two.grid != grid_test2:
             AI_two.newcell()
 
-        # Check if the game is stuck, with this two strategies
-        # game bug many time because of the lack of diversity 
+        # Checks if the game is stuck. With this two strategies,
+        # game bugs many time because of the lack of diversity 
         # between the movements. It can occur when a same movement
         # is done on a loop. 
         # So we stop the game when the same movement is repeated three times
@@ -245,8 +245,8 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
         nb_movement += 1
 
         # Stop the game if the number of movements is to high.
-        # If 4000 movements happen with IA playing, it's necessarily
-        # a bug meaning (what ? j'pas compris tu veux dire quoi apres) number of movement play are near 300 movement.
+        # If 4000 movements happen while IA playing, it's necessarily
+        # a bug. Mean number of plays is near 300 movement.
 
         if nb_movement > 4000:
             AI_one.status = False

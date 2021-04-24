@@ -1,3 +1,5 @@
+""" Data and plots generator """
+
 import numpy as np
 from game import Main
 import matplotlib.pyplot as plt
@@ -6,15 +8,14 @@ import time
 
 def Make_stats(nb_game=1000):
     """
-    Play several numbers of game played with random and clockwise strategies.  
-    Calculates empirical mean and standard deviation with your data,
-    compare them with our data. (300 000 game played)  
+    Plays several games with random and clockwise strategies.  
+    Calculates empirical mean and standard deviation with your data and
+    compare them with the original data. (300 000 game played)  
 
-    Display the result with à kekplot that show you the distrubution of score
-    and an histogram with max cell get.  
+    Display the result with as kernel density estimate (KDE) plot that shows
+    the distribution of score and an histogram with max cell get.
 
-    :param nb_game: Number of game play by IA, default = 1000  
-    :type nb_game: int  
+    :param int nb_game: Amount of game played by IA, default = 1000 
     """
 
     score_random = []
@@ -24,7 +25,7 @@ def Make_stats(nb_game=1000):
     print('processing......')
     print('that must take time.....')
 
-    # Compute nb_game game and store the result
+    # Compute nb_game games and store the result
 
     for i in range(nb_game):
 
@@ -47,10 +48,10 @@ def Make_stats(nb_game=1000):
 
     # Display your result and compare them to "real" value
 
-    print(f'Empicial mean for random strategy that you compute is {round(Mean_random)}')
-    print(f'Empicial mean with this strategy and with 300 000 try is 1095')
-    print(f'Empicial mean for clockwise strategy that you compute is {round(Mean_clock)}')
-    print(f'Empicial mean with this strategy and with 300 000 try is 2310')
+    print(f'Empirical mean of random strategy score you computed is {round(Mean_random)}')
+    print(f'Empirical mean of this strategy score with 300 000 tries is 1095')
+    print(f'Empirical mean of clockwise strategy score you computed is {round(Mean_clock)}')
+    print(f'Empirical mean of this strategy score with 300 000 tries is 2310')
     print(f'-------------------------------------------------------- \n')
 
     Var_random = 1/nb_game * sum((score_random - Mean_random)**2)
@@ -59,10 +60,10 @@ def Make_stats(nb_game=1000):
     std_random = np.sqrt(Var_random)
     std_clock = np.sqrt(Var_clockwise)
 
-    print(f'The standard deviation of random strategy that you compute is {round(std_random)} ')
-    print(f'The standard deviation of random strategy with 300 000 try is 534')
-    print(f'The standard deviation of clockwise strategy that you compute is {round(std_clock)} ')
-    print(f'The standard deviation of clockwise strategy  with 300 000 try is 1082')
+    print(f'Standard deviation of random strategy score of the games you computed is {round(std_random)} ')
+    print(f'Standard deviation of random strategy with 300 000 tries is 534')
+    print(f'Standard deviation of clockwise strategy score of the games you computed is {round(std_clock)} ')
+    print(f'Standard deviation of clockwise strategy score with 300 000 tries is 1082')
 
     random_color = '#8A2BE2'
     clockwise_color = '#FF8C00'
@@ -91,7 +92,7 @@ def Make_stats(nb_game=1000):
     plt.savefig('AI_maxcell_random_clockwise.svg')
     #plt.show()
 
-#Execution of Make_stats function with a specific number of games launched
+# Execution of Make_stats function with a specific number of games launched
 def time_MS(n):
     start =time.time()
     Make_stats(n)
