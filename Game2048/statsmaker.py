@@ -8,9 +8,9 @@ import time
 
 def Make_stats1(nb_game=1000):
     """
-    Plays several games with random and clockwise strategies.  
+    Plays several games with random and clockwise strategies.
     Calculates empirical mean and standard deviation with your data and
-    compare them with the original data. (300 000 game played)  
+    compare them with the original data. (300 000 game played)
 
     Display the result with as kernel density estimate (KDE) plot that shows
     the distribution of score and an histogram with max cell get.
@@ -83,6 +83,7 @@ def Make_stats1(nb_game=1000):
              bins=20, color=random_color)
     plt.legend(loc='upper right')
     plt.ylabel("Number of appearance")
+    plt.xlim(0,1024)
     plt.title("Distribution of max score")
 
     plt.subplot(2, 1, 2)
@@ -91,6 +92,7 @@ def Make_stats1(nb_game=1000):
     plt.legend(loc='upper right')
     plt.xlabel("Max cell")
     plt.ylabel("Number of appearance")
+    plt.xlim(0,1024)
     # plt.savefig('AI_maxcell_random_clockwise.svg')
     plt.show()
 
@@ -172,6 +174,7 @@ def Make_stats2(nb_game=1000):
              bins=20, color=opposite_color)
     plt.legend(loc='upper right')
     plt.ylabel("Number of appearance")
+    plt.xlim(0,128)
     plt.title("Distribution of max score")
 
     plt.subplot(2, 1, 2)
@@ -179,11 +182,12 @@ def Make_stats2(nb_game=1000):
              bins=20, color=adjacent_color)
     plt.legend(loc='upper right')
     plt.xlabel("Max cell")
+    plt.xlim(0,128)
     plt.ylabel("Number of appearance")
     # plt.savefig('AI_maxcell_opposite_adjacent.svg')
     plt.show()
 
-Make_stats2()
+# Make_stats2()
 # Execution of Make_stats function with a specific number of games launched
 def time_MS(n):
     start =time.time()
