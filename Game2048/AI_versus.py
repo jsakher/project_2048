@@ -4,8 +4,8 @@ import Game2048.game.Main as Main
 import random
 import time
 
-# This script shows two IA playing given strategies
-# Class structureWe is not used because it doesn't allow to plot
+# This script shows two IA playing given strategies.
+# Class structure is not used because it doesn't allow to plot
 # two game scores at one time.
 
 # empirical values
@@ -71,8 +71,8 @@ def scoreboard(grid1, grid2, strategy1, strategy2):
         print(f"AI_one win this game, {strategy1} strategy won this time,")
         print('')
 
-    # Display lucky score if the score is greater to the empirical mean
-    # calculated in orther script
+    # Displays "lucky score" if the score is greater to the empirical mean score
+    # calculated in other script
 
     if grid1.score > random_empirical_mean and strategy1 == 'random':
         average1 = ", lucky score !"
@@ -139,7 +139,7 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
 
 
     """
-    # Randomize the movements of adjacent and opposite strategies
+    # Randomizes the movements of adjacent and opposite strategies
     two_opposite, two_adjacent = set_random_position()
     AI_one, AI_two = launch_versus()
 
@@ -158,8 +158,8 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
 
     while(AI_one.status or AI_two.status):
 
-        # Check for two IA the move to make
-        # in function of which strategies they are
+        # Checks for two IA the move to make
+        # depending on which strategies they are
         # playing.
         # We can improve the code here...
         if strategy1 == 'random':
@@ -188,7 +188,7 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
             y = two_adjacent[movement_play2]
             movement_play2 = (movement_play2 + 1) % 2
 
-        # Check if the grid changed
+        # Checks if the grid changed
 
         grid_test1 = AI_one.grid
         grid_test2 = AI_two.grid

@@ -11,9 +11,6 @@ Opposite vs Adjacent :
 
 .. image:: ../_images/AI_distribution_oppositevsadjacent.svg
 
-.. automodule:: Game2048.AI_versus
-    :members:
-
 Maximum cell
 ~~~~~~~~~~~~
 
@@ -26,4 +23,3 @@ Opposite vs Adjacent :
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: ../_images/AI_maxcell_oppositevsadjacent.svg
-
