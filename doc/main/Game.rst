@@ -11,7 +11,7 @@ To play this version of the game you just need a keyboard, and for greater comfo
 Instructions
 ~~~~~~~~~~~~
 
-You may type in a python shell the follwing lines, after what the game will start:
+You may type in a python shell the follwing line, after what the game will start:
 
 .. code-block:: python
 
