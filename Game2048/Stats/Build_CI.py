@@ -1,3 +1,5 @@
+""" Confidence interval builder """
+
 import numpy as np
 from numba import jit
 
@@ -18,10 +20,10 @@ empirical_mean_clock = np.mean(score_clock)
 
 print('-------------------------------------------------------------------')
 print('\n')
-print(f'Empicial mean for opposite strategie is {empirical_mean_opp}')
-print(f'Empicial mean for adjacent strategie is {empirical_mean_adj}')
-print(f'Empicial mean for random strategie is {empirical_mean_random}')
-print(f'Empicial mean for clockwise clockwise is {empirical_mean_clock}')
+print(f'Empirical mean score of opposite strategy is {empirical_mean_opp}')
+print(f'Empirical mean score of adjacent strategy is {empirical_mean_adj}')
+print(f'Empirical mean score of random strategy is {empirical_mean_random}')
+print(f'Empirical mean score of clockwise strategy is {empirical_mean_clock}')
 
 
 Var_random = 1/300000 * sum((score_random - empirical_mean_random)**2)
@@ -45,13 +47,13 @@ print(f'The standard deviation of clockwise strategie is {sigma_clock}')
 print('----------------------------------------------------------------- \n')
 
 
-# Compute empirical mean for all data set
+# Compute empirical mean score for all data set
 Mean_random = (1/np.arange(1, len(score_random)+1)) * np.cumsum(score_random)
 Mean_clock = (1/np.arange(1, len(score_clock)+1)) * np.cumsum(score_clock)
 Mean_opp = (1/np.arange(1, len(score_opp)+1)) * np.cumsum(score_opp)
 Mean_adj = (1/np.arange(1, len(score_adj)+1)) * np.cumsum(score_adj)
 
-# Function that allow us to build condidence interval for the mean
+# Function that builds confidence interval of the mean score
 # estimation with Law of large numbers
 
 
@@ -63,22 +65,24 @@ def Confidence_interval(mu, sigma, i):
 
 
 @jit(nopython=True)
-def Construct_CI(score_storage, mean_strorage, nb_data=300000):
+def Construct_CI(score_storage, mean_storage, nb_data=300000):
+    """ Builds upper and lower bounds of mean score confidence intervals.
+    """
     inf = []
     sup = []
 
     for i in range(2, nb_data):
 
-        Variance = 1/(i-1) * np.sum((score_storage[2:i] - mean_strorage[i])**2)
+        Variance = 1/(i-1) * np.sum((score_storage[2:i] - mean_storage[i])**2)
         sigma = np.sqrt(Variance)
-        a, b = Confidence_interval(mean_strorage[i], sigma, i)
+        a, b = Confidence_interval(mean_storage[i], sigma, i)
         inf.append(a)
         sup.append(b)
 
     return inf, sup
 
 
-# Print Condidence interval
+# Print Confidence intervals
 
 infopp, supopp = Confidence_interval(empirical_mean_opp,
                                      sigma_opp, 300000)
@@ -89,7 +93,7 @@ infrandom, suprandom = Confidence_interval(empirical_mean_random,
 infclock, supclock = Confidence_interval(empirical_mean_clock,
                                          sigma_clock, 300000)
 
-print(f'Random CI [{infrandom}; { suprandom}] \n')
+print(f'Random CI [{infrandom}; {suprandom}] \n')
 print(f'Clockwise CI [{infclock}; {supclock}] \n')
 print(f'Adjacent CI [{infadj}; {supadj}] \n')
 print(f'Opposite CI [{infopp}; {supopp}] \n')
@@ -102,30 +106,29 @@ print('Loading [XX--------]')
 inf_clock, sup_clock = Construct_CI(score_clock,
                                     Mean_clock)
 
-np.savetxt('Empiciral_mean_inf_clockwise.txt', inf_clock)
-np.savetxt('Empiciral_mean_sup_clockwise.txt', sup_clock)
+np.savetxt('Empirical_mean_inf_clockwise.txt', inf_clock)
+np.savetxt('Empirical_mean_sup_clockwise.txt', sup_clock)
 
 print('Loading [XXXX------]')
 
 inf_random, sup_random = Construct_CI(score_random,
                                       Mean_random)
-np.savetxt('Empiciral_mean_inf_random.txt', inf_random)
-np.savetxt('Empiciral_mean_sup_random.txt', sup_random)
+np.savetxt('Empirical_mean_inf_random.txt', inf_random)
+np.savetxt('Empirical_mean_sup_random.txt', sup_random)
 
 print('Loading [XXXXXX----]')
 
 inf_opp, sup_opp = Construct_CI(score_opp,
                                 Mean_opp)
-np.savetxt('Empiciral_mean_inf_opposite.txt', inf_opp)
-np.savetxt('Empiciral_mean_sup_opposite.txt', sup_opp)
+np.savetxt('Empirical_mean_inf_opposite.txt', inf_opp)
+np.savetxt('Empirical_mean_sup_opposite.txt', sup_opp)
 
 print('Loading [XXXXXXXX--]')
 
 inf_adj, sup_adj = Construct_CI(score_adj,
                                 Mean_adj)
-np.savetxt('Empiciral_mean_inf_adjacent.txt', inf_adj)
-np.savetxt('Empiciral_mean_sup_adjacent.txt', sup_adj)
+np.savetxt('Empirical_mean_inf_adjacent.txt', inf_adj)
+np.savetxt('Empirical_mean_sup_adjacent.txt', sup_adj)
 
 print('Loading [XXXXXXXXXX]')
 print('done')
-

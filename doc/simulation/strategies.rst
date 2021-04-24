@@ -29,4 +29,5 @@ is also provided on the graphs.
 Note
 ~~~~
 
-Python scripts of confidence intervals builder and their plot are available for consultation in the submodule *Statspart* of *Game2048*.
+Python scripts of confidence intervals builder and their plot are available for consultation 
+in the submodule *Stats* of *Game2048* in the github repository.
