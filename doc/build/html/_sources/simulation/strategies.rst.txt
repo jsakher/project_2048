@@ -18,10 +18,15 @@ Let :math:`s` the score fonction of a given strategy game. Using the following f
 
     \sigma^{2} = \mathbb{V}(strategy) = \frac{1}{300000} * \sum_{i=1}^{300000}(s_{i}(strategy) - \mathbb{E}(s(strategy)))^{2},
 
-a 95% confidance interval of the mean score given by 
+a 95% confidence interval of the mean score, given by, 
 
 .. math:: 
 
     [\mu - 1.96 * \sqrt{\frac{\sigma^{2}}{n}} \; , \; \mu + 1.96 * \sqrt{\frac{\sigma^{2}}{n}}] \; ,
 
 is also provided on the graphs.
+
+Note
+~~~~
+
+Python scripts of confidence intervals builder and their plot are available for consultation in the submodule *Statspart* of *Game2048*.

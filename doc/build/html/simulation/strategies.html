@@ -101,6 +101,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Simulations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#stats">Stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#note">Note</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="random.html">Random</a></li>
@@ -194,10 +195,14 @@
 \[\mu = \mathbb{E}(s(strategy)) = \frac{1}{300000} * \sum_{i=1}^{300000} s_{i}(strategy)\]</div>
 <div class="math notranslate nohighlight">
 \[\sigma^{2} = \mathbb{V}(strategy) = \frac{1}{300000} * \sum_{i=1}^{300000}(s_{i}(strategy) - \mathbb{E}(s(strategy)))^{2},\]</div>
-<p>a 95% confidance interval of the mean score given by</p>
+<p>a 95% confidence interval of the mean score, given by,</p>
 <div class="math notranslate nohighlight">
 \[[\mu - 1.96 * \sqrt{\frac{\sigma^{2}}{n}} \; , \; \mu + 1.96 * \sqrt{\frac{\sigma^{2}}{n}}] \; ,\]</div>
 <p>is also provided on the graphs.</p>
+</div>
+<div class="section" id="note">
+<h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
+<p>Python scripts of confidence intervals builder and their plot are available for consultation in the submodule <em>Statspart</em> of <em>Game2048</em>.</p>
 </div>
 </div>
 

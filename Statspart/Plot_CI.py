@@ -1,3 +1,5 @@
+""" Confidence intervals plot """
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -19,17 +21,17 @@ Mean_opp = (1/np.arange(1, len(score_opp)+1)) * np.cumsum(score_opp)
 Mean_adj = (1/np.arange(1, len(score_adj)+1)) * np.cumsum(score_adj)
 
 
-inf_random = np.loadtxt('Empiciral_mean_inf_random.txt')
-sup_random = np.loadtxt('Empiciral_mean_sup_random.txt')
+inf_random = np.loadtxt('Empirical_mean_inf_random.txt')
+sup_random = np.loadtxt('Empirical_mean_sup_random.txt')
 
-inf_clock = np.loadtxt('Empiciral_mean_inf_clockwise.txt')
-sup_clock = np.loadtxt('Empiciral_mean_sup_clockwise.txt')
+inf_clock = np.loadtxt('Empirical_mean_inf_clockwise.txt')
+sup_clock = np.loadtxt('Empirical_mean_sup_clockwise.txt')
 
-inf_opp = np.loadtxt('Empiciral_mean_inf_opposite.txt')
-sup_opp = np.loadtxt('Empiciral_mean_sup_opposite.txt')
+inf_opp = np.loadtxt('Empirical_mean_inf_opposite.txt')
+sup_opp = np.loadtxt('Empirical_mean_sup_opposite.txt')
 
-inf_adj = np.loadtxt('Empiciral_mean_inf_adjacent.txt')
-sup_adj = np.loadtxt('Empiciral_mean_sup_adjacent.txt')
+inf_adj = np.loadtxt('Empirical_mean_inf_adjacent.txt')
+sup_adj = np.loadtxt('Empirical_mean_sup_adjacent.txt')
 
 x = np.arange(0, len(Mean_random)-2, 1)
 
