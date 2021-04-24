@@ -1,7 +1,7 @@
 """ Data and plots generator """
 
 import numpy as np
-from game import Main
+import Game2048.game.Main as Main
 import matplotlib.pyplot as plt
 import seaborn as sns
 import time
@@ -83,7 +83,7 @@ def Make_stats1(nb_game=1000):
              bins=20, color=random_color)
     plt.legend(loc='upper right')
     plt.ylabel("Number of appearance")
-    plt.xlim(0,1024)
+    plt.xlim(0, 1024)
     plt.title("Distribution of max score")
 
     plt.subplot(2, 1, 2)
@@ -92,7 +92,7 @@ def Make_stats1(nb_game=1000):
     plt.legend(loc='upper right')
     plt.xlabel("Max cell")
     plt.ylabel("Number of appearance")
-    plt.xlim(0,1024)
+    plt.xlim(0, 1024)
     # plt.savefig('AI_maxcell_random_clockwise.svg')
     plt.show()
 
@@ -174,7 +174,7 @@ def Make_stats2(nb_game=1000):
              bins=20, color=opposite_color)
     plt.legend(loc='upper right')
     plt.ylabel("Number of appearance")
-    plt.xlim(0,128)
+    plt.xlim(0, 128)
     plt.title("Distribution of max score")
 
     plt.subplot(2, 1, 2)
@@ -182,7 +182,7 @@ def Make_stats2(nb_game=1000):
              bins=20, color=adjacent_color)
     plt.legend(loc='upper right')
     plt.xlabel("Max cell")
-    plt.xlim(0,128)
+    plt.xlim(0, 128)
     plt.ylabel("Number of appearance")
     # plt.savefig('AI_maxcell_opposite_adjacent.svg')
     plt.show()
