@@ -1,9 +1,10 @@
 from tkinter import Tk, Canvas, Label, Button, LEFT
 import Game2048.functions.Fonction_2048 as fonc
 import Game2048.game.Main as Main
+import pyscreenshot
 
 
-def Visual_game(colorblind=False):
+def Visual_game(colorblind=False, makescreen=False):
 
     """
     Creates a visualization of  the 2048 game, it uses tkinter package
@@ -11,6 +12,9 @@ def Visual_game(colorblind=False):
     are set without class type (because incompatible with tkinter framework)
 
     Colorblind color game: all cell have blue or yellow color (no green/red)
+    If you want make screen to do a gif be carrefull to put the popup window
+    at the top left of your display.
+    After that you have to use Edit_gif.py to compute a gif.
     """
 
     # Create a list with color usefull for the grid
@@ -209,6 +213,8 @@ def Visual_game(colorblind=False):
     Button(window, text="Quit", bg='#FFFFFF',
            command=window.destroy).pack(side=LEFT, padx=5, pady=5)
 
+    i = 0
+
     # Main loop
 
     while(game_over):
@@ -264,9 +270,10 @@ def Visual_game(colorblind=False):
         # Make png to make gif with edit_gif
         # script github:
         # Nathanesteve/Challenge_prediction/blob/main/Code_visualisation_Montpellier_cycliste/Edit_gif.py
-        # im = pyscreenshot.grab(bbox=(5, 5, 720, 510))  # X1,Y1,X2,Y2
-        # im.save("viusal_2048_{:03}.png".format(i))
-        # i += 1
+        if makescreen is True:
+            im = pyscreenshot.grab(bbox=(5, 5, 720, 510))  # X1,Y1,X2,Y2
+            im.save("Game2048/temp/viusal_2048_{:03}.png".format(i))
+            i += 1
 
     if game_over is False:
         print(f'you lose your score is {final_score}')
