@@ -1,11 +1,10 @@
 README.md
 setup.py
+Game2048/AI_plot.py
 Game2048/AI_versus.py
-Game2048/Make_graph_IA.py
-Game2048/Make_your_stats.py
 Game2048/Visual_game.py
 Game2048/__init__.py
-Game2048/fonction.py
+Game2048/statsmaker.py
 Game2048.egg-info/PKG-INFO
 Game2048.egg-info/SOURCES.txt
 Game2048.egg-info/dependency_links.txt

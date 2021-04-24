@@ -2,7 +2,7 @@ import numpy as np
 from game import Main
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+import time
 
 def Make_stats(nb_game=1000):
     """
@@ -74,7 +74,7 @@ def Make_stats(nb_game=1000):
     plt.legend(labels=['Random strategy', 'Clockwise strategy'])
     plt.title("Distribution of score with random and clockwise strategies")
     plt.xlabel("score")
-    plt.show()
+    #plt.show()
 
     plt.plot()
     plt.subplot(2, 1, 1)
@@ -89,5 +89,24 @@ def Make_stats(nb_game=1000):
     plt.legend(loc='upper right')
     plt.xlabel("Max cell")
     plt.savefig('AI_maxcell_random_clockwise.svg')
-    plt.show()
+    #plt.show()
 
+#Execution of Make_stats function with a specific number of games launched
+def time_MS(n):
+    start =time.time()
+    Make_stats(n)
+    end= time.time()
+    return (print("Temps passé pour exécuter la commande: {0:.5f} s.".format(end - start)))
+time_MS(250)
+
+
+
+
+
+# def tgm(strat1):
+#     A = Main.Game_2048()
+#     A = getattr(A, f"{strat1}")()
+
+# A = Main.Game_2048()
+
+# getattr(A, "main")()
