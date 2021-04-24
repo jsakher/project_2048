@@ -1,5 +1,0 @@
-Empirical mean, CI 95% lower, CI 95% upper, maxcell
-Random, 1094.6, 1092.7, 1096.6, 256
-Clockwise, 2309.6, 2305.8, 2313.5, 512
-Opposite, 88.0, 87.9, 88.10, 16
-Adjacent, 120.4, 120.0, 120.8, 64
