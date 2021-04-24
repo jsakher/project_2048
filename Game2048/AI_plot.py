@@ -1,6 +1,6 @@
 import random
 import numpy as np
-from Game2048.class2048.Main import Game_2048
+from Game2048.game.Main import Game_2048
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
@@ -19,13 +19,13 @@ def plot_maker(just_plot, strategy1, strategy2, n):
         stockage_maxcell_strategy2 = []
         for i in range(n):
             AI_one = Game_2048()
-            AI_one.f'{strategy1}'_2048()
+            getattr(AI_one, strategy1)()  
             AI_one.maxcell_find()
             stockage_maxcell_strategy1.append(AI_one.maxcell)
             stockage_score_strategy1.append(AI_one.score)
 
             AI_two = Game_2048()
-            AI_two.f'{strategy2}'_2048()
+            getattr(AI_two, strategy2)()
             AI_two.maxcell_find()
             stockage_maxcell_strategy2.append(AI_two.maxcell)
             stockage_score_strategy2.append(AI_two.score)
@@ -110,7 +110,8 @@ def plot_maker(just_plot, strategy1, strategy2, n):
         plt.show()
     
 
-plot_maker(False, opposite, adjacent, 100)  
+plot_maker(False, opposite_2048, adjacent_2048, 100)  
+
 
 
 

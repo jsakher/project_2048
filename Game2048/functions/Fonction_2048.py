@@ -1,7 +1,8 @@
 import random
+from memory_profiler import profile
 
 # %% Grid creation, cells addition
-
+@profile
 def sup_2048(grid):
     """ Counts the amount of cells with values greater or equal than to 2048.
 
