@@ -30,6 +30,7 @@ Four strategies are implemented.
    :maxdepth: 5
    :caption: Strategies
 
+   simulation/strategies
    simulation/random
    simulation/clockwise
    simulation/opposite

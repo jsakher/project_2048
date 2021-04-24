@@ -15,8 +15,7 @@ You may type in a python shell the follwing lines, after what the game will star
 
 .. code-block:: python
 
-    import Main
-    Main.Launchgame()
+    Game_2048.Launch_2048()
 
 The keys are the following :
 
@@ -30,7 +29,7 @@ The keys are the following :
 
 To submit the direction, you must press enter after entering it.
 
-.. autoclass:: Game2048.Main.Game_2048
+.. autoclass:: Game2048.game.Main.Game_2048
     :members: display, down_movement, inverse, left_movement, main, maxcell_find, merge_left,
         newcell, newcell_start, possible_action, right_movement, stack, stop_game, sup_2048, transpose, up_movement
 
@@ -47,8 +46,7 @@ The graphical game follows the same instructions as the terminal version; The on
 
 .. code-block:: python
 
-    import Visual_game
-    Visual_game.Visual_game()
+    Game_2048.Launch_2048_visual()
 
 
 .. image:: ../_images/Human_playing.gif
@@ -66,10 +64,9 @@ Type the following code lines :
 
 .. code-block:: python
 
-    import Main
-    Main.Game_6561.main()
+    Game_2048.Launch_6561()
 
 And play as you do with 2048.
 
-.. autoclass:: Game2048.Main.Game_6561
+.. autoclass:: Game2048.game.Main.Game_6561
 

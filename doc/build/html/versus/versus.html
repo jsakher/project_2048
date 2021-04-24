@@ -38,7 +38,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Adjacent" href="../simulation/adjacent.html" /> 
+    <link rel="prev" title="A little illustration" href="../animation/animation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -97,10 +97,15 @@
 </ul>
 <p class="caption"><span class="caption-text">Strategies</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/strategies.html">Simulations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simulation/random.html">Random</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simulation/clockwise.html">Clockwise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simulation/opposite.html">Opposite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simulation/adjacent.html">Adjacent</a></li>
+</ul>
+<p class="caption"><span class="caption-text">A little illustration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../animation/animation.html">A little illustration</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Features</span></p>
 <ul class="current">
@@ -188,7 +193,56 @@
 <img alt="../_images/AI_distribution_randomvsclockwise.svg" src="../_images/AI_distribution_randomvsclockwise.svg" /></div>
 <div class="section" id="opposite-vs-adjacent">
 <h2>Opposite vs Adjacent :<a class="headerlink" href="#opposite-vs-adjacent" title="Permalink to this headline">¶</a></h2>
-<img alt="../_images/AI_distribution_oppositevsadjacent.svg" src="../_images/AI_distribution_oppositevsadjacent.svg" /></div>
+<img alt="../_images/AI_distribution_oppositevsadjacent.svg" src="../_images/AI_distribution_oppositevsadjacent.svg" /><span class="target" id="module-Game2048.AI_versus"></span><p>Battle of strategies</p>
+<dl class="py function">
+<dt id="Game2048.AI_versus.Versus">
+<code class="sig-prename descclassname"><span class="pre">Game2048.AI_versus.</span></code><code class="sig-name descname"><span class="pre">Versus</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strategy1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'random'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'random'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.AI_versus.Versus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launches the battle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>strategy1</strong> (<em>str</em>) – First strategy, default = ‘random’</p></li>
+<li><p><strong>strategy2</strong> (<em>str</em>) – Second strategy, default = ‘random’</p></li>
+<li><p><strong>Skip</strong> (<em>bool</em>) – Skip the display to only show the result, default = ‘False’</p></li>
+<li><p><strong>speed</strong> (<em>float</em>) – Game display speed, default = ‘0.5’</p></li>
+</ul>
+</dd>
+</dl>
+<p>You can chose among 4 strategies and compare scores :</p>
+<ul class="simple">
+<li><p>Random : IA playing random movements</p></li>
+<li><p>Clockwise : IA playing clockwise movements</p></li>
+<li><p>Adjacent : IA playing only two adjacent movements</p></li>
+<li><p>Opposite : IA playing only two opposite movements</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt id="Game2048.AI_versus.launch_versus">
+<code class="sig-prename descclassname"><span class="pre">Game2048.AI_versus.</span></code><code class="sig-name descname"><span class="pre">launch_versus</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.AI_versus.launch_versus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates two grids.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="Game2048.AI_versus.scoreboard">
+<code class="sig-prename descclassname"><span class="pre">Game2048.AI_versus.</span></code><code class="sig-name descname"><span class="pre">scoreboard</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.AI_versus.scoreboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays scoreboard at the end of the game.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="Game2048.AI_versus.set_random_position">
+<code class="sig-prename descclassname"><span class="pre">Game2048.AI_versus.</span></code><code class="sig-name descname"><span class="pre">set_random_position</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.AI_versus.set_random_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomizes the opposite and adjacent strategies : 
+up/down or right/left and up/left or down/right</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="Game2048.AI_versus.state_game2">
+<code class="sig-prename descclassname"><span class="pre">Game2048.AI_versus.</span></code><code class="sig-name descname"><span class="pre">state_game2</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.AI_versus.state_game2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the grid’s state, status of game, play made, score and the strategies which are playing.</p>
+</dd></dl>
+
+</div>
 </div>
 <div class="section" id="maximum-cell">
 <h1>Maximum cell<a class="headerlink" href="#maximum-cell" title="Permalink to this headline">¶</a></h1>
@@ -206,7 +260,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../simulation/adjacent.html" class="btn btn-neutral float-left" title="Adjacent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../animation/animation.html" class="btn btn-neutral float-left" title="A little illustration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

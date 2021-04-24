@@ -3,7 +3,7 @@ Clockwise
 
 Movements are chosen clockwise (the first one is random).
 
-.. autofunction:: Game2048.Main.Game_2048.clockwise_2048
+.. autofunction:: Game2048.game.Main.Game_2048.clockwise_2048
 
 Performance
 ^^^^^^^^^^^
