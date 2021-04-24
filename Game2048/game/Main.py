@@ -946,28 +946,28 @@ class Game_6561():
                 print(f'you lose your score is {self.score}')
 
 
-#The following are calculation of the execution time of different strategies methods in Game_2048 class
+# #The following are calculation of the execution time of different strategies methods in Game_2048 class
 
-#Execution time of random strategy
-start = time.time()
-Game_2048().random_2048()
-end = time.time()
-print("Exection time of the function: {0:.5f} s.".format(end - start))
+# #Execution time of random strategy
+# start = time.time()
+# Game_2048().random_2048()
+# end = time.time()
+# print("Exection time of the function: {0:.5f} s.".format(end - start))
 
-#Execution time of clockwise strategy
-start = time.time()
-Game_2048().clockwise_2048()
-end = time.time()
-print("Exection time of the function: {0:.5f} s.".format(end - start))
+# #Execution time of clockwise strategy
+# start = time.time()
+# Game_2048().clockwise_2048()
+# end = time.time()
+# print("Exection time of the function: {0:.5f} s.".format(end - start))
 
-#Execution time of oppposite strategy
-start = time.time()
-Game_2048().opposite_2048()
-end = time.time()
-print("Exection time of the function: {0:.5f} s.".format(end - start))
+# #Execution time of oppposite strategy
+# start = time.time()
+# Game_2048().opposite_2048()
+# end = time.time()
+# print("Exection time of the function: {0:.5f} s.".format(end - start))
 
-#Execution time of adjdacent strategy
-start = time.time()
-Game_2048().adjacent_2048()
-end = time.time()
-print("Exection time of the function: {0:.5f} s.".format(end - start))
+# #Execution time of adjdacent strategy
+# start = time.time()
+# Game_2048().adjacent_2048()
+# end = time.time()
+# print("Exection time of the function: {0:.5f} s.".format(end - start))

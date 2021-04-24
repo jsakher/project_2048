@@ -255,8 +255,8 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
     scoreboard(AI_one, AI_two, strategy1, strategy2)
 
 
-#Execution time of the Versus function with random put against clockwise strategy
-start = time.time()
-Versus('random', 'clockwise', skip = True)
-end = time.time()
-print("Execution time: {0:.5f} s.".format(end - start))
+# #Execution time of the Versus function with random put against clockwise strategy
+# start = time.time()
+# Versus('random', 'clockwise', skip = True)
+# end = time.time()
+# print("Execution time: {0:.5f} s.".format(end - start))
