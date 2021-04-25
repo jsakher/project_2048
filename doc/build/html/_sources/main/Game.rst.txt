@@ -15,7 +15,7 @@ You may type in a python shell the follwing line, after what the game will start
 
 .. code-block:: python
 
-    Game_2048.Launch_2048()
+    Game2048.launch_2048()
 
 The keys are the following :
 
@@ -46,10 +46,13 @@ The graphical game follows the same instructions as the terminal version; The on
 
 .. code-block:: python
 
-    Game_2048.Launch_2048_visual()
+    Game2048.launch_2048_visual()
 
 
 .. image:: ../_images/Human_playing.gif
+
+.. automodule:: Game2048.AI_versus
+    :members:
 
 
 6561 : An alternative game
@@ -64,7 +67,7 @@ Type the following code lines :
 
 .. code-block:: python
 
-    Game_2048.Launch_6561()
+    Game2048.launch_6561()
 
 And play as you do with 2048.
 
