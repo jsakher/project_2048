@@ -15,6 +15,8 @@ import sys
 sys.path.insert(0, os.path.abspath('../../project_2048'))
 import sphinx_rtd_theme
 
+master_doc = 'index'
+add_module_names = False
 
 # -- Project information -----------------------------------------------------
 
