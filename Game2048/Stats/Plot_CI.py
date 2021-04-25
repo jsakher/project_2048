@@ -1,4 +1,10 @@
-""" Confidence intervals plots """
+""" Confidence intervals plots
+
+    This script construct the confidence interval for all the data.
+    Using the data set already loaded in the package and the data that you get with Build_CI script.
+    The plots are stored in this dirrectory in svg format.
+
+ """
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -10,10 +16,10 @@ clock_color = '#FF8C00'
 opp_color = '#6495ED'
 adj_color = '#DC143C'
 
-score_random = np.loadtxt('Storage_AI_score_random.txt')
-score_clock = np.loadtxt('Storage_AI_score_clockwise.txt')
-score_opp = np.loadtxt('Storage_AI_score_opposite.txt')
-score_adj = np.loadtxt('Storage_AI_score_adjacent.txt')
+score_random = np.loadtxt('Game2048/Stats/Data/Storage_AI_score_random.txt')
+score_clock = np.loadtxt('Game2048/Stats/Data/Storage_AI_score_clockwise.txt')
+score_opp = np.loadtxt('Game2048/Stats/Data/Storage_AI_score_opposite.txt')
+score_adj = np.loadtxt('Game2048/Stats/Data/Storage_AI_score_adjacent.txt')
 
 Mean_random = (1/np.arange(1, len(score_random)+1)) * np.cumsum(score_random)
 Mean_clock = (1/np.arange(1, len(score_clock)+1)) * np.cumsum(score_clock)
@@ -21,17 +27,17 @@ Mean_opp = (1/np.arange(1, len(score_opp)+1)) * np.cumsum(score_opp)
 Mean_adj = (1/np.arange(1, len(score_adj)+1)) * np.cumsum(score_adj)
 
 
-inf_random = np.loadtxt('Empirical_mean_inf_random.txt')
-sup_random = np.loadtxt('Empirical_mean_sup_random.txt')
+inf_random = np.loadtxt('Game2048/Stats/Data/Empirical_mean_inf_random.txt')
+sup_random = np.loadtxt('Game2048/Stats/Data/Empirical_mean_sup_random.txt')
 
-inf_clock = np.loadtxt('Empirical_mean_inf_clockwise.txt')
-sup_clock = np.loadtxt('Empirical_mean_sup_clockwise.txt')
+inf_clock = np.loadtxt('Game2048/Stats/Data/Empirical_mean_inf_clockwise.txt')
+sup_clock = np.loadtxt('Game2048/Stats/Data/Empirical_mean_sup_clockwise.txt')
 
-inf_opp = np.loadtxt('Empirical_mean_inf_opposite.txt')
-sup_opp = np.loadtxt('Empirical_mean_sup_opposite.txt')
+inf_opp = np.loadtxt('Game2048/Stats/Data/Empirical_mean_inf_opposite.txt')
+sup_opp = np.loadtxt('Game2048/Stats/Data/Empirical_mean_sup_opposite.txt')
 
-inf_adj = np.loadtxt('Empirical_mean_inf_adjacent.txt')
-sup_adj = np.loadtxt('Empirical_mean_sup_adjacent.txt')
+inf_adj = np.loadtxt('Game2048/Stats/Data/Empirical_mean_inf_adjacent.txt')
+sup_adj = np.loadtxt('Game2048/Stats/Data/Empirical_mean_sup_adjacent.txt')
 
 x = np.arange(0, len(Mean_random)-2, 1)
 
@@ -52,7 +58,7 @@ plt.title("Average point gain with random strategy")
 plt.xlabel("number of data")
 plt.ylabel("Empirical mean")
 plt.legend()
-plt.savefig('Random_strategy_meanCI.svg', format='svg')
+plt.savefig('Game2048/Stats/Your_result/Random_strategy_meanCI.svg', format='svg')
 plt.show()
 
 # Clockwise plot
@@ -72,7 +78,7 @@ plt.title("Average point gain with clockwise strategy")
 plt.xlabel("number of data")
 plt.ylabel("Empirical mean")
 plt.legend()
-plt.savefig('Clockwise_strategy_meanCI.svg', format='svg')
+plt.savefig('Game2048/Stats/Your_result/Clockwise_strategy_meanCI.svg', format='svg')
 plt.show()
 
 # Opposite plot
@@ -91,7 +97,7 @@ plt.title("Average point gain with opposite strategy")
 plt.xlabel("number of data")
 plt.ylabel("Empirical mean")
 plt.legend()
-plt.savefig('Opposite_strategy_meanCI.svg', format='svg')
+plt.savefig('Game2048/Stats/Your_result/Opposite_strategy_meanCI.svg', format='svg')
 plt.show()
 
 # Adjacent plot
@@ -111,5 +117,5 @@ plt.title("Average point gain with adjacent strategy")
 plt.xlabel("number of data")
 plt.ylabel("Empirical mean")
 plt.legend()
-plt.savefig('Adjacent_strategy_meanCI.svg', format='svg')
+plt.savefig('Game2048/Stats/Your_result/Adjacent_strategy_meanCI.svg', format='svg')
 plt.show()
