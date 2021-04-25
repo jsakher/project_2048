@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import time
 
+
 def statsmaker1(nb_game=1000):
     """
     Plays several games with random and clockwise strategies.
@@ -15,7 +16,7 @@ def statsmaker1(nb_game=1000):
     Display the result with as kernel density estimate (KDE) plot that shows
     the distribution of score and an histogram with max cell get.
 
-    :param int nb_game: Amount of game played by IA, default = 1000 
+    :param int nb_game: Amount of game played by IA, default = 1000
     """
 
     score_random = []
@@ -49,10 +50,10 @@ def statsmaker1(nb_game=1000):
     # Display your result and compare them to "real" value
 
     print(f'Empirical mean of random strategy score you computed is {Mean_random}')
-    print(f'Empirical mean of this strategy score with 300 000 tries is 1094,66')
+    print('Empirical mean of this strategy score with 300 000 tries is 1094,66')
     print(f'Empirical mean of clockwise strategy score you computed is {Mean_clock}')
-    print(f'Empirical mean of this strategy score with 300 000 tries is 2309,67')
-    print(f'-------------------------------------------------------- \n')
+    print('Empirical mean of this strategy score with 300 000 tries is 2309,67')
+    print('-------------------------------------------------------- \n')
 
     Var_random = 1/nb_game * sum((score_random - Mean_random)**2)
     Var_clockwise = 1/nb_game * sum((score_clock - Mean_clock)**2)
@@ -61,9 +62,9 @@ def statsmaker1(nb_game=1000):
     std_clock = np.sqrt(Var_clockwise)
 
     print(f'Standard deviation of random strategy score of the games you computed is {std_random} ')
-    print(f'Standard deviation of random strategy with 300 000 tries is 533,89')
+    print('Standard deviation of random strategy with 300 000 tries is 533,89')
     print(f'Standard deviation of clockwise strategy score of the games you computed is {std_clock} ')
-    print(f'Standard deviation of clockwise strategy score with 300 000 tries is 1081,97')
+    print('Standard deviation of clockwise strategy score with 300 000 tries is 1081,97')
 
     random_color = '#8A2BE2'
     clockwise_color = '#FF8C00'
@@ -101,7 +102,7 @@ def statsmaker2(nb_game=1000):
     """
     Plays several games with adjacent and opposite strategies.
     Calculates empirical mean and standard deviation with your data and
-    compare them with the original data. (300 000 game played)  
+    compare them with the original data. (300 000 game played)
 
     Display the result with as kernel density estimate (KDE) plot that shows
     the distribution of score and an histogram with max cell get.
@@ -140,10 +141,10 @@ def statsmaker2(nb_game=1000):
     # Display your result and compare them to "real" value
 
     print(f'Empirical mean of opposite strategy score you computed is {Mean_opp}')
-    print(f'Empirical mean of this strategy score with 300 000 tries is 88,01')
+    print('Empirical mean of this strategy score with 300 000 tries is 88,01')
     print(f'Empirical mean of adjacent strategy score you computed is {Mean_adj}')
-    print(f'Empirical mean of this strategy score with 300 000 tries is 120,45')
-    print(f'-------------------------------------------------------- \n')
+    print('Empirical mean of this strategy score with 300 000 tries is 120,45')
+    print('-------------------------------------------------------- \n')
 
     Var_opp = 1/nb_game * sum((score_opp - Mean_opp)**2)
     Var_adj = 1/nb_game * sum((score_adj - Mean_adj)**2)
@@ -152,9 +153,9 @@ def statsmaker2(nb_game=1000):
     std_adj = np.sqrt(Var_adj)
 
     print(f'Standard deviation of opposite strategy score of the games you computed is {std_opp} ')
-    print(f'Standard deviation of opposite strategy with 300 000 tries is 25,25')
+    print('Standard deviation of opposite strategy with 300 000 tries is 25,25')
     print(f'Standard deviation of adjacent strategy score of the games you computed is {std_adj} ')
-    print(f'Standard deviation of adjacent strategy score with 300 000 tries is 104,75')
+    print('Standard deviation of adjacent strategy score with 300 000 tries is 104,75')
 
     opposite_color = '#1E90FF'
     adjacent_color = '#6e3300'
@@ -189,12 +190,7 @@ def statsmaker2(nb_game=1000):
 
 # statsmaker2()
 # Execution of statsmaker1 function with a specific number of games launched
-def time_MS(n):
-    start =time.time()
-    statsmaker1(n)
-    end= time.time()
-    return (print("Temps passé pour exécuter la commande: {0:.5f} s.".format(end - start)))
-# time_MS(250)
+
 
 statsmaker1()
 statsmaker2()

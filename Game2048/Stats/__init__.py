@@ -1,5 +1,1 @@
-from ..game import Main 
-from .statsmaker import statsmaker1, statsmaker2
-
-
-
+from ..game import Main

@@ -18,7 +18,7 @@ def sup_2048(grid):
 
 
 def newcell(grid):
-    """ 
+    """
     Add new cell to the grid :
 
     - a 2 cell with 9/10 probability
@@ -76,7 +76,7 @@ def newcell(grid):
 
 
 def newcell_start(grid):
-    """ 
+    """
     Initializes the grid with :
 
     - a 2 cell with 9/10 probability
@@ -107,7 +107,7 @@ def new_game():
 
 
 def possible_action(grid):
-    """ 
+    """
     Checks if a movement is possible on the grid.
 
     See example:
@@ -206,15 +206,6 @@ def state_game(grid, score):
     return('------------')
 
 
-# Step 1 : game creation
-# Step 2 : new cell
-# Step 3 : movement
-# Step 4 : game state
-# %% Cells movement
-# Useful functions: stack, merge
-
-aaa = [[1, 0, 0, 2], [0, 0, 3, 2], [0, 4, 0, 0], [1, 2, 0, 2]]
-
 def stack(grid):
     """ Stacks the grid's cells to the left.
 
@@ -254,7 +245,7 @@ def stack(grid):
 
 
 def merge_left(grid, score):
-        """ Merges the grid cells to the left.
+    """ Merges the grid cells to the left.
 
         See example:
 
@@ -281,21 +272,19 @@ def merge_left(grid, score):
             +----+----+----+----+
         """
 
-        for i in range(4):
-            for j in range(3):
-                if(grid[i][j] == grid[i][j+1]):
-                    grid[i][j] = grid[i][j] * 2
-                    grid[i][j + 1] = 0
-                    score += grid[i][j]
-        return (grid, score)
-
-
-
+    for i in range(4):
+        for j in range(3):
+            if(grid[i][j] == grid[i][j+1]):
+                grid[i][j] = grid[i][j] * 2
+                grid[i][j + 1] = 0
+                score += grid[i][j]
+    return (grid, score)
 
 #  Rotation functions
 
+
 def rotation(grid):
-    """ 
+    """
     Rotate the grid according to an axial symmetry.
     It will be used to define movements.
     All movements are based on :py:func:`merge_left` and left :py:func:`left stack`.
@@ -334,7 +323,7 @@ def rotation(grid):
 
 
 def transpose(grid):
-    """ 
+    """
     Transposes (mathematically) the grid. It will be used to define movements.
     All movements are based on :py:func:`merge_left` and left :py:func:`left stack`.
 
@@ -372,7 +361,7 @@ def transpose(grid):
 
 
 def inverse(grid):
-    """ 
+    """
     Rotate the grid according to an axial symmetry.
     It will be used to define movements.
     All movements are based on :py:func:`merge_left` and left :py:func:`left stack`.
@@ -408,10 +397,11 @@ def inverse(grid):
     return new_grid
 
 # All movement are base on rotation and
-# left_movement (algorithms can be optimized)
+# left_movement
+
 
 def left_movement(grid, score):
-    """ 
+    """
     Makes the complete move of the cells to the left.
 
     See example:
@@ -449,7 +439,7 @@ def left_movement(grid, score):
 
 
 def up_movement(grid, score):
-    """ 
+    """
     Makes the complete move of the cells to the top.
 
     See example:
@@ -488,7 +478,7 @@ def up_movement(grid, score):
 
 
 def down_movement(grid, score):
-    """ 
+    """
     Makes the complete move of the cells to the bottom.
 
     See example:
@@ -530,7 +520,7 @@ def down_movement(grid, score):
 
 
 def right_movement(grid, score):
-    """ 
+    """
     Makes the complete move of the cells to the right.
 
     See example:
