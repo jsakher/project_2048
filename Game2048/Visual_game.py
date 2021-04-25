@@ -15,6 +15,14 @@ def visual_game(colorblind=False, makescreen=False):
     If you want make screen to do a gif be carrefull to put the popup window
     at the top left of your display.
     After that you have to use Edit_gif.py to compute a gif.
+
+
+    :param colorblind: Change the colour to suit colour blind people, default = False
+    :type colorblind: boolean
+
+    :param makescreen: create images of the game in format png to make gif stored in temp directory, , default = False
+    :type makescreen: boolean
+
     """
 
     # Create a list with color usefull for the grid

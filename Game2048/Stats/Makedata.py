@@ -2,11 +2,14 @@ import numpy as np
 import Game2048.game.Main as Main
 
 
-def Makedata(n):
-    """ 
+def makedata(nb_data):
+    """
     This function generate a data set : mean and max cell
-    over n game with all of 4 strategies.
-    The data are store in Your_result
+    over nb_data games with all of 4 strategies.
+    The data are store in Your_result directory
+
+    :param nb_data: number of game that you want to analyse
+    :type nb_data: integer
 
     """
 
@@ -20,7 +23,7 @@ def Makedata(n):
     maxcell_opp = []
     maxcell_adj = []
 
-    for i in range(n):
+    for i in range(nb_data):
 
         AI_one = Main.Game_2048()
         AI_one.random_2048()
@@ -65,3 +68,4 @@ def Makedata(n):
     np.savetxt('Game2048/Stats/Your_result/AI_maxcell_adjacent.txt',
                maxcell_adj)
 
+makedata(10)

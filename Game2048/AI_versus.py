@@ -51,6 +51,7 @@ def set_random_position():
 def scoreboard(grid1, grid2, strategy1, strategy2):
     """
     Displays scoreboard at the end of the game.
+  
     """
     # Set graphical ---- to improve visibility
     print('--------------------------------------------------------------------------------------------------------------------')
@@ -122,13 +123,17 @@ def versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
     """
     Launches the battle.
 
-    :param str strategy1: First strategy, default = 'random'
+    :param strategy1: First strategy, default = 'random'
+    :type strategy1: str
 
-    :param str strategy2: Second strategy, default = 'random'
+    :param strategy2: Second strategy, default = 'random'
+    :type strategy2: str
+    
+    :param Skip: Skip the display to only show the result, default = 'False'
+    :type Skip: bool
 
-    :param bool Skip: Skip the display to only show the result, default = 'False'
-
-    :param float speed: Game display speed, default = '0.5'
+    :param speed: Game display speed, default = '0.5'
+    :type speed: float
 
     You can chose among 4 strategies and compare scores :
 

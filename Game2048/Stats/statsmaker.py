@@ -6,16 +6,18 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import time
 
+
 def statsmaker1(nb_game=1000):
     """
     Plays several games with random and clockwise strategies.
-    Calculates empirical mean and standard deviation with your data and
-    compare them with the original data. (300 000 game played)
+    Calculate empirical mean and standard deviation with your data and
+    compare them with the original data. (300 000 games played)
 
     Display the result with as kernel density estimate (KDE) plot that shows
-    the distribution of score and an histogram with max cell get.
+    the distribution of score and an histogram with max cell gets.
 
-    :param int nb_game: Amount of game played by IA, default = 1000 
+    :param nb_game: Amount of game played by IA, default = 1000
+    :type nb_game: int
     """
 
     score_random = []
@@ -100,13 +102,14 @@ def statsmaker1(nb_game=1000):
 def statsmaker2(nb_game=1000):
     """
     Plays several games with adjacent and opposite strategies.
-    Calculates empirical mean and standard deviation with your data and
-    compare them with the original data. (300 000 game played)  
+    Calculate empirical mean and standard deviation with your data and
+    compare them with the original data. (300 000 games played)
 
     Display the result with as kernel density estimate (KDE) plot that shows
-    the distribution of score and an histogram with max cell get.
+    the distribution of score and an histogram with max cell gets.
 
-    :param int nb_game: Amount of game played by IA, default = 1000
+    :param nb_game: Amount of game played by IA, default = 1000
+    :type nb_game: int
     """
 
     score_opp = []
@@ -187,7 +190,7 @@ def statsmaker2(nb_game=1000):
     # plt.savefig('AI_maxcell_opposite_adjacent.svg')
     plt.show()
 
-# statsmaker2()
+
 # Execution of statsmaker1 function with a specific number of games launched
 def time_MS(n):
     start =time.time()
