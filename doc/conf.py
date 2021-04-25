@@ -12,13 +12,14 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('../'))
 import sphinx_rtd_theme
 import mock
 
 MOCK_MODULES = [
     'imageio',
     'matplotlib',
+    'matplotlib.pyplot'
     'numba',
     'seaborn',
     'pandas',
@@ -42,7 +43,6 @@ author = 'Nathan Esteve, Ayoub Aarab, Elucson Jean-Baptiste, Jalal Sakher'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-#    'sphinx.ext.imgconverter',
     'sphinx.ext.mathjax',
 ]
 
