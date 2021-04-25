@@ -5,8 +5,8 @@
 
 ## Topic
 
-The goal of this project is to be able to reproduce a videogame : 2048. The game must be playable.  
-Test the original game at *https://play2048.co/*
+The goal of this project is to be able to reproduce a video game : 2048. The game must be playable.  
+Test the original game at *<https://play2048.co/>*
 
 After what we want to know if there are strategies to take the game further like the following strategies:
 
@@ -14,9 +14,9 @@ After what we want to know if there are strategies to take the game further like
 + right movement
 + left movement
 + clockwise movement
-+ other movement patern
++ other movement pattern
 
-To do so, we will need to launch many games to test the average score. We will make a visual game and visual representation about different strategy. 
+To do so, we will need to launch many games to test the average score. We will make a visual game and visual representation about different strategy.
 If we have time we will try different game rules (probability change, size grid)
 
 ## Working group
@@ -26,6 +26,7 @@ If we have time we will try different game rules (probability change, size grid)
 + Elucson Jean-Baptiste: *elucson.jean-baptiste@etu.umontpellier.fr*
 + Jalal Sakher: *jalal.sakher@etu.umontpellier.fr*
 
+![Empiricalmeanconvergence.](/Game_picture/empirical_mean_convergence.gif) (pas utile de mettre ça ici non ?)
 
 ## Task affectation
 
@@ -33,9 +34,8 @@ If we have time we will try different game rules (probability change, size grid)
 + Playability and user interface: Ayoub and Nathan
 + I.A. play and strategies code: Jalal
 + Math tests and documentation : Elucson
-+ Tests visualisation: Four of us
++ Tests visualization: Four of us
 + Beamer presentation: Four of us
-
 
 ## Work program
 
@@ -48,6 +48,8 @@ If we have time we will try different game rules (probability change, size grid)
 + Make the game package ready
 + Documentation with Sphinx
 
+## Documentation
 
+The documentation of the package is available for consultation [here](https://project-2048.readthedocs.io/en/latest/).
 
-![Grid.](/Game_picture/visual_grid.1.0.1.png)
+![Grid.](/Game_picture/Clockwise_IA.gif)
