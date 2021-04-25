@@ -17,13 +17,13 @@ import sphinx_rtd_theme
 import mock
 
 MOCK_MODULES = [
-    imageio,
-    matplotlib,
-    numba,
-    seaborn,
-    pandas,
-    pyscreenshot,
-    numpy,]
+    'imageio',
+    'matplotlib',
+    'numba',
+    'seaborn',
+    'pandas',
+    'pyscreenshot',
+    'numpy',]
 
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
