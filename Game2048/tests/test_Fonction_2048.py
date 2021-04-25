@@ -23,8 +23,8 @@ class TestFonction(unittest.TestCase):
         assert Fonction_2048.stop_game(self.grid_2048) == True
     @patch('builtins.print')
     def test_state_game(self, mock_print):
-         Fonction_2048.state_game(self.grid_2048, self.score)
-         mock_print.assert_called_with(self.grid_2048[0], '\n', self.grid_2048[1], '\n', self.grid_2048[2], '\n', self.grid_2048[3], '\n', f'Your score is {self.score}')
+        Fonction_2048.state_game(self.grid_2048, self.score)
+        mock_print.assert_called_with(self.grid_2048[0], '\n', self.grid_2048[1], '\n', self.grid_2048[2], '\n', self.grid_2048[3], '\n', f'Your score is {self.score}')
     
     def test_stack(self):
         assert Fonction_2048.stack(self.grid) == [[2, 2, 0, 0], [2, 2, 0, 0], [2, 4, 0, 0], [8, 8, 8, 0]]
