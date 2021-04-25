@@ -26,7 +26,7 @@ If we have time we will try different game rules (probability change, size grid)
 + Elucson Jean-Baptiste: *elucson.jean-baptiste@etu.umontpellier.fr*
 + Jalal Sakher: *jalal.sakher@etu.umontpellier.fr*
 
-![Empiricalmeanconvergence.](/Game_picture/empirical_mean_convergence.gif) (pas utile de mettre ça ici non ?)
+![Empiricalmeanconvergence.](/Game_picture/empirical_mean_convergence.gif)
 
 ## Task affectation
 
