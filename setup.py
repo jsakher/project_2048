@@ -9,4 +9,5 @@ setup(name='Game2048',
       url='https://github.com/Nathanesteve/project_2048',
       author='Nathan Esteve ; Jalal Sakher ; Ayoub Aarab ; Elucson Jean-Baptiste',
       author_email='',
-      license='MIT',)
+      license='MIT',
+      zip_safe=False)
