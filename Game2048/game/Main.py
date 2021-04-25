@@ -6,7 +6,7 @@ import time
 
 class Game_2048():
     """ Contains the necessary functions to  launch
-     either the 2048 user game or the A.I. ones.
+    either the 2048 user game or the A.I. ones.
 
     """
 
@@ -156,7 +156,7 @@ class Game_2048():
         See example:
 
             In this grid, cells [0][0] and [0][1] can be merged
-             in up and down movements.
+            in up and down movements.
 
             +---+---+---+---+
             | 2 | 4 | 8 | 4 |
@@ -202,7 +202,7 @@ class Game_2048():
 
     def stop_game(self):
         """ Checks if the game should be stop
-         (when there is no more possible movement).
+        (when there is no more possible movement).
 
         :returns: True if the game can continued, false otherwise.
         :rtype: bool
@@ -294,7 +294,7 @@ class Game_2048():
     def transpose(self):
         """ Transposes (mathematically) the grid. It will be used to define movements.
         All movements are based on :py:func:`merge_left`
-        and left :py:func:`left stack`.
+        and left :py:func:`stack`.
 
         See example:
 
@@ -332,10 +332,10 @@ class Game_2048():
 
     def inverse(self):
         """ Rotate the grid according to an axial symmetry.
-         It will be used to define movements.
+        It will be used to define movements.
 
         All movements are based on :py:func:`merge_left`
-         and left :py:func:`left stack`.
+        and left :py:func:`stack`.
 
         See example:
 
@@ -628,7 +628,7 @@ class Game_2048():
 
     def clockwise_2048(self):
         """ Launches an AI game with clockwise movement
-         (starting movement is randomized).
+        (starting movement is randomized).
         """
         self.newcell_start()
         self.newcell()
@@ -684,7 +684,7 @@ class Game_2048():
 
     def adjacent_2048(self):
         """ Launches an AI game with only a first random movement
-         and one of its adjacent ones.
+        and one of its adjacent ones.
         """
 
         self.newcell_start()

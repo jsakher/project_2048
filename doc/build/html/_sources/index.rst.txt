@@ -53,6 +53,13 @@ Some features of these strategies are shown here. They are structured in versus 
    versus/versus
 
 
+.. toctree::
+   :maxdepth: 5
+   :caption: Executable functions
+
+   interactive/executable_function
+
+
 Indices and tables
 ==================
 

@@ -6,11 +6,12 @@ def makedata(nb_data):
     """
     This function generate a data set : mean and max cell
     over nb_data games with all of 4 strategies.
-    The data are store in Your_result directory
+    The data are stored in Your_result directory
 
     :param nb_data: number of game that you want to analyse
     :type nb_data: integer
 
+    :param int n: The number of simulations to make
     """
 
     score_random = []
