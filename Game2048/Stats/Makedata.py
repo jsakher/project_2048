@@ -5,9 +5,10 @@ import Game2048.game.Main as Main
 def Makedata(n):
     """ 
     This function generate a data set : mean and max cell
-    over n game with all of 4 strategies.
+    over n games with all of 4 strategies.
     The data are store in Your_result
 
+    :param int n: The number of simulations to make
     """
 
     score_random = []
