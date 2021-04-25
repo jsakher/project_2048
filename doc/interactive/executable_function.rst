@@ -14,14 +14,7 @@ New data comparison
 ===================
 
 You can generate a new data set of strategies mean score and max cell, and compare them with the original one.
-To do so, execute this command (you can change parameters, see the documentation below) : 
+To do so, execute the python script *statsmaker.py* located in the *Stats* sub-module of *Game2048*.
 
-.. code-block:: python
-
-    Game2048.Stats.statsmaker.statsmaker1() # for random and clockwise strategies
-    Game2048.Stats.statsmaker.statsmaker2() # for adjacent and opposite strategies
-
-
-.. autofunction:: Game2048.Stats.statsmaker.statsmaker1
-
-.. autofunction:: Game2048.Stats.statsmaker.statsmaker2
+.. automodule:: Game2048.Stats.statsmaker
+    :members:

@@ -1,8 +1,8 @@
 How to install the project 2048
 ===============================
 
-Install from `Pypi <https://test.pypi.org/project/game2048/0.0.1/#description>`_ 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Install from `TestPypi <https://test.pypi.org/project/game2048/0.0.1/#description>`_ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To install this package, put the following command in the prompt : 
 
