@@ -218,18 +218,36 @@ write the following line in a python shell :</p>
 <h1>New data comparison<a class="headerlink" href="#new-data-comparison" title="Permalink to this headline">¶</a></h1>
 <p>You can generate a new data set of strategies mean score and max cell, and compare them with the original one.
 To do so, execute this command (you can change parameters, see the documentation below) :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Game2048</span><span class="o">.</span><span class="n">Stats</span><span class="o">.</span><span class="n">Makedata</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Game2048</span><span class="o">.</span><span class="n">Stats</span><span class="o">.</span><span class="n">statsmaker</span><span class="o">.</span><span class="n">statsmaker1</span><span class="p">()</span> <span class="c1"># for random and clockwise strategies</span>
+<span class="n">Game2048</span><span class="o">.</span><span class="n">Stats</span><span class="o">.</span><span class="n">statsmaker</span><span class="o">.</span><span class="n">statsmaker2</span><span class="p">()</span> <span class="c1"># for adjacent and opposite strategies</span>
 </pre></div>
 </div>
 <dl class="py function">
-<dt id="Game2048.Stats.Makedata.Makedata">
-<code class="sig-prename descclassname"><span class="pre">Game2048.Stats.Makedata.</span></code><code class="sig-name descname"><span class="pre">Makedata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Stats.Makedata.Makedata" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function generate a data set : mean and max cell
-over n games with all of 4 strategies.
-The data are store in Your_result</p>
+<dt id="Game2048.Stats.statsmaker.statsmaker1">
+<code class="sig-prename descclassname"><span class="pre">Game2048.Stats.statsmaker.</span></code><code class="sig-name descname"><span class="pre">statsmaker1</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_game</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Stats.statsmaker.statsmaker1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plays several games with random and clockwise strategies.
+Calculate empirical mean and standard deviation with your data and
+compare them with the original data. (300 000 games played)</p>
+<p>Display the result with as kernel density estimate (KDE) plot that shows
+the distribution of score and an histogram with max cell gets.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – The number of simulations to make</p>
+<dd class="field-odd"><p><strong>nb_game</strong> (<em>int</em>) – Amount of game played by IA, default = 1000</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="Game2048.Stats.statsmaker.statsmaker2">
+<code class="sig-prename descclassname"><span class="pre">Game2048.Stats.statsmaker.</span></code><code class="sig-name descname"><span class="pre">statsmaker2</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_game</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Game2048.Stats.statsmaker.statsmaker2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plays several games with adjacent and opposite strategies.
+Calculate empirical mean and standard deviation with your data and
+compare them with the original data. (300 000 games played)</p>
+<p>Display the result with as kernel density estimate (KDE) plot that shows
+the distribution of score and an histogram with max cell gets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>nb_game</strong> (<em>int</em>) – Amount of game played by IA, default = 1000</p>
 </dd>
 </dl>
 </dd></dl>

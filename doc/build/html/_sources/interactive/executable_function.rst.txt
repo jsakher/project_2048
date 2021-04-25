@@ -18,6 +18,10 @@ To do so, execute this command (you can change parameters, see the documentation
 
 .. code-block:: python
 
-    Game2048.Stats.Makedata(n)
+    Game2048.Stats.statsmaker.statsmaker1() # for random and clockwise strategies
+    Game2048.Stats.statsmaker.statsmaker2() # for adjacent and opposite strategies
 
-.. autofunction:: Game2048.Stats.Makedata.Makedata
+
+.. autofunction:: Game2048.Stats.statsmaker.statsmaker1
+
+.. autofunction:: Game2048.Stats.statsmaker.statsmaker2
