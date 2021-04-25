@@ -1,7 +1,7 @@
 import random
 
 
-# %% Grid creation, cells addition
+# Grid creation, cells addition
 def sup_2048(grid):
     """ Counts the amount of cells with values greater or equal than to 2048.
 

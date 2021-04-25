@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import time
 
-def Make_stats1(nb_game=1000):
+def statsmaker1(nb_game=1000):
     """
     Plays several games with random and clockwise strategies.
     Calculates empirical mean and standard deviation with your data and
@@ -97,7 +97,7 @@ def Make_stats1(nb_game=1000):
     plt.show()
 
 
-def Make_stats2(nb_game=1000):
+def statsmaker2(nb_game=1000):
     """
     Plays several games with adjacent and opposite strategies.
     Calculates empirical mean and standard deviation with your data and
@@ -187,19 +187,11 @@ def Make_stats2(nb_game=1000):
     # plt.savefig('AI_maxcell_opposite_adjacent.svg')
     plt.show()
 
-# Make_stats2()
-# Execution of Make_stats function with a specific number of games launched
+# statsmaker2()
+# Execution of statsmaker1 function with a specific number of games launched
 def time_MS(n):
     start =time.time()
-    Make_stats(n)
+    statsmaker1(n)
     end= time.time()
     return (print("Temps passé pour exécuter la commande: {0:.5f} s.".format(end - start)))
 # time_MS(250)
-
-# def tgm(strat1):
-#     A = Main.Game_2048()
-#     A = getattr(A, f"{strat1}")()
-
-# A = Main.Game_2048()
-
-# getattr(A, "main")()
