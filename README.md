@@ -50,6 +50,6 @@ If we have time we will try different game rules (probability change, size grid)
 
 ## Documentation
 
-The documentation of the package is available for consultation [here](https://project-2048.readthedocs.io/en/latest/).
+The documentation of the package is available for consultation [here](https://project-2048.readthedocs.io/en/master/).
 
 ![Grid.](/Game_picture/Clockwise_IA.gif)
