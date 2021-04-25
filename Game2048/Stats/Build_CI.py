@@ -7,10 +7,10 @@ from numba import jit
 # Load data get with Make_graph
 print('Load data')
 
-score_opp = np.loadtxt('Storage_AI_score_opposite.txt')
-score_adj = np.loadtxt('Storage_AI_score_adjacent.txt')
-score_random = np.loadtxt('Storage_AI_score_random.txt')
-score_clock = np.loadtxt('Storage_AI_score_clockwise.txt')
+score_opp = np.loadtxt('Game2048/Stats/Data/Storage_AI_score_opposite.txt')
+score_adj = np.loadtxt('Game2048/Stats/Data/Storage_AI_score_adjacent.txt')
+score_random = np.loadtxt('Game2048/Stats/Data/Storage_AI_score_random.txt')
+score_clock = np.loadtxt('Game2048/Stats/Data/Storage_AI_score_clockwise.txt')
 
 # Get empirical mean and empirical standard deviation
 empirical_mean_opp = np.mean(score_opp)
@@ -106,29 +106,29 @@ print('Loading [XX--------]')
 inf_clock, sup_clock = Construct_CI(score_clock,
                                     Mean_clock)
 
-np.savetxt('Empirical_mean_inf_clockwise.txt', inf_clock)
-np.savetxt('Empirical_mean_sup_clockwise.txt', sup_clock)
+np.savetxt('Game2048/Stats/Data/Empirical_mean_inf_clockwise.txt', inf_clock)
+np.savetxt('Game2048/Stats/Data/Empirical_mean_sup_clockwise.txt', sup_clock)
 
 print('Loading [XXXX------]')
 
 inf_random, sup_random = Construct_CI(score_random,
                                       Mean_random)
-np.savetxt('Empirical_mean_inf_random.txt', inf_random)
-np.savetxt('Empirical_mean_sup_random.txt', sup_random)
+np.savetxt('Game2048/Stats/Data/Empirical_mean_inf_random.txt', inf_random)
+np.savetxt('Game2048/Stats/Data/Empirical_mean_sup_random.txt', sup_random)
 
 print('Loading [XXXXXX----]')
 
 inf_opp, sup_opp = Construct_CI(score_opp,
                                 Mean_opp)
-np.savetxt('Empirical_mean_inf_opposite.txt', inf_opp)
-np.savetxt('Empirical_mean_sup_opposite.txt', sup_opp)
+np.savetxt('Game2048/Stats/Data/Empirical_mean_inf_opposite.txt', inf_opp)
+np.savetxt('Game2048/Stats/Data/Empirical_mean_sup_opposite.txt', sup_opp)
 
 print('Loading [XXXXXXXX--]')
 
 inf_adj, sup_adj = Construct_CI(score_adj,
                                 Mean_adj)
-np.savetxt('Empirical_mean_inf_adjacent.txt', inf_adj)
-np.savetxt('Empirical_mean_sup_adjacent.txt', sup_adj)
+np.savetxt('Game2048/Stats/Data/Empirical_mean_inf_adjacent.txt', inf_adj)
+np.savetxt('Game2048/Stats/Data/Empirical_mean_sup_adjacent.txt', sup_adj)
 
 print('Loading [XXXXXXXXXX]')
 print('done')
