@@ -9,10 +9,10 @@ import time
 # two game scores at one time.
 
 # empirical values
-random_empirical_mean = 1095
-clockwise_empirical_mean = 2310
+random_empirical_mean = 1094.6
+clockwise_empirical_mean = 2309.6
 opposite_empirical_mean = 88
-adjacent_empirical_mean = 120
+adjacent_empirical_mean = 120.4
 
 
 def launch_versus():
@@ -33,7 +33,7 @@ def launch_versus():
 
 def set_random_position():
     """
-    Randomizes the opposite and adjacent strategies : 
+    Randomizes the opposite and adjacent strategies :
     up/down or right/left and up/left or down/right
     """
 
@@ -89,15 +89,15 @@ def scoreboard(grid1, grid2, strategy1, strategy2):
     print('')
 
     if strategy_win == 'clockwise':
-        print(f'The empirical mean with the {strategy_win} strategy is {clockwise_empirical_mean} and the empirical variance is ')
+        print(f'The empirical mean with the {strategy_win} strategy is {clockwise_empirical_mean} and the standard deviation is 1081 ')
     if strategy_win == 'random':
-        print(f'The empirical mean with the {strategy_win} strategy is {random_empirical_mean} and the empirical variance is ')
+        print(f'The empirical mean with the {strategy_win} strategy is {random_empirical_mean} and the standard deviation is 533.8')
 
     if strategy_win == 'opposite':
-        print(f'The empirical mean with the {strategy_win} strategy is {opposite_empirical_mean} and the empirical variance is ')
+        print(f'The empirical mean with the {strategy_win} strategy is {opposite_empirical_mean} and the standard deviation is 25')
 
     if strategy_win == 'adjacent':
-        print(f'The empirical mean with the {strategy_win} strategy is {adjacent_empirical_mean} and the empirical variance is ')
+        print(f'The empirical mean with the {strategy_win} strategy is {adjacent_empirical_mean} and the standard deviation is 104')
     print('--------------------------------------------------------------------------------------------------------------------')
 
 
@@ -118,7 +118,7 @@ def state_game2(grid1, grid2, x="", y="", strategy1="", strategy2=""):
     return('------------')
 
 
-def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
+def versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
     """
     Launches the battle.
 
@@ -130,7 +130,7 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
 
     :param float speed: Game display speed, default = '0.5'
 
-    You can chose among 4 strategies and compare scores : 
+    You can chose among 4 strategies and compare scores :
 
     - Random : IA playing random movements
     - Clockwise : IA playing clockwise movements
@@ -209,7 +209,7 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
             AI_two.down_movement()
         if (y.upper() == 'Q'):
             AI_two.left_movement()
-        
+
         AI_one.stop_game()
         AI_two.stop_game()
 
@@ -219,9 +219,9 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
             AI_two.newcell()
 
         # Checks if the game is stuck. With this two strategies,
-        # game bugs many time because of the lack of diversity 
+        # game bugs many time because of the lack of diversity
         # between the movements. It can occur when a same movement
-        # is done on a loop. 
+        # is done on a loop.
         # So we stop the game when the same movement is repeated three times
         # i.e. it can't make other move or improve the score
 
@@ -253,4 +253,3 @@ def Versus(strategy1='random', strategy2='random', skip=False, speed=0.5):
             AI_two.status = False
 
     scoreboard(AI_one, AI_two, strategy1, strategy2)
-

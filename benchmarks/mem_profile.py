@@ -1,6 +1,7 @@
 from memory_profiler import profile
 import random
 
+
 class Game_2048():
     """ Contains the necessary functions to  launch
      either the 2048 user game or the A.I. ones.
@@ -620,7 +621,7 @@ class Game_2048():
         """ Launches an AI game with random movements only.
         """
 
-        i=0
+        i = 0
         self.newcell_start()
         self.newcell()
 
@@ -741,8 +742,7 @@ class Game_2048():
                 self.status = False
 
 
-
 if __name__ == "__main__":
-    #Game_2048().maxcell_find()
-    #Game_2048().random_2048()
+    # Game_2048().maxcell_find()
+    # Game_2048().random_2048()
     Game_2048().merge_left()

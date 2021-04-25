@@ -1,9 +1,8 @@
 __version__ = '0.0.1'
 
 from Game2048.game.Main import Game_2048, Game_6561
-from Game2048.Visual_game import Visual_game
-from Game2048.AI_versus import Versus
-from Game2048.statsmaker import statsmaker1, statsmaker2
+from Game2048.visual_game import visual_game
+from Game2048.ai_versus import versus
 
 
 def launch_2048():
@@ -22,5 +21,4 @@ def launch_6561():
 
 
 def launch_2048_visual():
-    Visual_game()
-
+    visual_game()

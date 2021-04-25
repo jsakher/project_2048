@@ -4,7 +4,7 @@ import Game2048.game.Main as Main
 import pyscreenshot
 
 
-def Visual_game(colorblind=False, makescreen=False):
+def visual_game(colorblind=False, makescreen=False):
 
     """
     Creates a visualization of  the 2048 game, it uses tkinter package
@@ -65,7 +65,7 @@ def Visual_game(colorblind=False, makescreen=False):
     window.title("2048")
     window.geometry("720x480")
     window.minsize(720, 480)
-    window.iconbitmap("./Game2048/ico2048.ico")
+    # window.iconbitmap("./Game2048/ico2048.ico")
     window.config(background='#B0C4DE')
     width = 400
     height = 400
@@ -267,9 +267,6 @@ def Visual_game(colorblind=False, makescreen=False):
         Lab_3_3.config(bg=color_cell1[grid[3][3]], text=grid[3][3])
     # ----------------------------------------------------------
 
-        # Make png to make gif with edit_gif
-        # script github:
-        # Nathanesteve/Challenge_prediction/blob/main/Code_visualisation_Montpellier_cycliste/Edit_gif.py
         if makescreen is True:
             im = pyscreenshot.grab(bbox=(5, 5, 720, 510))  # X1,Y1,X2,Y2
             im.save("Game2048/temp/viusal_2048_{:03}.png".format(i))
@@ -286,5 +283,3 @@ def Visual_game(colorblind=False, makescreen=False):
                           font=('Helvetica', 13, 'bold'))
         End_score.place(x=390, y=432)
     window.mainloop()
-
-#

@@ -1,7 +1,7 @@
 """ Data and plots generator """
 
 import numpy as np
-import Game2048.game.Main as Main
+from Game2048.Stats import Main
 import matplotlib.pyplot as plt
 import seaborn as sns
 import time
@@ -195,3 +195,6 @@ def time_MS(n):
     end= time.time()
     return (print("Temps passé pour exécuter la commande: {0:.5f} s.".format(end - start)))
 # time_MS(250)
+
+statsmaker1()
+statsmaker2()

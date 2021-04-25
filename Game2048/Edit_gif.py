@@ -1,8 +1,6 @@
 import imageio
 from pathlib import Path
 
-
-
 # Create Gif and remove each .png file
 
 image_path = Path('Game2048/temp')
@@ -12,6 +10,5 @@ image_list = []
 for file_name in images:
     image_list.append(imageio.imread(file_name))
 
-
-# Cree le gif dans la racine du dossier
+# Creates the gif in current directory
 imageio.mimwrite('Game2048/Your_game2048.gif', image_list, fps=5)
