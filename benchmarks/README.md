@@ -36,7 +36,6 @@ Furthermore, bear in mind that the execution times of the functions statsmaker1 
 
 **Note**: The use of Numba to accelerate the compilation hasn't shown to be applicable to the function. This issue has not been fixed as of today.
 
-## Memory usage
 
 
 
