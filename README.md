@@ -28,28 +28,26 @@ If we have time we will try different game rules (probability change, size grid)
 
 ![Empiricalmeanconvergence.](/Game_picture/empirical_mean_convergence.gif)
 
-## Task affectation
+## Installation
 
-+ Core game code: Nathan
-+ Playability and user interface: Ayoub and Nathan
-+ I.A. play and strategies code: Jalal
-+ Math tests and documentation : Elucson
-+ Tests visualization: Four of us
-+ Beamer presentation: Four of us
+In order to install the package, firstly import the modules present in the `./requirement.txt` file, then execute the following command
 
-## Work program
+```{bash}
+$ pip install -i https://test.pypi.org/simple/ game2048==0.0.1
+```
 
-+ Add scoreboard
-+ Compute different strategy (calculate the average of the different strategies)
-+ Visual enhancement for the game
-+ Creation of a gif or video for algorithm display
-+ Code cleaning (pep8, classes, documentation, ...)
-+ Beamer presentation
-+ Make the game package ready
-+ Documentation with Sphinx
+then import it from a python shell
+```{python}
+>>> import Game2048
+```
 
 ## Documentation
 
-The documentation of the package is available for consultation [here](https://project-2048.readthedocs.io/en/master/).
+The documentation of the package is available for consultation [here](https://project2048.readthedocs.io/en/latest/).  
+
+## Presentation
+
+A beamer presentation is provided in the `Beamer` folder and the video of the presentation is available for consultation [here](https://drive.google.com/file/d/1mpLnVrFLHV-gKo9aIlKooCT70jwwracB/view).  
+
 
 ![Grid.](/Game_picture/Clockwise_IA.gif)
